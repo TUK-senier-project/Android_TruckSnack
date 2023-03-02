@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">IconTest2</string>
+    <string name="kakao_native_key">7147a999af58921ffcba467af8dd0aa3</string>
+    <string name="kakao_native_key_manifest">kakao7147a999af58921ffcba467af8dd0aa3</string>
+    <string name="home">홈</string>
+    <string name="search">검색</string>
+    <string name="map">맵</string>
+    <string name="mypage">마이페이지</string>
+    <string name="fragment_home_string">홈 화면입니다</string>
+    <string name="google_maps_key">AIzaSyAfDznPBrCCvtjUjv5h4ItjSWpaHsBrFyE</string>
+</resources>
