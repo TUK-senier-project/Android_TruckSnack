@@ -1,18 +1,45 @@
 package com.example.icontest2
 
+import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Geocoder
+import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.service.autofill.UserData
 import android.text.Editable
 import android.text.InputFilter
+import android.text.InputType
 import android.text.TextWatcher
+import android.text.method.DigitsKeyListener
 import android.util.Log
+import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import com.example.icontest2.databinding.ActivitySignUpBinding
+import com.google.android.gms.common.ConnectionResult
+import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import java.util.*
+import java.util.regex.Pattern
+
+
 
 class SignUpActivity : AppCompatActivity() {
-    private lateinit var binding : ActivitySignUpBinding
+    private lateinit var binding: ActivitySignUpBinding
     private var TAG = "SignUpActivity"
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,33 +50,106 @@ class SignUpActivity : AppCompatActivity() {
         val locationRegisterIntent = Intent(this, LocationRegisterActivity::class.java)
 
         // 아이디, 비밀번호, 비밀번호 확인, 이름, 휴대폰번호의 editText id
-        val signUpIdEdit = binding.signUpIdEdit
+        val signUpIdEdit = binding.signUpIdEdit // 아이디
         val signUpPasswdEdit = binding.signUpPasswdEdit
         val signUpCheckPasswdEdit = binding.signUpCheckPasswdEdit
         val signUpNameEdit = binding.signUpNameEdit
         val signUpPhoneEdit = binding.signUpPhoneEdit
+        val signUptextIdLengthChecker = binding.mainTextInputLayoutID
+        val signUptextPwLengthChecker = binding.mainTextInputLayoutPW
+        val lengthCheck = binding.mainTextInputLayoutCreateName
+        val signUPEdit_ID = binding.EditID // 아이디 만들기
+        val signUPEdit_PW = binding.EditPW // 비밀번호 만들기
+        val signUpCreate_name = binding.createName // 이름 만들기
+        val signUpCreate_phone_number = binding.phoneNumberCreate // 폰번호 숫자만 11자제한
+        setEditTextInput(signUpCreate_phone_number, 11)
+
+
+
+        // 아이디, 패스워드 초과 경고 메세지
+        fun textLengthChecker() {
+            signUptextIdLengthChecker.isCounterEnabled = true
+            signUptextPwLengthChecker.isCounterEnabled = true
+            lengthCheck.isCounterEnabled = true
+
+            signUptextIdLengthChecker.counterMaxLength = 15 // ID 최대 길이
+            signUptextPwLengthChecker.counterMaxLength = 20 // PW 최대 길이
+            lengthCheck.counterMaxLength = 10
+
+            signUptextIdLengthChecker.isErrorEnabled = true
+            signUptextPwLengthChecker.isErrorEnabled = true
+            lengthCheck.isErrorEnabled = true
+
+            signUPEdit_ID.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                }
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    if (signUPEdit_ID.length() > 15) {
+                        signUptextIdLengthChecker.error = "ID의 글자 수를 초과하였습니다."
+                    } else {
+                        signUptextIdLengthChecker.error = null
+                    }
+                    if (signUPEdit_ID.length() < 5) {
+                        signUptextIdLengthChecker.error = "ID는 최소 5자 이상입니다."
+                    } else {
+                        signUptextIdLengthChecker.error = null
+                    }
+                }
+                override fun afterTextChanged(p0: Editable?) {
+                }
+
+            })
+
+            signUPEdit_PW.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                }
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    if (signUPEdit_PW.length() > 20) {
+                        signUptextPwLengthChecker.error = "PW의 글자 수를 초과하였습니다."
+                    } else {
+                        signUptextIdLengthChecker.error = null
+                    }
+                    if (signUPEdit_PW.length() < 8) {
+                        signUptextPwLengthChecker.error = "PW는 최소 8자 이상입니다."
+                    } else {
+                        signUptextIdLengthChecker.error = null
+                    }
+                }
+                override fun afterTextChanged(p0: Editable?) {
+                }
+            })
+            signUpCreate_name.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                }
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    if (signUpCreate_name.length() > 10) {
+                        lengthCheck.error = "이름의 글자 수를 초과 하였습니다."
+                    } else {
+                        lengthCheck.error = null
+                    }
+                }
+                override fun afterTextChanged(p0: Editable?) {
+                }
+            })
+        }
 
         val textWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
             // 사용자의 입력이 끝난 후 처리
             override fun afterTextChanged(s: Editable?) {
                 Log.d(TAG, "${s}")
-
                 // 아이디
-                if (s == signUpIdEdit.editableText){
+                if (s == signUpIdEdit.editableText) {
                     Log.d(TAG, "in - id - length")
                     val minLength = 5
                     val maxLength = 15
                     checkWhiteSpace(s, signUpIdEdit) // 공백 문자 확인
                     checkSpecialCharacters(s, signUpIdEdit) // 특수 문자 확인
                     checkLength(s, signUpIdEdit, maxLength, minLength) // 문자열 길이 확인
-
                 }
                 // 비밀번호
-                if (s == signUpPasswdEdit.editableText){
+                if (s == signUpPasswdEdit.editableText) {
                     Log.d(TAG, "in - pw - length")
                     val minLength = 8
                     val maxLength = 20
@@ -57,20 +157,18 @@ class SignUpActivity : AppCompatActivity() {
                     checkSpecialCharacters(s, signUpPasswdEdit) // 특수 문자 확인
                     checkAlphaNumber(signUpPasswdEdit) // 영문 + 숫자 확인
                     checkLength(s, signUpPasswdEdit, maxLength, minLength) // 문자열 길이 확인
-
                 }
                 // 비밀번호 체크
-                if (s == signUpCheckPasswdEdit.editableText){
+                if (s == signUpCheckPasswdEdit.editableText) {
                     Log.d(TAG, "in - pwcheck - length")
-                    if (signUpPasswdEdit.text.toString() != signUpCheckPasswdEdit.text.toString()){
+                    if (signUpPasswdEdit.text.toString() != signUpCheckPasswdEdit.text.toString()) {
                         signUpCheckPasswdEdit.error = "비밀번호가 일치하지 않습니다."
                     } else {
                         signUpCheckPasswdEdit.error = null
                     }
-
                 }
                 // 이름
-                if (s == signUpNameEdit.editableText){
+                if (s == signUpNameEdit.editableText) {
                     Log.d(TAG, "in - name - length")
                     val minLength = 1
                     val maxLength = 10
@@ -80,13 +178,14 @@ class SignUpActivity : AppCompatActivity() {
                     checkLength(s, signUpNameEdit, maxLength, minLength) // 문자열 길이 확인
                 }
                 // 휴대폰번호
-                if (s == signUpPhoneEdit.editableText){
+                if (s == signUpPhoneEdit.editableText) {
                     Log.d(TAG, "in - phone - length")
                     checkWhiteSpace(s, signUpPhoneEdit) // 공백 문자 확인
                     checkSpecialCharacters(s, signUpPhoneEdit) // 특수 문자 확인
                     checkPhoneNumber(signUpPhoneEdit) // 숫자 및 11자 확인
                 }
             }
+
         }
 
         // 각 항목별 공백, 특수 문자 처리
@@ -95,9 +194,11 @@ class SignUpActivity : AppCompatActivity() {
         signUpCheckPasswdEdit.addTextChangedListener(textWatcher)
         signUpNameEdit.addTextChangedListener(textWatcher)
         signUpPhoneEdit.addTextChangedListener(textWatcher)
-
-
-
+        notKorean(signUPEdit_ID) // id 한글 예외처리
+        notKorean(signUPEdit_PW) // pw 한글 예외처리
+        onlyKorean(signUpCreate_name) // 이름 입력시 한글만
+        checkwhite(signUpCreate_name) // 이름 입력시 공백 확인
+        textLengthChecker()
 
 
         binding.signUpBtn.setOnClickListener {
@@ -113,20 +214,22 @@ class SignUpActivity : AppCompatActivity() {
 
 
     }
+
+
     // 공백 문자 확인 함수
-    fun checkWhiteSpace(editable: Editable?, editText: EditText){
+    fun checkWhiteSpace(editable: Editable?, editText: EditText) {
         // EditText의 문자열 가져오기
         val text = editable.toString()
         Log.d(TAG, "${text} - checkWhiteSpace")
         // 결과 출력
-        if(text.contains(" ")){
+        if (text.contains(" ")) {
             Log.d(TAG, "${text} - 공백있음")
             editText.error = "공백이 포함되어 있습니다."
         }
     }
 
     // 특수 문자 확인 함수
-    fun checkSpecialCharacters(editable: Editable?, editText: EditText){
+    fun checkSpecialCharacters(editable: Editable?, editText: EditText) {
         // EditText의 문자열 가져오기
         val text = editable.toString()
         Log.d(TAG, "${text} - checkSpecialCharacters")
@@ -142,7 +245,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     // 문자 길이 확인 함수
-    fun checkLength(editable: Editable?, editText: EditText ,maxLength: Int, minLength: Int){
+    fun checkLength(editable: Editable?, editText: EditText, maxLength: Int, minLength: Int) {
         // EditText의 문자열 가져오기
         val text = editable.toString()
         Log.d(TAG, "${text} - checkLength")
@@ -158,12 +261,15 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     // 영문 + 숫자 확인 함수
-    fun checkAlphaNumber(editText: EditText){
+    fun checkAlphaNumber(editText: EditText) {
         Log.d(TAG, " - checkAlphaNumber")
 
         val alphaNumbericRegex = Regex("[a-zA-Z0-9]+")
         val inputFilter = InputFilter { source, start, end, dest, dstart, dend ->
-            val input = dest.subSequence(0, dstart).toString() + source.subSequence(start, end) + dest.subSequence(dend, dest.length).toString()
+            val input = dest.subSequence(0, dstart).toString() + source.subSequence(
+                start,
+                end
+            ) + dest.subSequence(dend, dest.length).toString()
             return@InputFilter if (input.matches(alphaNumbericRegex)) null else ""
         }
         editText.filters = arrayOf(inputFilter)
@@ -193,13 +299,114 @@ class SignUpActivity : AppCompatActivity() {
         val isNumeric = editText.text.toString().matches(regex)
         val isElevenDigits = editText.text.toString().length == 11
         // 숫자로만 이루어졌는지 확인
-        if (!isNumeric){
+        if (!isNumeric) {
             editText.error = "숫자만 입력해주십시오."
         }
         // 11글자인지 확인
-        if (!isElevenDigits){
+        if (!isElevenDigits) {
             editText.error = "11자리를 입력해주십시오."
         }
         return isNumeric && isElevenDigits
     }
+    // 한글예외처리 함수
+    fun notKorean(editText: EditText){
+        Log.d(TAG, " - checkNotKorean")
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+            override fun afterTextChanged(s: Editable?) {
+                val text = s.toString()
+                if (text.matches(Regex("[ㄱ-ㅎ가-힣]+"))) {
+                    editText.error = "한글은 입력할 수 없습니다."
+                } else {
+                    editText.error = null
+                }
+            }
+        })
+    }
+    // 한글만 입력함수
+    fun onlyKorean(editText: EditText){
+        Log.d(TAG, " - checkNotKorean")
+        val pattern = Pattern.compile("[^ㄱ-ㅎ가-힣]*$") // 한글을 제외한 문자열 패턴
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                val text = s.toString()
+                val matcher = pattern.matcher(text)
+                if (matcher.matches()) {
+                    editText.error = "한글을 제외한 문자열은 입력할 수 없습니다."
+                } else {
+                    editText.error = null
+                }
+            }
+        })
+    }
+    // 공백체크함수
+    fun checkwhite(editText: EditText){
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                // EditText의 문자열 가져오기
+                val text = s.toString()
+                Log.d(TAG, "${text} - checkWhiteSpace")
+                // 결과 출력
+                if (text.contains(" ")) {
+                    Log.d(TAG, "${text} - 공백있음")
+                    editText.error = "공백이 포함되어 있습니다."
+                }
+            }
+        })
+
+    }
+    // 폰번호 입력시 11자제한, 숫자만 입력
+    fun setEditTextInput(editText: EditText, maxLength: Int) {
+        val inputFilter = arrayOf<InputFilter>(InputFilter { source, _, _, _, _, _ ->
+            if (source.toString().matches(Regex("[0-9]+"))) {
+                null // 숫자일 경우, null 리턴
+            } else {
+                "" // 숫자가 아닐 경우, 빈 문자열("") 리턴
+            }
+        })
+        editText.filters = inputFilter
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                val input = s.toString()
+                if (input.length > maxLength) {
+                    editText.error = "입력할 수 있는 숫자는 ${maxLength}자리 이하입니다."
+                } else {
+                    editText.error = null
+                }
+                val text = s.toString()
+                Log.d(TAG, "${text} - checkWhiteSpace")
+                // 결과 출력
+                if (text.contains(" ")) {
+                    Log.d(TAG, "${text} - 공백있음")
+                    editText.error = "공백이 포함되어 있습니다."
+                }
+
+
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
+    }
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+

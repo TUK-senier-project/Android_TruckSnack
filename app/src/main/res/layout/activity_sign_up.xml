@@ -18,11 +18,7 @@
         android:layout_marginBottom="50dp"
         android:textSize="30sp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="아이디"
-        android:textSize="18sp" />
+
     <EditText
         android:id="@+id/sign_up_id_edit"
         android:layout_width="match_parent"
@@ -31,11 +27,7 @@
         android:textSize="16sp"
         android:layout_marginBottom="16dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="비밀번호"
-        android:textSize="18sp" />
+
     <EditText
         android:id="@+id/sign_up_passwd_edit"
         android:layout_width="match_parent"
@@ -44,11 +36,7 @@
         android:textSize="16sp"
         android:layout_marginBottom="16dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="비밀번호 확인"
-        android:textSize="18sp" />
+
     <EditText
         android:id="@+id/sign_up_check_passwd_edit"
         android:layout_width="match_parent"
@@ -57,11 +45,7 @@
         android:textSize="16sp"
         android:layout_marginBottom="16dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="이름"
-        android:textSize="18sp" />
+
     <EditText
         android:id="@+id/sign_up_name_edit"
         android:layout_width="match_parent"
@@ -70,11 +54,7 @@
         android:textSize="16sp"
         android:layout_marginBottom="16dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="휴대폰번호"
-        android:textSize="18sp" />
+
     <EditText
         android:id="@+id/sign_up_phone_edit"
         android:layout_width="match_parent"
@@ -83,11 +63,7 @@
         android:textSize="16sp"
         android:layout_marginBottom="16dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="위치등록"
-        android:textSize="18sp" />
+
     <EditText
         android:id="@+id/sign_up_location_edit"
         android:layout_width="match_parent"
@@ -98,8 +74,8 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
         <Button
@@ -117,7 +93,101 @@
 
     </LinearLayout>
 
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/main_textInputLayout_ID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/Edit_ID"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="text"
+                android:hint="아이디를 입력해주세요."
+                android:layout_gravity="center"/>
 
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/main_textInputLayout_PW"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/Edit_PW"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="textPassword"
+                android:hint="비밀번호를 입력해주세요."
+                android:layout_gravity="center"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/main_textInputLayout_create_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/create_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="이름을 입력해주세요."
+                android:layout_gravity="center"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/main_textInputLayout_phone_number_create"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/phone_number_create"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="text"
+                android:hint="핸드폰번호를 입력해주세요."
+                android:layout_gravity="center"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/main_textInputLayout_customer_location_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/customer_location_register"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="text"
+                android:hint="주소를 등록해주세요."
+                android:layout_gravity="center"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/customer_location_register_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="위치등록"/>
+        <FrameLayout
+            android:id="@+id/map_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+
+
+    </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>
