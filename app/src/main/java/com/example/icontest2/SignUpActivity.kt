@@ -1,28 +1,22 @@
 package com.example.icontest2
 
-import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.location.Geocoder
-import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.service.autofill.UserData
 import android.text.Editable
 import android.text.InputFilter
-import android.text.InputType
 import android.text.TextWatcher
-import android.text.method.DigitsKeyListener
 import android.util.Log
-import android.widget.Button
 import android.widget.EditText
+import com.example.icontest2.databinding.ActivitySignUpBinding
+import java.util.regex.Pattern
+import android.Manifest
+import android.content.pm.PackageManager
+import android.location.Geocoder
+import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
-import com.example.icontest2.databinding.ActivitySignUpBinding
-import com.google.android.gms.common.ConnectionResult
-import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -31,17 +25,18 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import java.util.*
-import java.util.regex.Pattern
 
 
-
-class SignUpActivity : AppCompatActivity() {
+class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var binding: ActivitySignUpBinding
     private var TAG = "SignUpActivity"
+    private lateinit var mMap: GoogleMap
+    private lateinit var buttonLocation: Button
+    private val REQUEST_LOCATION_PERMISSION = 1
 
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -63,6 +58,30 @@ class SignUpActivity : AppCompatActivity() {
         val signUpCreate_name = binding.createName // 이름 만들기
         val signUpCreate_phone_number = binding.phoneNumberCreate // 폰번호 숫자만 11자제한
         setEditTextInput(signUpCreate_phone_number, 11)
+
+        buttonLocation = findViewById(R.id.button_location) // 사용자 위치 조회 및 입력
+        buttonLocation.setOnClickListener {
+            requestLocationPermission()
+            showUserLocation()
+        }
+        val mapFragment =
+            supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+
+        val buttonShowLocation = findViewById<Button>(R.id.button_location)
+        buttonShowLocation.setOnClickListener {
+            if (ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+                // 위치 권한이 허용된 경우
+                showUserLocation()
+            } else {
+                // 위치 권한이 허용되지 않은 경우
+                ActivityCompat.requestPermissions(this,
+                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                    REQUEST_LOCATION_PERMISSION)
+            }
+        }
 
 
 
@@ -185,7 +204,6 @@ class SignUpActivity : AppCompatActivity() {
                     checkPhoneNumber(signUpPhoneEdit) // 숫자 및 11자 확인
                 }
             }
-
         }
 
         // 각 항목별 공백, 특수 문자 처리
@@ -198,8 +216,7 @@ class SignUpActivity : AppCompatActivity() {
         notKorean(signUPEdit_PW) // pw 한글 예외처리
         onlyKorean(signUpCreate_name) // 이름 입력시 한글만
         checkwhite(signUpCreate_name) // 이름 입력시 공백 확인
-        textLengthChecker()
-
+        textLengthChecker() // 문자길이 체크
 
         binding.signUpBtn.setOnClickListener {
 
@@ -212,10 +229,7 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(locationRegisterIntent)
         }
 
-
     }
-
-
     // 공백 문자 확인 함수
     fun checkWhiteSpace(editable: Editable?, editText: EditText) {
         // EditText의 문자열 가져오기
@@ -394,10 +408,72 @@ class SignUpActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
     }
+    // 사용자 위치 조회, 위치 입력
+    private fun showUserLocation() {
+        val editText = findViewById<EditText>(R.id.editText)
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mMap.isMyLocationEnabled = true
+
+            // 사용자 위치 가져오기
+            val fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+            fusedLocationProviderClient.lastLocation.addOnSuccessListener { location ->
+                if (location != null) {
+                    val geocoder = Geocoder(this, Locale.KOREAN)
+                    val addresses = geocoder.getFromLocation(location.latitude, location.longitude, 1)
+                    if (addresses != null) {
+                        if (addresses.isNotEmpty()) {
+                            val address = addresses[0]
+                            val addressStr = address.getAddressLine(0)
+                            editText.setText(addressStr)
+                        }
+                    }
 
 
+                    val latLng = LatLng(location.latitude, location.longitude)
+                    mMap.addMarker(MarkerOptions().position(latLng).title("User Location"))
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
+                }
+            }
+        }
+    }
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+        mMap.uiSettings.isZoomControlsEnabled = true
+    }
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_LOCATION_PERMISSION) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                showUserLocation()
+            }
+        }
+    }
+    private fun requestLocationPermission() {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            showUserLocation()
+        } else {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                REQUEST_LOCATION_PERMISSION
+            )
+        }
+    }
 
 }
+
+
+
+
 
 
 

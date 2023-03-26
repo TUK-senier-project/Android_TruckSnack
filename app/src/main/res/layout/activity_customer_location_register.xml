@@ -41,7 +41,35 @@
             android:text="사용자 위치 조회" />
 
     </RelativeLayout>
+<!--    <com.google.android.material.textfield.TextInputLayout // 복사한 부분 시작-->
+<!--        android:id="@+id/main_textInputLayout_customer_location_register"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        <EditText-->
+<!--            android:id="@+id/customer_location_register"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:inputType="text"-->
+<!--            android:hint="주소를 등록해주세요."-->
+<!--            android:layout_gravity="center"/>-->
+
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+<!--    <com.google.android.gms.maps.MapView-->
+<!--        android:id="@+id/map_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/customer_location_register_btn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="위치등록"/>-->
+<!--    <FrameLayout-->
+<!--        android:id="@+id/map_container"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
 
 </LinearLayout>
+
 
 
