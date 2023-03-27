@@ -14,10 +14,6 @@
         <package android:name="com.vuforia.engine.coresamples" />
     </queries>
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <application
         android:name=".KakaoInit"
         android:allowBackup="true"
@@ -33,16 +29,10 @@
             android:name=".SellerRegisterActivity"
             android:exported="false"/>
         <activity
-            android:name=".CustomerLocationRegister"
-            android:exported="false" />
-        <activity
             android:name=".LocationRegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MenuListsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SignUpLocationActivity"
             android:exported="false" />
         <activity
             android:name=".MyPageActivity"
