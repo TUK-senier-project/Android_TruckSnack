@@ -8,6 +8,7 @@
     tools:context=".SellerRegisterActivity"
     android:orientation="vertical">
 
+    <!-- ToolBar 생성 -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/seller_register_toolbar"
         android:layout_width="match_parent"
@@ -24,12 +25,12 @@
             android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
-
+    <!-- 회색 라인추가 부분 -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#D0D0D0"/>
-
+    <!-- ToolBar 생성 끝부분 -->
 
 
 </LinearLayout>

@@ -18,7 +18,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <!--android:usesCleartextTraffic="true" < 서버 통신-->
     <application
         android:name=".KakaoInit"
         android:allowBackup="true"
@@ -29,7 +28,6 @@
         android:roundIcon="@mipmap/food_truck_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IconTest2"
-        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
             android:name=".SellerRegisterActivity"
