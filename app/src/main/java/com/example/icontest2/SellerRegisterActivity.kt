@@ -15,7 +15,6 @@ import android.widget.EditText
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.icontest2.databinding.ActivitySellerRegisterBinding
-import com.example.icontest2.test.TestAPI
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -222,7 +221,7 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
-            val sellerAPI = retrofit.create(TestAPI::class.java)
+            val sellerAPI = retrofit.create(SellerAPI::class.java)
 
             GlobalScope.launch(Dispatchers.IO) {
                 try {
