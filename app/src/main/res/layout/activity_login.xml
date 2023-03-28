@@ -45,21 +45,7 @@
 
 
 
-    <Button
-        android:id="@+id/kakao_login_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/kakao_login_medium_wide"
-        android:layout_gravity="center"/>
 
-    <TextView
-        android:id="@+id/login_tv1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="텍스트"
-        android:gravity="center"
-        android:layout_marginBottom="20dp"/>
 
     <Button
         android:id="@+id/login_to_sign_up_btn"
