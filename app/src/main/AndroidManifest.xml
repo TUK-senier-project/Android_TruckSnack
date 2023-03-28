@@ -24,10 +24,14 @@
         android:roundIcon="@mipmap/food_truck_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IconTest2"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".SellerLoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".SellerRegisterActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".LocationRegisterActivity"
             android:exported="false" />
