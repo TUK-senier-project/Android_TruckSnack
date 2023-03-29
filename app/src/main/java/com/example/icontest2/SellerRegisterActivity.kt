@@ -238,6 +238,15 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
                 val deadline = (time.toString() + minute.toString()).toInt()
                 Log.d(TAG, "$deadline")
                 val seller = SellerDTO(id, pw, name, content, category, deadline, phoneNumber, location)
+                Log.d(TAG, "$seller")
+                Log.d(TAG, "${id::class.java}")
+                Log.d(TAG, "${pw::class.java}")
+                Log.d(TAG, "${name::class.java}")
+                Log.d(TAG, "${content::class.java}")
+                Log.d(TAG, "${category::class.java}")
+                Log.d(TAG, "${deadline::class.java}")
+                Log.d(TAG, "${phoneNumber::class.java}")
+                Log.d(TAG, "${location::class.java}")
 
                 val retrofit = Retrofit.Builder()
                     .baseUrl("http://13.209.9.240:8080")
@@ -245,15 +254,38 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
                     .build()
 
                 val sellerAPI = retrofit.create(SellerAPI::class.java)
-                val call = sellerAPI.registerSeller(seller)
 
+                GlobalScope.launch(Dispatchers.IO) {
+                    try {
+                        val response = sellerAPI.registerSeller(seller)
+                        Log.d(TAG, "통신전")
+                        if (response.isSuccessful) {
+                            // 요청 성공
+                            Log.d(TAG, "성공")
+                            Log.d(TAG, "${response.body()}")
+                            Log.d(TAG, "$response")
+                            //move()
+                        } else {
+                            // 요청 실패
+                            Log.d(TAG, "실패")
+                            Log.d(TAG, "${response.errorBody()}")
+                            Log.d(TAG, "$response")
+                            //Toast.makeText(applicationContext, "회원가입에 실패하셨습니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    } catch (e: Exception) {
+                        Log.d(TAG, "예외")
+                        Log.d(TAG, "$e")
+                    }
+                }
+
+                /*
                 call.enqueue(object : Callback<Void> {
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
                         if (response.isSuccessful) {
                             // 회원가입 성공
                             Log.d(TAG, "${response.body()}")
                             Toast.makeText(applicationContext, "회원가입을 축하드립니다.", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(applicationContext, MainActivity::class.java)
+                            val intent = Intent(applicationContext, LoginActivity::class.java)
                             startActivity(intent)
                         } else {
                             // 회원가입 실패
@@ -266,6 +298,7 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
                         Log.d(TAG, "$t")
                     }
                 })
+                */
             } else{
                 Toast.makeText(this, "정보를 모두 입력해 주세요.", Toast.LENGTH_SHORT).show()
             }
@@ -382,7 +415,11 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onLowMemory()
         mapView.onLowMemory()
     }
-
+    fun move(){
+        Toast.makeText(this, "회원가입을 축하드립니다.", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+    }
     // 공백 문자 확인 함수
     fun checkWhiteSpace(editable: Editable?, editText: EditText): Boolean {
         // EditText의 문자열 가져오기
