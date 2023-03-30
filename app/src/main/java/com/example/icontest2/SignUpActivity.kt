@@ -27,40 +27,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 
-/*
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.text.Editable
-import android.text.InputFilter
-import android.text.TextWatcher
-import android.util.Log
-import android.widget.EditText
-import com.example.icontest2.databinding.ActivitySignUpBinding
-import java.util.regex.Pattern
-import android.Manifest
-import android.content.pm.PackageManager
-import android.location.Geocoder
-import android.widget.Button
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.util.* */
-
-
 class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var mMap: GoogleMap
