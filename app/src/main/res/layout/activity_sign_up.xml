@@ -94,6 +94,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:background="@drawable/edit_text_style"
+                        android:inputType="textPassword"
                         android:hint="비밀번호 입력"
                         android:paddingStart="16dp"
                         style="@style/EditTextHint"/>
@@ -118,6 +119,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/edit_text_style"
+                    android:inputType="textPassword"
                     android:hint="비밀번호 입력"
                     android:paddingStart="16dp"
                     style="@style/EditTextHint"/>
@@ -217,8 +219,6 @@
                     android:layout_height="45dp"
                     android:background="@drawable/edit_text_style"
                     android:hint="주소 입력"
-                    android:inputType="text"
-                    android:digits="가-힣"
                     android:paddingStart="16dp"
                     style="@style/EditTextHint"/>
             </LinearLayout>

@@ -1,5 +1,33 @@
 package com.example.icontest2
 
+import android.content.pm.PackageManager
+import android.location.Geocoder
+import android.os.Bundle
+import android.text.Editable
+import android.text.InputFilter
+import android.text.TextWatcher
+import android.util.Log
+import android.widget.Button
+import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.example.icontest2.databinding.ActivitySignUpBinding
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
+
+/*
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -10,7 +38,6 @@ import android.widget.EditText
 import com.example.icontest2.databinding.ActivitySignUpBinding
 import java.util.regex.Pattern
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.widget.Button
@@ -23,15 +50,15 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.kakao.usermgmt.StringSet.email
-import com.kakao.usermgmt.StringSet.name
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
-import java.util.*
+import java.util.* */
 
 
 class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -57,42 +84,6 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
         val signUpCreate_phone_number = binding.phoneNumberCreate // 폰번호 숫자만 11자제한
         val editText = binding.editText // 위치 조회값
         setEditTextInput(signUpCreate_phone_number, 11)
-        val retrofit = Retrofit.Builder() // 서버통신
-            .baseUrl("http://13.209.9.240:8080/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        // API 서비스 인터페이스 구현체 생성
-        val apiService = retrofit.create(Retrofit2Interface::class.java)
-
-        // '생성' 버튼 클릭 시 API 호출
-        signUpBtn.setOnClickListener {
-            val id = signUPEdit_ID.text.toString()
-            val password = signUPEdit_PW.text.toString()
-            val name = signUpCreate_name.text.toString()
-            val phoneNumber = signUpCreate_phone_number.text.toString()
-            val location = editText.text.toString()
-            val user = DataClass(id, password, name, phoneNumber, location)
-            apiService.createUser(user).enqueue(object : Callback<ApiResponse> {
-                override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
-                    // 서버 응답 처리
-                    Log.d(TAG, "onResponse 잘 들어왔음!!")
-                    Log.d(TAG, "${response}")
-                    Log.d(TAG, "${call}")
-                    Log.d(TAG, "${user}")
-                    Log.d(TAG, "${apiService.createUser(user)}")
-                    Log.d(TAG, "${response.body()}")
-                }
-
-                override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
-                    // 서버 에러 처리
-                    Log.d(TAG, "onFailure 못 들어왔음!!")
-                    Log.d(TAG, "${t}")
-                    Log.d(TAG, "${call}")
-                    Log.d(TAG, "${user}")
-                    Log.d(TAG, "${apiService.createUser(user)}")
-                }
-            })
-        }
 
         //signUpBtn.setOnClickListener {
         //    var intent = Intent(this, LoginActivity::class.java)
@@ -110,14 +101,14 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
         val buttonShowLocation = findViewById<Button>(R.id.button_location)
         buttonShowLocation.setOnClickListener {
             if (ContextCompat.checkSelfPermission(this,
-                    Manifest.permission.ACCESS_FINE_LOCATION)
+                    android.Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
                 // 위치 권한이 허용된 경우
                 showUserLocation()
             } else {
                 // 위치 권한이 허용되지 않은 경우
                 ActivityCompat.requestPermissions(this,
-                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                    arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
                     REQUEST_LOCATION_PERMISSION)
             }
         }
@@ -137,24 +128,23 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
             lengthCheck.isErrorEnabled = true
 
             signUPEdit_ID.addTextChangedListener(object : TextWatcher {
-                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                }
-                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                }
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
                 override fun afterTextChanged(p0: Editable?) {
-                    if (signUPEdit_ID.length() > 15) {
-                        signUptextIdLengthChecker.error = "ID의 글자 수를 초과하였습니다."
+                    if (signUPEdit_ID.text.contains(" ")) {
+                        signUptextIdLengthChecker.error = "공백이 포함될 수 없습니다."
                     } else {
-                        signUptextIdLengthChecker.error = null
-                    }
-                    if (signUPEdit_ID.length() < 5) {
-                        signUptextIdLengthChecker.error = "ID는 최소 5자 이상입니다."
-                    } else {
-                        signUptextIdLengthChecker.error = null
+                        if (signUPEdit_ID.length() > 15) {
+                            signUptextIdLengthChecker.error = "ID의 글자 수를 초과하였습니다."
+                        } else if (signUPEdit_ID.length() < 5) {
+                            signUptextIdLengthChecker.error = "ID는 최소 5자 이상입니다."
+                        } else {
+                            signUptextIdLengthChecker.error = null
+                        }
                     }
                 }
-
             })
+
 
             signUPEdit_PW.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -194,6 +184,53 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
         onlyKorean(signUpCreate_name) // 이름 입력시 한글만
         checkwhite(signUpCreate_name) // 이름 입력시 공백 확인
         textLengthChecker() // 문자길이 체크
+        checkKoreanNumber(editText) // 한글 + 숫자 확인 함수(영어 입력 X)
+
+        // '생성' 버튼 클릭 시 API 호출
+        Log.d(TAG, "버튼 클릭 전 로그 체크!!}")
+
+        signUpBtn.setOnClickListener {
+            Log.d(TAG, "버튼 클릭 후 로그 체크!!}")
+            val id = signUPEdit_ID.text.toString()
+            val password = signUPEdit_PW.text.toString()
+            val name = signUpCreate_name.text.toString()
+            val phoneNumber = signUpCreate_phone_number.text.toString()
+            val location = editText.text.toString()
+            val customer = CustomerRegisterDTO(id, name, password, phoneNumber, location)
+            Log.d(TAG, "$customer")
+            Log.d(TAG, "${id::class.java}")
+            Log.d(TAG, "${password::class.java}")
+            Log.d(TAG, "${name::class.java}")
+            Log.d(TAG, "${phoneNumber::class.java}")
+            Log.d(TAG, "${location::class.java}")
+            val retrofit = Retrofit.Builder() // 서버통신
+                .baseUrl("http://13.209.9.240:8080")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            // API 서비스 인터페이스 구현체 생성
+            val customerAPI = retrofit.create(CustomerRegisterAPI::class.java)
+            GlobalScope.launch(Dispatchers.IO) {
+                try {
+                    val response = customerAPI.registerCustomer(customer)
+                    Log.d(TAG, "서버 통신 전 로그 체크!!}")
+                    if (response.isSuccessful) {
+                        Log.d(TAG, "서버 성공 로그 체크!!}")
+                        Log.d(TAG, "${response.body()}")
+                        Log.d(TAG, "$response")
+                        // 성공 처리
+                    } else {
+                        // 실패 처리
+                        Log.d(TAG, "서버 실패 로그 체크!!}")
+                        Log.d(TAG, "${response.errorBody()}")
+                        Log.d(TAG, "$response")
+                    }
+                } catch (e: Exception) {
+                    // 예외 처리
+                    Log.d(TAG, "서버 예외 로그 체크!!}")
+                    Log.d(TAG, "$e")
+                }
+            }
+        }
 
     }
 
@@ -215,25 +252,42 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         })
     }
-
-    // 한글만 입력함수
-    fun onlyKorean(editText: EditText){
-        Log.d(TAG, " - checkNotKorean")
-        val pattern = Pattern.compile("[^ㄱ-ㅎ가-힣]*$") // 한글을 제외한 문자열 패턴
+    // 한글 + 숫자 확인 함수(영어 입력 X)
+    fun checkKoreanNumber(editText: EditText) {
+        Log.d(TAG, " - checkKorean")
         editText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                val text = editText.text.toString()
+                if(text.contains(Regex("[a-zA-Z]+"))){
+                    editText.error = "한글과 숫자만 입력 가능합니다."
+                }
+            }
+        })
+    }
+
+    // 한글만 입력함수
+    fun onlyKorean(editText: EditText) {
+        Log.d(TAG, " - checkOnlyKorean")
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
             override fun afterTextChanged(s: Editable?) {
                 val text = s.toString()
-                val matcher = pattern.matcher(text)
-                if (matcher.matches()) {
-                    editText.error = "한글을 제외한 문자열은 입력할 수 없습니다."
+                if (!text.matches(Regex("[ㄱ-ㅎㅏ-ㅣ가-힣 ]*"))) {
+                    editText.error = "한글만 입력 가능합니다."
                 } else {
                     editText.error = null
                 }
             }
         })
     }
+
     // 공백체크함수
     fun checkwhite(editText: EditText){
         editText.addTextChangedListener(object : TextWatcher {
@@ -267,8 +321,10 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
                 val input = s.toString()
                 if (input.length > maxLength) {
                     editText.error = "입력할 수 있는 숫자는 ${maxLength}자리 이하입니다."
+                } else if (input.length < 11) {
+                    editText.error = "11자리까지 숫자만 입력해주세요."
                 } else {
-                    editText.error = null
+                    editText.error = null // 에러 없음
                 }
                 val text = s.toString()
                 Log.d(TAG, "${text} - checkWhiteSpace")
@@ -277,18 +333,17 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
                     Log.d(TAG, "${text} - 공백있음")
                     editText.error = "공백이 포함되어 있습니다."
                 }
-
-
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
     }
+
     // 사용자 위치 조회, 위치 입력
     private fun showUserLocation() {
         val editText = findViewById<EditText>(R.id.editText)
         if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             mMap.isMyLocationEnabled = true
 
             // 사용자 위치 가져오기
@@ -332,14 +387,14 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun requestLocationPermission() {
         if (ContextCompat.checkSelfPermission(
                 this,
-                Manifest.permission.ACCESS_FINE_LOCATION
+                android.Manifest.permission.ACCESS_FINE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED
         ) {
             showUserLocation()
         } else {
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
                 REQUEST_LOCATION_PERMISSION
             )
         }
