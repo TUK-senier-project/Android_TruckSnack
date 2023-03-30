@@ -15,6 +15,7 @@
         <package android:name="com.vuforia.engine.coresamples" />
     </queries>
 
+    <!--android:usesCleartextTraffic="true" < 서버 통신-->
     <application
         android:name=".KakaoInit"
         android:allowBackup="true"
@@ -35,6 +36,9 @@
             android:exported="false" />
         <activity
             android:name=".LocationRegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuListsActivity"
             android:exported="false" />
         <activity
             android:name=".MenuListsActivity"

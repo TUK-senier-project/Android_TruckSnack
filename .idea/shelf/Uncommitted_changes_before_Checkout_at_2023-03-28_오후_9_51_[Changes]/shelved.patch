@@ -1,0 +1,40 @@
+Index: app/src/main/java/com/example/icontest2/DataClass.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/icontest2/DataClass.kt b/app/src/main/java/com/example/icontest2/CustomerRegisterDTO.kt
+rename from app/src/main/java/com/example/icontest2/DataClass.kt
+rename to app/src/main/java/com/example/icontest2/CustomerRegisterDTO.kt
+--- a/app/src/main/java/com/example/icontest2/DataClass.kt	
++++ b/app/src/main/java/com/example/icontest2/CustomerRegisterDTO.kt	
+@@ -2,7 +2,7 @@
+ 
+ import com.google.gson.annotations.SerializedName
+ 
+-data class DataClass(
++data class CustomerRegisterDTO(
+     @SerializedName("id") val id: String,
+     @SerializedName("password") val password: String,
+     @SerializedName("name") val name: String,
+Index: app/src/main/java/com/example/icontest2/Retrofit2Interface.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.icontest2\r\n\r\nimport com.google.firebase.database.core.Repo\r\nimport retrofit2.Call\r\nimport retrofit2.http.Body\r\nimport retrofit2.http.GET\r\nimport retrofit2.http.POST\r\nimport retrofit2.http.Path\r\n\r\ninterface Retrofit2Interface {\r\n    @POST(\"customer/register\")\r\n    fun createUser(@Body user: DataClass): Call<ApiResponse>\r\n}
+===================================================================
+diff --git a/app/src/main/java/com/example/icontest2/Retrofit2Interface.kt b/app/src/main/java/com/example/icontest2/Retrofit2Interface.kt
+--- a/app/src/main/java/com/example/icontest2/Retrofit2Interface.kt	
++++ b/app/src/main/java/com/example/icontest2/Retrofit2Interface.kt	
+@@ -1,13 +1,10 @@
+ package com.example.icontest2
+ 
+-import com.google.firebase.database.core.Repo
+ import retrofit2.Call
+ import retrofit2.http.Body
+-import retrofit2.http.GET
+ import retrofit2.http.POST
+-import retrofit2.http.Path
+ 
+ interface Retrofit2Interface {
+     @POST("customer/register")
+-    fun createUser(@Body user: DataClass): Call<ApiResponse>
++    fun createUser(@Body user: CustomerRegisterDTO): Call<ApiResponse>
+ }
+\ No newline at end of file
