@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission
         android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission" />
@@ -13,10 +14,6 @@
     <queries>
         <package android:name="com.vuforia.engine.coresamples" />
     </queries>
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".KakaoInit"
@@ -28,18 +25,19 @@
         android:roundIcon="@mipmap/food_truck_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IconTest2"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".CustomerLocationRegister"
+            android:name=".SellerLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SellerRegisterActivity"
             android:exported="false" />
         <activity
             android:name=".LocationRegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MenuListsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SignUpLocationActivity"
             android:exported="false" />
         <activity
             android:name=".MyPageActivity"

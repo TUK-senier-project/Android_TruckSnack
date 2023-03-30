@@ -1,17 +1,10 @@
 package com.example.icontest2
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import com.example.icontest2.databinding.ActivityLoginBinding
-import com.kakao.sdk.auth.LoginClient
-import com.kakao.sdk.auth.model.OAuthToken
-import com.kakao.sdk.common.model.AuthErrorCause.*
-import com.kakao.sdk.user.UserApiClient
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding : ActivityLoginBinding

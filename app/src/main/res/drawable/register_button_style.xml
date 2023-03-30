@@ -3,21 +3,9 @@
     android:shape="rectangle">
     <stroke
         android:width="1dp"
-<<<<<<< HEAD
-<<<<<<< HEAD
-        android:color="#FFAB0F"/>
-    <corners
-        android:radius="10dp"/>
-    <solid android:color="#FFAB0F"/>
-=======
-=======
->>>>>>> origin/#2-seller-register
         android:color="#1920D2"/>
     <corners
         android:radius="10dp"/>
     <solid android:color="#1920D2"/>
-<<<<<<< HEAD
->>>>>>> 712780a (Seller 회원가입 및 서버 통신)
-=======
->>>>>>> origin/#2-seller-register
+
 </shape>
