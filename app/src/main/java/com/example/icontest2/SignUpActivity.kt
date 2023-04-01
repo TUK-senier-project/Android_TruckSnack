@@ -27,7 +27,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 
-class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
+class SignUpActivity : AppCompatActivity(){
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var mMap: GoogleMap
     private lateinit var buttonLocation: Button
@@ -38,7 +38,7 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        /*
         // 아이디, 비밀번호, 비밀번호 확인, 이름, 휴대폰번호의 editText id
         val signUpBtn = binding.signUpBtn
         val signUptextIdLengthChecker = binding.mainTextInputLayoutID
@@ -364,6 +364,8 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
                 REQUEST_LOCATION_PERMISSION
             )
         }
+        */
     }
+
 
 }

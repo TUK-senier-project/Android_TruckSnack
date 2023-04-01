@@ -222,11 +222,7 @@
                     android:paddingStart="16dp"
                     style="@style/EditTextHint"/>
             </LinearLayout>
-            <fragment
-                android:id="@+id/map"
-                android:name="com.google.android.gms.maps.SupportMapFragment"
-                android:layout_width="match_parent"
-                android:layout_height="300dp" />
+
             <Button
                 android:id="@+id/sign_up_btn"
                 android:layout_width="match_parent"

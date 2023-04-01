@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.icontest2.SellerRegister.SellerRegisterActivity
 import com.example.icontest2.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {

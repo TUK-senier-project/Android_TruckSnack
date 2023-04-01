@@ -32,7 +32,7 @@
             android:name=".SellerLoginActivity"
             android:exported="false" />
         <activity
-            android:name=".SellerRegisterActivity"
+            android:name=".SellerRegister.SellerRegisterActivity"
             android:exported="false" />
         <activity
             android:name=".LocationRegisterActivity"

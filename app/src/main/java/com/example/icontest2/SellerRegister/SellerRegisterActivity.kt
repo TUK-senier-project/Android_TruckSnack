@@ -1,12 +1,12 @@
-package com.example.icontest2
+package com.example.icontest2.SellerRegister
 
 import android.Manifest
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Geocoder
 import android.location.Location
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -17,27 +17,29 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
+import com.example.icontest2.*
 import com.example.icontest2.databinding.ActivitySellerRegisterBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
+import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.gson.GsonBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
+
 
 class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var binding : ActivitySellerRegisterBinding
@@ -49,7 +51,7 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var sellerRegisterLocationEdt: EditText
     private var category: Int = 0
     private var time: Int = 0
-    private var minute: Int = 0
+    // private var minute: Int = 0
 
     companion object {
         private const val REQUEST_LOCATION_PERMISSION = 1
@@ -60,18 +62,21 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivitySellerRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var idCheck = false
-        var pwCheck = false
-        var pwCheckCheck = false
-        var nameCheck = false
-        var contentCheck = false
-        var phoneCheck = false
-        var locationCheck = false
+        // 올바른 입력인지 확인
+        var idCheck = false // 아이디
+        var pwCheck = false // 비밀번호
+        var pwCheckCheck = false // 비밀번호 재확인
+        var nameCheck = false // 사업명
+        var contentCheck = false // 소개글
+        var phoneCheck = false // 휴대폰 번호
+        var locationCheck = false // 주소
+        var checkIdCheck = false // 아이디 중복
+        var usableId = ""
 
         // EditText
         val sellerRegisterIdEdt = binding.sellerRegisterIdEdt // 아이디
         val sellerRegisterPasswordEdt = binding.sellerRegisterPasswordEdt // 비밀번호
-        val sellerRegisterPasswordCheckEdt = binding.sellerRegisterPasswordCheckEdt //비밀번호 확인
+        val sellerRegisterPasswordCheckEdt = binding.sellerRegisterPasswordCheckEdt //비밀번호 재확인
         val sellerRegisterBusinessNameEdt = binding.sellerRegisterBusinessNameEdt // 사업명
         val sellerRegisterContentEdt = binding.sellerRegisterContentEdt // 소개글
         val sellerRegisterCategorySpinner = binding.sellerRegisterCategorySpinner // 카테고리 스피너
@@ -83,10 +88,19 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
         var sellerRegisterIdCheckBtn = binding.sellerRegisterIdCheckBtn // 아이디 중복확인 TextView
         val registerBtn = binding.registerBtn
 
+        val gson = GsonBuilder()
+            .setLenient()
+            .create()
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://13.209.9.240:8080")
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build()
+
         // Spinner 연결
         setUpCategorySpinner()
         setUpTimeSpinner()
-        setUpMinuteSpinner()
+        // setUpMinuteSpinner()
         spinnerHandler()
 
         // ToolBar 설정, 제목, 버튼 활성화, 아이콘 클릭 가능 설정
@@ -120,6 +134,10 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
                             checkWhiteSpace(s, sellerRegisterIdEdt) &&
                             checkSpecialCharacters(s, sellerRegisterIdEdt) &&
                             checkAlphaNumber(sellerRegisterIdEdt)
+                    if(usableId.isNotEmpty() && (usableId != sellerRegisterIdEdt.text.toString())){
+                        checkIdCheck = false
+                        Toast.makeText(applicationContext, "아이디 중복 확인을 다시 해주십시오.", Toast.LENGTH_SHORT).show()
+                    }
                 }
                 // 비밀번호
                 if (s == sellerRegisterPasswordEdt.editableText) {
@@ -189,14 +207,60 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
         sellerRegisterLocationEdt.addTextChangedListener(textWatcher)
 
 
-        /*
+
         // 아이디 중복확인 버튼 클릭 시
         sellerRegisterIdCheckBtn.setOnClickListener {
             // sellerRegisterIdCheckTv Visible하게 만들어주기
-            // 중복확인 통신 후, 성공 시 성공글귀 보여주고, 실패 시 실패글귀 보여주기.(각각 색상에 맞게 설정해줘야함.)
+            // 중복확인 통신 후, 성공 시 성공글 보여주고, 실패 시 실패글 보여주기.(각각 색상에 맞게 설정해줘야함.)
+            // 서버에서 아이디가 존재할 시, this_id_already 출력
+            if (idCheck){
+                val id = sellerRegisterIdEdt.text.toString()
+                val checkId = SellerCheckIdDTO(id)
 
+                val sellerAPI = retrofit.create(SellerAPI::class.java)
+
+                GlobalScope.launch(Dispatchers.IO) {
+                    try {
+                        val response = sellerAPI.registerSellerIdCheck(checkId)
+                        Log.d(TAG, "통신전")
+                        Log.d(TAG, "$checkId")
+                        if (response.isNotEmpty()) {
+                            // 요청 성공
+                            Log.d(TAG, "성공")
+                            // this_id_already가 데이터로 들어올 시, 아이디 존재
+                            runOnUiThread {
+                                if (response == "this_id_already"){
+                                    sellerRegisterIdCheckTv.visibility = View.VISIBLE
+                                    sellerRegisterIdCheckTv.setText("이미 존재하는 아이디입니다.")
+                                    sellerRegisterIdCheckTv.setTextColor(Color.RED)
+                                    checkIdCheck = false
+                                } else{
+                                    sellerRegisterIdCheckTv.visibility = View.VISIBLE
+                                    sellerRegisterIdCheckTv.setText("사용 가능한 아이디입니다.")
+                                    sellerRegisterIdCheckTv.setTextColor(Color.BLUE)
+                                    usableId = "$response"
+                                    checkIdCheck = true
+                                }
+                            }
+                            // this_id_already 이외의 데이터가 들어올 시, 아이디 사용가능.
+                            Log.d(TAG, "$response")
+                        } else {
+                            // 요청 실패
+                            Log.d(TAG, "실패")
+                            // Log.d(TAG, "${response.errorBody()}")
+                            Log.d(TAG, "$response")
+                        }
+                    } catch (e: Exception) {
+                        Log.d(TAG, "예외")
+                        Log.d(TAG, "$e")
+                    }
+                }
+            }else{
+                Toast.makeText(this, "올바른 아이디를 입력해주세요.", Toast.LENGTH_SHORT).show()
+                checkIdCheck = false
+            }
         }
-        */
+
 
         // 현 위치등록 버튼 클릭 시
         sellerRegisterLocationBtn.setOnClickListener {
@@ -227,7 +291,9 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
         }
         // 회원가입 버튼 클릭 시
         registerBtn.setOnClickListener {
-            if (idCheck && pwCheck && pwCheckCheck && nameCheck && contentCheck && phoneCheck && locationCheck){
+            if (idCheck && !checkIdCheck && pwCheck && pwCheckCheck && nameCheck && contentCheck && phoneCheck && locationCheck){
+                Toast.makeText(this, "아이디 중복 확인을 해주십시오.", Toast.LENGTH_SHORT).show()
+            } else if (idCheck && checkIdCheck && pwCheck && pwCheckCheck && nameCheck && contentCheck && phoneCheck && locationCheck){
 
                 val id = sellerRegisterIdEdt.text.toString()
                 val pw = sellerRegisterPasswordEdt.text.toString()
@@ -235,23 +301,8 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
                 val content = sellerRegisterContentEdt.text.toString()
                 val phoneNumber = sellerRegisterPhoneNumberEdt.text.toString()
                 val location = sellerRegisterLocationEdt.text.toString()
-                val deadline = (time.toString() + minute.toString()).toInt()
-                Log.d(TAG, "$deadline")
-                val seller = SellerDTO(id, pw, name, content, category, deadline, phoneNumber, location)
-                Log.d(TAG, "$seller")
-                Log.d(TAG, "${id::class.java}")
-                Log.d(TAG, "${pw::class.java}")
-                Log.d(TAG, "${name::class.java}")
-                Log.d(TAG, "${content::class.java}")
-                Log.d(TAG, "${category::class.java}")
-                Log.d(TAG, "${deadline::class.java}")
-                Log.d(TAG, "${phoneNumber::class.java}")
-                Log.d(TAG, "${location::class.java}")
-
-                val retrofit = Retrofit.Builder()
-                    .baseUrl("http://13.209.9.240:8080")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
+                val deadline = time
+                val seller = SellerRegisterDTO(id, pw, name, content, category, deadline, phoneNumber, location)
 
                 val sellerAPI = retrofit.create(SellerAPI::class.java)
 
@@ -264,7 +315,8 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
                             Log.d(TAG, "성공")
                             Log.d(TAG, "${response.body()}")
                             Log.d(TAG, "$response")
-                            //move()
+                            val intent = Intent(applicationContext, SignUpActivity::class.java)
+                            startActivity(intent)
                         } else {
                             // 요청 실패
                             Log.d(TAG, "실패")
@@ -277,28 +329,6 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
                         Log.d(TAG, "$e")
                     }
                 }
-
-                /*
-                call.enqueue(object : Callback<Void> {
-                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                        if (response.isSuccessful) {
-                            // 회원가입 성공
-                            Log.d(TAG, "${response.body()}")
-                            Toast.makeText(applicationContext, "회원가입을 축하드립니다.", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(applicationContext, LoginActivity::class.java)
-                            startActivity(intent)
-                        } else {
-                            // 회원가입 실패
-                            Log.d(TAG, "${response.errorBody()}")
-                            Toast.makeText(applicationContext, "회원가입에 실패하셨습니다.", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                    override fun onFailure(call: Call<Void>, t: Throwable) {
-                        // 통신 실패 처리
-                        Log.d(TAG, "$t")
-                    }
-                })
-                */
             } else{
                 Toast.makeText(this, "정보를 모두 입력해 주세요.", Toast.LENGTH_SHORT).show()
             }
@@ -414,11 +444,6 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onLowMemory() {
         super.onLowMemory()
         mapView.onLowMemory()
-    }
-    fun move(){
-        Toast.makeText(this, "회원가입을 축하드립니다.", Toast.LENGTH_SHORT).show()
-        val intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
     }
     // 공백 문자 확인 함수
     fun checkWhiteSpace(editable: Editable?, editText: EditText): Boolean {
@@ -537,12 +562,14 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
         val timeAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, time)
         binding.sellerRegisterTimeSpinner.adapter = timeAdapter
     }
+    /*
     // Deadline 시간(분) 목록(Spinner)
     private fun setUpMinuteSpinner(){
         val minute = Array<String>(60) { i -> (i).toString() }
         val minuteAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, minute)
         binding.sellerRegisterMinuteSpinner.adapter = minuteAdapter
     }
+    */
     // 카테고리, Deadline 입력 시 핸들러
     private fun spinnerHandler(){
         binding.sellerRegisterCategorySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
@@ -561,6 +588,7 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
+        /*
         binding.sellerRegisterMinuteSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 Log.d(TAG, "$position")
@@ -569,6 +597,7 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
+        */
     }
 
 
