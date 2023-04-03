@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.icontest2.customer_login.CustomerLoginActivity
+import com.example.icontest2.customer_register.SignUpActivity
 import com.example.icontest2.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -32,6 +34,12 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, SellerRegisterActivity::class.java)
             startActivity(intent)
             // 사장 DB정보 넘겨주고 로그인 처리하기
+        }
+        binding.sampleLoginBtn.setOnClickListener {
+            //val intent = Intent(this, CustomerLogin::class.java)
+            val intent = Intent(this, CustomerLoginActivity::class.java)
+            startActivity(intent)
+            // 손님 로그인 화면
         }
     }
 }
