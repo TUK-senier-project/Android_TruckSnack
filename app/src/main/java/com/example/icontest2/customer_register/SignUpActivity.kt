@@ -213,7 +213,7 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
             Log.d(TAG, "${phoneNumber::class.java}")
             Log.d(TAG, "${location::class.java}")
             val retrofit = Retrofit.Builder() // 서버통신
-                .baseUrl("http://13.209.18.2148080")
+                .baseUrl("http://13.209.18.214:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             // API 서비스 인터페이스 구현체 생성
@@ -226,6 +226,8 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
                         Log.d(TAG, "서버 성공 로그 체크!!}")
                         Log.d(TAG, "${response.body()}")
                         Log.d(TAG, "$response")
+                        val intent = Intent(applicationContext, MainActivity::class.java)
+                        startActivity(intent)
                         // 성공 처리
                     } else {
                         // 실패 처리
@@ -296,12 +298,12 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
         // 회원가입 완료 시 메인페이지 이동
-        binding.signUpBtn.setOnClickListener {
+        /*binding.signUpBtn.setOnClickListener {
             //val intent = Intent(this, CustomerLoginActivity::class.java)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             // 메인 페이지로 이동
-        }
+        }*/
     } // 온크리에이트 종료
     // 영어와 숫자가 입력될 수 있게 하는 함수
     fun onlyEnglishAndNumber(editText: EditText): Boolean {

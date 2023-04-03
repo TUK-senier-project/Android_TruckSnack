@@ -40,7 +40,7 @@ class CustomerLoginActivity : AppCompatActivity() {
             Log.d(TAG, "${pwEditText::class.java}")
 
             val retrofit = Retrofit.Builder() // 서버통신
-                .baseUrl("http://13.209.18.2148080")
+                .baseUrl("http://13.209.18.214:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             // API 서비스 인터페이스 구현체 생성
@@ -77,7 +77,7 @@ class CustomerLoginActivity : AppCompatActivity() {
             val customerFind = CustomerFindDTO(customer_name, customer_phoneNumber)
             // Retrofit 객체 생성
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://13.209.18.2148080")
+                .baseUrl("http://13.209.18.214:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             // API 서비스 인터페이스 구현체 생성
