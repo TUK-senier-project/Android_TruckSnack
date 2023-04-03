@@ -1,4 +1,4 @@
-package com.example.icontest2.SellerRegister
+package com.example.icontest2.seller_register
 
 import android.Manifest
 import android.content.ContentValues.TAG
@@ -20,7 +20,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import com.example.icontest2.*
 import com.example.icontest2.databinding.ActivitySellerRegisterBinding
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -93,7 +92,7 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
             .create()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.209.9.240:8080")
+            .baseUrl("http://13.209.18.214:8080")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 

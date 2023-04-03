@@ -1,4 +1,4 @@
-package com.example.icontest2.SellerRegister
+package com.example.icontest2.seller_register
 
 import com.google.gson.annotations.SerializedName
 
