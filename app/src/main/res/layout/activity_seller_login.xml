@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SellerLoginActivity"
+    tools:context=".seller_login.SellerLoginActivity"
     android:orientation="vertical"
     android:background="@color/white">
 
@@ -14,7 +14,8 @@
         android:id="@+id/seller_login_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:layout_marginBottom="100dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -22,45 +23,94 @@
             android:layout_gravity="center"
             android:textColor="#000000"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
     </androidx.appcompat.widget.Toolbar>
-    <!-- 회색 라인추가 부분 -->
-    <View
+
+    <EditText
+        android:id="@+id/seller_login_id_edt"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#D0D0D0"/>
-    <!-- ToolBar 생성 끝부분 -->
+        android:layout_height="50dp"
+        android:hint=" 사장님 아이디"
+        android:paddingStart="16dp"
+        style="@style/SellerLoginEditTextHint"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#9F9F9F"
+        android:gravity="top"/>
+    <EditText
+        android:id="@+id/seller_login_pw_edt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint=" 사장님 비밀번호"
+        android:paddingStart="16dp"
+        style="@style/SellerLoginEditTextHint"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#9F9F9F"
+        android:gravity="top"/>
+
+    <Button
+        android:id="@+id/seller_login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/seller_register_button_style"
+        android:text="로그인"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
-        android:orientation="vertical"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/seller_login_register_tv"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:layout_marginBottom="5dp">
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="아이디"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:layout_marginRight="20dp"/>
-            <EditText
-                android:id="@+id/seller_register_id_edt"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/edit_text_style"
-                android:hint="아이디 입력"
-                android:paddingStart="16dp"
-                style="@style/EditTextHint"/>
-        </LinearLayout>
+            android:text="회원가입"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="|"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/seller_login_find_id_tv"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text=" 아이디 찾기"
+            android:gravity="center"/>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="200dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="일반 사용자는 여기로 이동."
+            android:textColor="@color/black"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/seller_login_move_customer_login_tv"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="이동하기"
+            android:gravity="left"
+            android:textColor="#FFAB0F"/>
+    </LinearLayout>
+
 
 
 </LinearLayout>

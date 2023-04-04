@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission
         android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission" />
@@ -15,7 +15,6 @@
         <package android:name="com.vuforia.engine.coresamples" />
     </queries>
 
-    <!--android:usesCleartextTraffic="true" < 서버 통신-->
     <application
         android:name=".KakaoInit"
         android:allowBackup="true"
@@ -29,10 +28,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".SellerLoginActivity"
+            android:name=".SellerMainActivity"
             android:exported="false" />
         <activity
-            android:name=".SellerRegisterActivity"
+            android:name=".seller_login.SellerLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".seller_register.SellerRegisterActivity"
             android:exported="false" />
         <activity
             android:name=".LocationRegisterActivity"
