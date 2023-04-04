@@ -9,6 +9,9 @@ import com.example.icontest2.seller_register.SellerRegisterDTO
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
+import okhttp3.ResponseBody
+
+
 
 interface SellerAPI {
     @POST("/seller/register")
@@ -18,5 +21,5 @@ interface SellerAPI {
     @POST("/seller/idfind")
     suspend fun sellerIdFind(@Body sellerData: SellerIdFindDTO): String
     @POST("/seller/login")
-    suspend fun sellerLogin(@Body sellerData: SellerLoginDTO): Response<SellerLoginResponse>
+    suspend fun sellerLogin(@Body sellerData: SellerLoginDTO): ResponseBody
 }

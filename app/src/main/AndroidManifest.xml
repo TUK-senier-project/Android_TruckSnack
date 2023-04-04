@@ -15,7 +15,6 @@
         <package android:name="com.vuforia.engine.coresamples" />
     </queries>
 
-    <!--android:usesCleartextTraffic="true" < 서버 통신-->
     <application
         android:name=".KakaoInit"
         android:allowBackup="true"
@@ -28,6 +27,9 @@
         android:theme="@style/Theme.IconTest2"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".SellerMainActivity"
+            android:exported="false" />
         <activity
             android:name=".seller_login.SellerLoginActivity"
             android:exported="false" />
