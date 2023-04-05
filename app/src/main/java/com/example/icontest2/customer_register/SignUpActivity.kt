@@ -45,7 +45,7 @@ class SignUpActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        /*
+        
         // 아이디, 비밀번호, 비밀번호 확인, 이름, 휴대폰번호의 editText id
         val signUpBtn = binding.signUpBtn
         val signUptextIdLengthChecker = binding.mainTextInputLayoutID
@@ -296,7 +296,9 @@ class SignUpActivity : AppCompatActivity(){
                         Log.d(TAG, "서버 실패 로그 체크!!}")
                         Log.d(TAG, "${response.errorBody()}")
                         Log.d(TAG, "$response")
-                        Toast.makeText(this@SignUpActivity, "오류가 없는지 확인해주세요", Toast.LENGTH_SHORT).show()
+                        runOnUiThread {
+                            Toast.makeText(this@SignUpActivity, "오류가 없는지 확인해주세요", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 } catch (e: Exception) {
                     // 예외 처리
@@ -493,7 +495,7 @@ class SignUpActivity : AppCompatActivity(){
                 REQUEST_LOCATION_PERMISSION
             )
         }
-        */
+        
     }
 
 
