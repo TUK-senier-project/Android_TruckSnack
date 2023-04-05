@@ -29,6 +29,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
+import retrofit2.Response
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 
@@ -38,6 +39,7 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var buttonLocation: Button
     private val REQUEST_LOCATION_PERMISSION = 1
     private var TAG = "SignUpActivity"
+
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
@@ -57,13 +59,9 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
         val editText = binding.editText // 위치 조회값
         val EditPW2 = binding.EditPW2
         setEditTextInput(signUpCreate_phone_number, 11)
-        val signUpBtn2 = binding.signUpBtn2
+        val signUpCheckBtn = binding.signUpBtn
         val customerIdCheck = binding.customerRegisterIdCheckBtn
 
-        //signUpBtn.setOnClickListener {
-        //    var intent = Intent(this, LoginActivity::class.java)
-        //    startActivity(intent)
-        //}
         buttonLocation = findViewById(R.id.button_location) // 사용자 위치 조회 및 입력
         buttonLocation.setOnClickListener {
             requestLocationPermission()
@@ -195,7 +193,67 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
         onlyEnglishAndNumber(signUPEdit_PW) // 영어와 숫자만 입력되게
         onlyEnglishAndNumber(EditPW2) // 2번째 pw 영어와 숫자만 입력되게
 
-        // '생성' 버튼 클릭 시 API 호출
+
+        // 아이디 중복체크 기능
+        customerIdCheck.setOnClickListener {
+            Log.d(TAG, "접속 성공")
+            val customerId = signUPEdit_ID.text.toString()
+            // customerId가 빈 문자열인 경우
+            if (customerId.isEmpty()) {
+                Toast.makeText(this, "아이디를 입력해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            val customerCheckIdDTO = CustomerCheckIdDTO(customerId)
+            val retrofit = Retrofit.Builder()
+                .baseUrl("http://13.209.18.214:8080")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            val customerRegisterAPI = retrofit.create(CustomerRegisterAPI::class.java)
+            GlobalScope.launch(Dispatchers.IO) {
+                try {Log.d(TAG, "접속 성공2")
+                    val response = customerRegisterAPI.registerCustomerIdCheck(customerCheckIdDTO)
+                    // 서버로부터 받은 응답에 따라 Toast 메시지를 띄워줌
+                    if (response.isSuccessful) {
+                        Log.d(TAG, "사용 가능 아이디")
+                        runOnUiThread {
+                            Toast.makeText(this@SignUpActivity, "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        Log.d(TAG, "사용 불가능 아이디 ")
+                        runOnUiThread {
+                            Toast.makeText(this@SignUpActivity, "중복된 아이디입니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } catch (e: Exception) {
+                    Log.d(TAG, "예외 ")
+                    e.printStackTrace()
+                    runOnUiThread {
+                        Toast.makeText(this@SignUpActivity, "서버와의 통신에 실패했습니다.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+        // 회원 가입 전 에러메세지 유무 확인
+        signUpCheckBtn.setOnClickListener {
+            var hasError = false
+            val editTextList = listOf(binding.mainTextInputLayoutID.editText, binding.mainTextInputLayoutPW.editText,
+                binding.mainTextInputLayoutPW2.editText, binding.mainTextInputLayoutCreateName.editText,
+                binding.EditID, binding.EditPW, binding.createName, binding.phoneNumberCreate)
+            for (editText in editTextList) {
+                if (editText != null) {
+                    if (editText.error?.isNotBlank() == true) { // 에러 메시지가 비어있지 않은 경우
+                        hasError = true
+                        break
+                    }
+                }
+            }
+            if (hasError) {
+                Toast.makeText(this, "입력값을 수정해주세요.", Toast.LENGTH_SHORT).show()
+            }
+            //else {
+                //Toast.makeText(this, "회원가입 성공!", Toast.LENGTH_SHORT).show()
+            //}
+        }
         Log.d(TAG, "버튼 클릭 전 로그 체크!!}")
 
         signUpBtn.setOnClickListener {
@@ -226,14 +284,19 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
                         Log.d(TAG, "서버 성공 로그 체크!!}")
                         Log.d(TAG, "${response.body()}")
                         Log.d(TAG, "$response")
-                        val intent = Intent(applicationContext, MainActivity::class.java)
-                        startActivity(intent)
+                        runOnUiThread {
+                            val intent = Intent(this@SignUpActivity, MainActivity::class.java)
+                            startActivity(intent)
+                            Toast.makeText(this@SignUpActivity, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                        }
+
                         // 성공 처리
                     } else {
                         // 실패 처리
                         Log.d(TAG, "서버 실패 로그 체크!!}")
                         Log.d(TAG, "${response.errorBody()}")
                         Log.d(TAG, "$response")
+                        Toast.makeText(this@SignUpActivity, "오류가 없는지 확인해주세요", Toast.LENGTH_SHORT).show()
                     }
                 } catch (e: Exception) {
                     // 예외 처리
@@ -242,68 +305,6 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
             }
         }
-        // 회원 가입 전 에러메세지 유무 확인
-        signUpBtn2.setOnClickListener {
-            var hasError = false
-            val editTextList = listOf(binding.mainTextInputLayoutID.editText, binding.mainTextInputLayoutPW.editText,
-                binding.mainTextInputLayoutPW2.editText, binding.mainTextInputLayoutCreateName.editText,
-                binding.EditID, binding.EditPW, binding.createName, binding.phoneNumberCreate)
-            for (editText in editTextList) {
-                if (editText != null) {
-                    if (editText.error?.isNotBlank() == true) { // 에러 메시지가 비어있지 않은 경우
-                        hasError = true
-                        break
-                    }
-                }
-            }
-            if (hasError) {
-                Toast.makeText(this, "입력값을 수정해주세요.", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "회원가입 성공!", Toast.LENGTH_SHORT).show()
-            }
-        }
-        // 아이디 중복확인 기능 // 싹다 필요없고 화윈가입 입력한 아이디만 필요
-        customerIdCheck.setOnClickListener {
-            Log.d(TAG, "접속 성공")
-            val id = signUPEdit_ID.text.toString()
-            val customerCheck = CustomerCheckIdDTO(id) // 이 dto를 내가 새로만든 dto로변경
-            val retrofit = Retrofit.Builder()
-                .baseUrl("http://13.209.18.2148080")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-            val customerIdCheckAPI = retrofit.create(CustomerRegisterAPI::class.java) // api함술 이름 다르게
-            GlobalScope.launch(Dispatchers.IO) {
-                try { Log.d(TAG, "접속 성공2")
-                    val response = customerIdCheckAPI.registerCustomerIdCheck(customerCheck)
-                    // val result = response.body()
-                    if (response.isNotEmpty()) {
-                        Log.d(TAG, "아이디 있음")
-                        // 중복된 아이디가 없음
-                        // 중복확인 결과를 화면에 표시하는 코드 작성
-                        runOnUiThread {
-                            if(response == "")
-                                Toast.makeText(this@SignUpActivity, "이미 존재하는 아이디입니다.", Toast.LENGTH_SHORT).show()
-                        }
-                    } else {
-                        Log.d(TAG, "아이디 없음")
-                        // 중복된 아이디가 있음 or 서버 에러
-                        // 중복확인 결과를 화면에 표시하는 코드 작성
-                        runOnUiThread {
-                            Toast.makeText(this@SignUpActivity, "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                } catch (e: Exception) {
-                    // 예외 처리 코드 작성
-                }
-            }
-        }
-        // 회원가입 완료 시 메인페이지 이동
-        /*binding.signUpBtn.setOnClickListener {
-            //val intent = Intent(this, CustomerLoginActivity::class.java)
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            // 메인 페이지로 이동
-        }*/
     } // 온크리에이트 종료
     // 영어와 숫자가 입력될 수 있게 하는 함수
     fun onlyEnglishAndNumber(editText: EditText): Boolean {

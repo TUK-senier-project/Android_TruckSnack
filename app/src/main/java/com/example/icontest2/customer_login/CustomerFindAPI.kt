@@ -10,5 +10,5 @@ interface CustomerFindAPI {
     // 파인드를 하면 아이디를 주는데 유닛(돌려받을게 없단뜻)
     @POST("/customer/idfind")
     suspend fun findCustomer(@Body customerData: CustomerFindDTO): Response<String> // 이렇게 하거나
-    // suspend fun findCustomer(@Body customerData: CustomerFindDTO): String // 이렇게 하거나
+    //suspend fun findCustomer(@Body customerData: CustomerFindDTO): String // 이렇게 하거나
 }

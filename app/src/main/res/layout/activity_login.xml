@@ -74,14 +74,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="#03A9F4"/>
-        <Button
-            android:id="@+id/sample_login_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="샘플 로그인"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="#03A9F4"/>
+
 
     </LinearLayout>
 
