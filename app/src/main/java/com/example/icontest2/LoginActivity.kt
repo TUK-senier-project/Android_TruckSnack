@@ -4,7 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.icontest2.seller_register.SellerRegisterActivity
+import com.example.icontest2.customer_login.CustomerLoginActivity
+import com.example.icontest2.customer_register.SignUpActivity
 import com.example.icontest2.databinding.ActivityLoginBinding
 import com.example.icontest2.seller_login.SellerLoginActivity
 
@@ -26,8 +27,8 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.customerLoginBtn.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            val intent = Intent(this, CustomerLoginActivity::class.java)
+            startActivity(intent) // 손님 로그인 화면 전환
             // 고객 DB정보 넘겨주고 로그인 처리하기
         }
         binding.sellerLoginBtn.setOnClickListener {

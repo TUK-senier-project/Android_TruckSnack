@@ -28,6 +28,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".customer_login.CustomerLoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".SellerMainActivity"
             android:exported="false" />
         <activity
@@ -38,9 +41,6 @@
             android:exported="false" />
         <activity
             android:name=".LocationRegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MenuListsActivity"
             android:exported="false" />
         <activity
             android:name=".MenuListsActivity"
@@ -60,7 +60,7 @@
             android:name=".SearchActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".customer_register.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
