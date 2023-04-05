@@ -7,6 +7,7 @@ import android.widget.Toast
 import com.example.icontest2.customer_login.CustomerLoginActivity
 import com.example.icontest2.customer_register.SignUpActivity
 import com.example.icontest2.databinding.ActivityLoginBinding
+import com.example.icontest2.seller_login.SellerLoginActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding : ActivityLoginBinding
@@ -31,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
             // 고객 DB정보 넘겨주고 로그인 처리하기
         }
         binding.sellerLoginBtn.setOnClickListener {
-            val intent = Intent(this, SellerRegisterActivity::class.java)
+            val intent = Intent(this, SellerLoginActivity::class.java)
             startActivity(intent)
             // 사장 DB정보 넘겨주고 로그인 처리하기
         }

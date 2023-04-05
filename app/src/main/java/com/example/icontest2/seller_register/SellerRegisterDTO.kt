@@ -1,8 +1,8 @@
-package com.example.icontest2
+package com.example.icontest2.seller_register
 
 import com.google.gson.annotations.SerializedName
 
-data class SellerDTO(
+data class SellerRegisterDTO(
     @SerializedName("id") val id: String,
     @SerializedName("password") val password: String,
     @SerializedName("businessName") val businessName: String,

@@ -31,10 +31,13 @@
             android:name=".customer_login.CustomerLoginActivity"
             android:exported="false" />
         <activity
-            android:name=".SellerLoginActivity"
+            android:name=".SellerMainActivity"
             android:exported="false" />
         <activity
-            android:name=".SellerRegisterActivity"
+            android:name=".seller_login.SellerLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".seller_register.SellerRegisterActivity"
             android:exported="false" />
         <activity
             android:name=".LocationRegisterActivity"

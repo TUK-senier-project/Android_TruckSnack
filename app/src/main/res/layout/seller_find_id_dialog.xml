@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/seller_find_id_name_edt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint=" 사업명"
+        android:paddingStart="16dp"
+        style="@style/SellerLoginEditTextHint"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#9F9F9F"
+        android:gravity="top"/>
+    <EditText
+        android:id="@+id/seller_find_id_phone_number_edt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint=" 사장님 전화번호"
+        android:paddingStart="16dp"
+        style="@style/SellerLoginEditTextHint"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#9F9F9F"
+        android:gravity="top"/>
+
+    <TextView
+        android:id="@+id/find_id_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="아이디 - alsgur"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/seller_find_id_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/seller_register_button_style"
+        android:text="아이디 찾기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"/>
+
+</LinearLayout>
