@@ -1,0 +1,122 @@
+Index: app/src/main/res/layout/activity_seller_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".SellerMainActivity\"\r\n    android:orientation=\"vertical\"\r\n    android:background=\"@color/white\">\r\n\r\n\r\n    <ImageView\r\n        android:id=\"@+id/image_view1\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"210dp\"\r\n        android:background=\"@drawable/image_view_round\"\r\n        android:src=\"@drawable/image3\"\r\n        />\r\n\r\n    <TextView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"붕어빵먹자 1호트럭\"\r\n        android:textSize=\"25sp\"\r\n        android:textStyle=\"bold\"\r\n        android:textColor=\"@color/black\"\r\n        android:layout_gravity=\"center\"\r\n        android:layout_marginTop=\"20dp\" />\r\n    <TextView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"#붕어빵 #팥 #슈크림 #피자\"\r\n        android:textColor=\"@color/black\"\r\n        android:layout_marginTop=\"10dp\"\r\n        android:layout_gravity=\"center\"\r\n        />\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:orientation=\"horizontal\"\r\n        android:layout_marginTop=\"20dp\"\r\n        android:layout_marginBottom=\"20dp\"\r\n        android:gravity=\"center\">\r\n        <TextView\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"평점 \"\r\n            android:textColor=\"#676767\"/>\r\n        <TextView\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"★ \"\r\n            android:textColor=\"#FF0000\"/>\r\n        <TextView\r\n            android:id=\"@+id/seller_main_grade_tv\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"4.5\"\r\n            android:textColor=\"#676767\"/>\r\n        <TextView\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"|\"\r\n            android:textColor=\"#676767\"\r\n            android:layout_gravity=\"center\"\r\n            android:layout_marginLeft=\"10dp\"\r\n            android:layout_marginRight=\"10dp\"/>\r\n        <TextView\r\n            android:id=\"@+id/seller_main_deadline_tv\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"마감시간 21시\"\r\n            android:textColor=\"#676767\"/>\r\n    </LinearLayout>\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:orientation=\"vertical\"\r\n        android:layout_marginBottom=\"25dp\">\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"0dp\"\r\n            android:layout_weight=\"1\"\r\n            android:gravity=\"center\">\r\n            <Button\r\n                android:layout_width=\"150dp\"\r\n                android:layout_height=\"150dp\"\r\n                android:layout_marginEnd=\"15dp\"\r\n                android:background=\"@drawable/seller_main_button\"\r\n                android:drawableTop=\"@drawable/seller_main_button_food_truck_img\"\r\n                android:text=\"가게관리\"\r\n                android:textColor=\"@color/black\"\r\n                android:textStyle=\"bold\"\r\n                android:textSize=\"18sp\"\r\n                android:paddingBottom=\"10dp\"/>\r\n            <Button\r\n                android:layout_width=\"150dp\"\r\n                android:layout_height=\"150dp\"\r\n                android:layout_marginStart=\"15dp\"\r\n                android:background=\"@drawable/seller_main_button\"\r\n                android:drawableTop=\"@drawable/seller_main_button_menu_img\"\r\n                android:text=\"메뉴관리\"\r\n                android:textColor=\"@color/black\"\r\n                android:textStyle=\"bold\"\r\n                android:textSize=\"18sp\"\r\n                android:paddingTop=\"10dp\"/>\r\n        </LinearLayout>\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"0dp\"\r\n            android:layout_weight=\"1\"\r\n            android:gravity=\"center\">\r\n            <Button\r\n                android:layout_width=\"150dp\"\r\n                android:layout_height=\"150dp\"\r\n                android:layout_marginEnd=\"15dp\"\r\n                android:background=\"@drawable/seller_main_button\"\r\n                android:drawableTop=\"@drawable/seller_main_button_statistics_img\"\r\n                android:text=\"통계관리\"\r\n                android:textColor=\"@color/black\"\r\n                android:textStyle=\"bold\"\r\n                android:textSize=\"18sp\"\r\n                android:paddingTop=\"5dp\"/>\r\n            <Button\r\n                android:layout_width=\"150dp\"\r\n                android:layout_height=\"150dp\"\r\n                android:layout_marginStart=\"15dp\"\r\n                android:background=\"@drawable/seller_main_button\"\r\n                android:drawableTop=\"@drawable/seller_main_button_order_img\"\r\n                android:text=\"메뉴관리\"\r\n                android:textColor=\"@color/black\"\r\n                android:textStyle=\"bold\"\r\n                android:textSize=\"18sp\"\r\n                android:paddingBottom=\"12dp\"/>\r\n\r\n        </LinearLayout>\r\n\r\n    </LinearLayout>\r\n\r\n\r\n\r\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_seller_main.xml b/app/src/main/res/layout/activity_seller_main.xml
+--- a/app/src/main/res/layout/activity_seller_main.xml	
++++ b/app/src/main/res/layout/activity_seller_main.xml	
+@@ -41,40 +41,48 @@
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+         android:layout_marginTop="20dp"
+-        android:layout_marginBottom="20dp"
+-        android:gravity="center">
+-        <TextView
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:text="평점 "
+-            android:textColor="#676767"/>
+-        <TextView
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:text="★ "
+-            android:textColor="#FF0000"/>
+-        <TextView
+-            android:id="@+id/seller_main_grade_tv"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:text="4.5"
+-            android:textColor="#676767"/>
++        android:layout_marginBottom="20dp">
++        <LinearLayout
++            android:layout_width="0dp"
++            android:layout_weight="5"
++            android:layout_height="wrap_content"
++            android:orientation="horizontal"
++            android:gravity="right">
++            <TextView
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="평점 "
++                android:textColor="#676767"/>
++            <TextView
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="★ "
++                android:textColor="#FF0000"/>
++            <TextView
++                android:id="@+id/seller_main_grade_tv"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="4.5"
++                android:textColor="#676767"/>
++        </LinearLayout>
+         <TextView
+-            android:layout_width="wrap_content"
++            android:layout_width="0dp"
++            android:layout_weight="1"
+             android:layout_height="wrap_content"
+             android:text="|"
+             android:textColor="#676767"
+-            android:layout_gravity="center"
+-            android:layout_marginLeft="10dp"
+-            android:layout_marginRight="10dp"/>
++            android:gravity="center"/>
+         <TextView
+             android:id="@+id/seller_main_deadline_tv"
+-            android:layout_width="wrap_content"
++            android:layout_width="0dp"
++            android:layout_weight="5"
+             android:layout_height="wrap_content"
+             android:text="마감시간 21시"
+-            android:textColor="#676767"/>
++            android:textColor="#676767"
++            android:gravity="left"/>
+     </LinearLayout>
+ 
++
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+@@ -86,6 +94,7 @@
+             android:layout_weight="1"
+             android:gravity="center">
+             <Button
++                android:id="@+id/seller_main_food_truck_btn"
+                 android:layout_width="150dp"
+                 android:layout_height="150dp"
+                 android:layout_marginEnd="15dp"
+@@ -97,6 +106,7 @@
+                 android:textSize="18sp"
+                 android:paddingBottom="10dp"/>
+             <Button
++                android:id="@+id/seller_main_menu_btn"
+                 android:layout_width="150dp"
+                 android:layout_height="150dp"
+                 android:layout_marginStart="15dp"
+@@ -114,6 +124,7 @@
+             android:layout_weight="1"
+             android:gravity="center">
+             <Button
++                android:id="@+id/seller_main_statistics_btn"
+                 android:layout_width="150dp"
+                 android:layout_height="150dp"
+                 android:layout_marginEnd="15dp"
+@@ -125,12 +136,13 @@
+                 android:textSize="18sp"
+                 android:paddingTop="5dp"/>
+             <Button
++                android:id="@+id/seller_main_order_btn"
+                 android:layout_width="150dp"
+                 android:layout_height="150dp"
+                 android:layout_marginStart="15dp"
+                 android:background="@drawable/seller_main_button"
+                 android:drawableTop="@drawable/seller_main_button_order_img"
+-                android:text="메뉴관리"
++                android:text="주문관리"
+                 android:textColor="@color/black"
+                 android:textStyle="bold"
+                 android:textSize="18sp"
