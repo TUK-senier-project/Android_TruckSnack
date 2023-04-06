@@ -95,6 +95,7 @@
                     android:layout_height="80dp"
                     android:src="@drawable/basic_profile"/>
                 <TextView
+                    android:id="@+id/customer_main_id_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="난하이볼"
@@ -366,6 +367,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:visibility="gone"
                     android:layout_marginBottom="20dp">
 
                     <LinearLayout

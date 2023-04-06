@@ -49,7 +49,8 @@
                 android:orientation="horizontal"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:layout_marginBottom="5dp">
+                android:layout_marginBottom="5dp"
+                android:gravity="center">
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
@@ -57,15 +58,32 @@
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:layout_marginRight="20dp"/>
-                <EditText
-                    android:id="@+id/seller_register_id_edt"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/seller_register_id_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="@drawable/edit_text_style"
+                    android:layout_height="wrap_content"
                     android:hint="아이디 입력"
-                    android:paddingStart="16dp"
-                    style="@style/EditTextHint"/>
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/seller_register_id_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/seller_register_id_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5~20자의 영문, 숫자만 사용 가능합니다."
+                android:gravity="right"
+                android:paddingEnd="20dp"
+                style="@style/EditTextHint"
+                android:visibility="gone"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -106,7 +124,8 @@
                     android:text="비밀번호"
                     android:textSize="16sp"
                     android:textColor="@color/black"
-                    android:layout_marginRight="20dp"/>
+                    android:layout_marginRight="20dp"
+                    />
                 <EditText
                     android:id="@+id/seller_register_password_edt"
                     android:layout_width="match_parent"
@@ -114,7 +133,8 @@
                     android:background="@drawable/edit_text_style"
                     android:hint="비밀번호 입력"
                     android:paddingStart="16dp"
-                    style="@style/EditTextHint"/>
+                    style="@style/EditTextHint"
+                    android:inputType="textPassword"/>
             </LinearLayout>
 
             <LinearLayout
@@ -138,7 +158,8 @@
                     android:background="@drawable/edit_text_style"
                     android:hint="비밀번호 입력"
                     android:paddingStart="16dp"
-                    style="@style/EditTextHint"/>
+                    style="@style/EditTextHint"
+                    android:inputType="textPassword"/>
             </LinearLayout>
 
             <LinearLayout

@@ -58,6 +58,11 @@ class CustomerMainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         */
+
+        val customerId = intent.getStringExtra("customerId")
+
+        binding.customerMainIdTv.text = customerId
+
         binding.parentTv.setOnClickListener {
             if (binding.layoutExpand1.visibility == View.VISIBLE) {
                 binding.layoutExpand1.visibility = View.GONE

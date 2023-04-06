@@ -14,6 +14,7 @@ import com.example.icontest2.customer_main.CustomerMainActivity
 import com.example.icontest2.R
 import com.example.icontest2.customer_register.SignUpActivity
 import com.example.icontest2.databinding.ActivityCustomerLoginBinding
+import com.google.gson.GsonBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -38,7 +39,7 @@ class CustomerLoginActivity : AppCompatActivity() {
         loginButton.setOnClickListener {
             var intent = Intent(applicationContext, CustomerMainActivity::class.java) // 성공시 화면 전환
             startActivity(intent)
-        /*
+
             val idEditText = binding.customerLoginId
             val pwEditText = binding.customerLoginPw
             val customer_id = idEditText.text.toString()
@@ -57,11 +58,43 @@ class CustomerLoginActivity : AppCompatActivity() {
             GlobalScope.launch(Dispatchers.IO) {
                 try {
                     val response = customerLoginAPI.loginCustomer(customerlogin) // api응답 생성 후 수정
+                    val contentType = response.contentType()
+                    val gson = GsonBuilder()
+                        .setLenient()
+                        .create()
+                    if (contentType?.type == "application" && contentType.subtype == "json") {
+                        // 서버에서 반환하는 데이터가 JSON인 경우 처리
+
+                        val data = gson.fromJson(response.string(), CustomerLoginResponse::class.java)
+                        Log.d(TAG, "4$data")
+                    } else {
+                        // 서버에서 반환하는 데이터가 text/plain인 경우 처리
+                        val data = response.string()
+                        Log.d(TAG, "5$data")
+                        if (data == ""){ // 로그인 실패
+                            Log.d(TAG, "6$data")
+                            runOnUiThread {
+                                Toast.makeText(applicationContext, "아이디와 비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show()
+                            }
+                        } else { // 로그인 성공
+                            val customerLoginDto = gson.fromJson(data, CustomerLoginResponse::class.java)
+                            Log.d(TAG, "7$customerLoginDto")
+                            val intent = Intent(applicationContext, CustomerMainActivity::class.java) // 성공시 화면 전환
+                            intent.putExtra("customerId", "${customerLoginDto.id}")
+                            startActivity(intent)
+                            // 성공 처리 토스트 메세지
+                            runOnUiThread {
+                                Toast.makeText(applicationContext, "로그인 성공", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+                    /*
                     if (response.isSuccessful) {
                         Log.d(TAG, "서버 성공 로그 체크!!}")
                         Log.d(TAG, "${response.body()}")
                         Log.d(TAG, "$response")
-                        var intent = Intent(applicationContext, CustomerMainActivity::class.java) // 성공시 화면 전환
+                        val intent = Intent(applicationContext, CustomerMainActivity::class.java) // 성공시 화면 전환
+                        intent.putExtra("customerId", "${response.body()}")
                         startActivity(intent)
                         // 성공 처리 토스트 메세지
                         runOnUiThread {
@@ -77,14 +110,13 @@ class CustomerLoginActivity : AppCompatActivity() {
                             Toast.makeText(this@CustomerLoginActivity, "아이디와 비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show()
                         }
                     }
+                    */
                 } catch (e: Exception) {
                     // 예외 처리
                     Log.d(TAG, "서버 예외 로그 체크!!}")
                     Log.d(TAG, "$e")
                 }
             }
-        }
-        */
         }
         // 로그인 화면에서 아이디찾기 버튼 누를 때
         idFindButton.setOnClickListener {

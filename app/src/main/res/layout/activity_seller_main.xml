@@ -15,18 +15,19 @@
         android:layout_width="match_parent"
         android:layout_height="210dp"
         android:background="@drawable/image_view_round"
-        android:src="@drawable/image3"
+        android:src="@drawable/food_truck"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="붕어빵먹자 1호트럭"
-        android:textSize="25sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:layout_gravity="center"
         android:layout_marginTop="20dp" />
+    <!--
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,7 +36,8 @@
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
         />
-
+    -->
+    <!--
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,6 +87,30 @@
             android:text="마감시간 21시"
             android:textColor="#676767"
             android:gravity="left"/>
+    </LinearLayout>
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="마감시간 "
+            android:textColor="#676767"/>
+        <TextView
+            android:id="@+id/seller_main_deadline_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="21"
+            android:textColor="#676767"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시"
+            android:textColor="#676767"/>
     </LinearLayout>
 
     <LinearLayout

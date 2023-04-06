@@ -13,6 +13,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.view.View.OnFocusChangeListener
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.EditText
@@ -118,18 +119,26 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
         // FusedLocationProviderClient 초기화
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
+        sellerRegisterIdEdt.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
+            if (hasFocus){
+                binding.sellerRegisterIdTv.visibility = View.VISIBLE
+            }
+        }
+
         val textWatcher = object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             // 사용자의 입력이 끝난 후 처리
             override fun afterTextChanged(s: Editable?) {
+                binding.sellerRegisterIdTv.visibility = View.GONE
                 Log.d(TAG, "${s}")
                 // 아이디
                 if (s == sellerRegisterIdEdt.editableText) {
                     Log.d(TAG, "in - id")
                     val minLength = 5
                     val maxLength = 15
-
                     idCheck = checkLength(s, sellerRegisterIdEdt, maxLength, minLength) &&
                             checkWhiteSpace(s, sellerRegisterIdEdt) &&
                             checkSpecialCharacters(s, sellerRegisterIdEdt) &&
@@ -481,10 +490,14 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
         val length = text.length
 
         return if (length < minLength) {
-            editText.error = "최소 ${minLength}자 이상 입력하세요"
+            binding.sellerRegisterIdLayout.isErrorEnabled = true
+            binding.sellerRegisterIdLayout.error = "최소 ${minLength}자 이상 입력하세요"
+            //editText.error = "최소 ${minLength}자 이상 입력하세요"
             false
         } else if (length > maxLength) {
-            editText.error = "최대 ${maxLength}자까지 입력 가능합니다"
+            binding.sellerRegisterIdLayout.isErrorEnabled = true
+            binding.sellerRegisterIdLayout.error = "최소 ${minLength}자 이상 입력하세요"
+            //editText.error = "최대 ${maxLength}자까지 입력 가능합니다"
             false
         } else true
     }
