@@ -18,7 +18,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.icontest2.databinding.ActivityMainBinding
 import com.example.icontest2.databinding.ActivityMapBinding
 import com.example.icontest2.databinding.ActivitySignUpBinding
 import com.google.android.gms.location.*

@@ -1,4 +1,4 @@
-package com.example.icontest2
+package com.example.icontest2.customer_main
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.icontest2.databinding.ItemListBinding
 
-class ListAdapter(private val lists: List<ListDTO>) : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
+class SellerListAdapter(private val lists: List<SellerListDTO>) : RecyclerView.Adapter<SellerListAdapter.ListViewHolder>() {
     companion object {
         private const val TAG = "TodoAdapter_고기"
     }
@@ -27,23 +27,26 @@ class ListAdapter(private val lists: List<ListDTO>) : RecyclerView.Adapter<ListA
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         Log.d(TAG, "onBindViewHolder: $position")
         holder.bind(lists[position])
-
     }
 
     override fun getItemCount(): Int = lists.size
 
     class ListViewHolder(private val binding: ItemListBinding) : RecyclerView.ViewHolder(binding.root) {
-        private val mainActivity = MainActivity.getInstance()
+        // private val mainActivity = CustomerMainActivity.getInstance()
 
+        /*
         init {
-            binding.listBtn.setOnClickListener {
-                mainActivity?.move()
+            binding.customerMainLikeBtn.setOnClickListener {
+                // 찜기능
             }
         }
+        */
 
-        fun bind(todo: ListDTO) {
-            binding.todoTitleText.text = todo.title
-            binding.completedCheckBox.isChecked = todo.completed
+        fun bind(todo: SellerListDTO) {
+            binding.customerMainBusinessNameTv.text = todo.businessName
+            binding.customerMainContentTv.text = todo.content
+            binding.customerMainGradeTv.text = todo.grade.toString()
+            binding.customerMainDeadlineTv.text = todo.deadline.toString()
         }
     }
 }

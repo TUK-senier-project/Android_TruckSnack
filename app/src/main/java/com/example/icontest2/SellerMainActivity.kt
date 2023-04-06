@@ -34,5 +34,6 @@ class SellerMainActivity : AppCompatActivity() {
         imageView1.setImageBitmap(bitmap1)
         */
 
+
     }
 }

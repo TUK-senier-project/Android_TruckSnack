@@ -1,43 +1,43 @@
-package com.example.icontest2
+package com.example.icontest2.customer_main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.icontest2.databinding.ActivityMainBinding
+import com.example.icontest2.*
+import com.example.icontest2.databinding.ActivityCustomerMainBinding
 
-class MainActivity : AppCompatActivity() {
+class CustomerMainActivity : AppCompatActivity() {
     init {
         instance = this
     }
     companion object{
-        private var instance: MainActivity? = null
-        fun getInstance(): MainActivity?{
+        private var instance: CustomerMainActivity? = null
+        fun getInstance(): CustomerMainActivity?{
             return instance
         }
     }
 
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding : ActivityCustomerMainBinding
 
     private val lists = listOf(
-        ListDTO("푸드트럭1", false),
-        ListDTO("푸드트럭2", false),
-        ListDTO("푸드트럭3", false),
-        ListDTO("푸드트럭4", false),
-        ListDTO("푸드트럭5", false),
-        ListDTO("푸드트럭6", false),
-        ListDTO("푸드트럭7", false),
+        SellerListDTO("붕어빵먹자 1호트럭", "#붕어빵 #팥 #슈크림 #피자", 4.5, 21, ""),
+        SellerListDTO("전통붕어빵집", "#붕어빵 #팥 #슈크림 #피자", 4.7, 23, ""),
+        SellerListDTO("너와나의 붕어빵", "#붕어빵 #팥 #슈크림 #피자", 5.0, 22, ""),
+        SellerListDTO("붕어빵먹자 2호트럭", "#붕어빵 #팥 #슈크림 #피자", 3.8, 19, ""),
+        SellerListDTO("붕어빵먹자 3호트럭", "#붕어빵 #팥 #슈크림 #피자", 4.0, 20, ""),
+        SellerListDTO("붕어빵먹자 4호트럭", "#붕어빵 #팥 #슈크림 #피자", 3.0, 21, ""),
+        SellerListDTO("붕어빵먹자 5호트럭", "#붕어빵 #팥 #슈크림 #피자", 2.8, 21, ""),
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityCustomerMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        /*
         binding.mainHomeBtn.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, CustomerMainActivity::class.java)
             startActivity(intent)
         }
         binding.mainSearchBtn.setOnClickListener {
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MapActivity::class.java)
             startActivity(intent)
         }
-
+        */
         binding.parentTv.setOnClickListener {
             if (binding.layoutExpand1.visibility == View.VISIBLE) {
                 binding.layoutExpand1.visibility = View.GONE
@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
 
         // 메뉴 정보를 여기서 넘겨주거나, 메뉴 액티비티에서 정보 찾기.
         // 어떤 메뉴를 클릭했는지의 정보는 여기서 주고, 메뉴 정보를 찾는 것은 메뉴 액티비티에서.
+
         with(binding) {
             mainImgv1.setOnClickListener { moveMenuActivity() }
             mainImgv2.setOnClickListener { moveMenuActivity() }
@@ -102,7 +103,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initViews() {
         binding.todoList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.todoList.adapter = ListAdapter(lists)
+        binding.todoList.adapter = SellerListAdapter(lists)
     }
 
     fun move(){

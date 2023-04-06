@@ -5,21 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="메인 페이지"
-        android:textSize="30sp"
-        android:gravity="center"/>
-
+    tools:context=".customer_main.CustomerMainActivity"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <!--
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
         <Button
             android:id="@+id/main_home_btn"
             android:layout_width="wrap_content"
@@ -47,28 +40,110 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="위치등록"/>
+    -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/customer_main_constraint_layout_style"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:text="경기도 시흥시 산기대학로 237"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#FFAB0F"
+            android:src="@drawable/arrow_down_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="15dp"
+            android:scaleType="fitXY"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/basic_profile"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="난하이볼"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="30dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="님"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    />
+                <ImageButton
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_search"
+                    android:background="@color/white"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="120dp"
+                    android:scaleType="fitXY"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D2D2D2"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:animateLayoutChanges="true"
-                android:layout_marginTop="25dp"
                 >
                 <LinearLayout
                     android:id="@+id/parent1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginBottom="20dp">
 
                     <ImageView
                         android:id="@+id/parent_tv"
@@ -86,7 +161,7 @@
                             android:id="@+id/main_imgv1"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@drawable/icon_goldfish"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_weight="1"/>
@@ -94,7 +169,7 @@
                             android:id="@+id/main_imgv2"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@drawable/icon_chicken_skewers"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_weight="1"/>
@@ -102,7 +177,7 @@
                             android:id="@+id/main_imgv3"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@drawable/icon_takoyaki"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_weight="1"/>
@@ -110,7 +185,7 @@
                             android:id="@+id/main_imgv4"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@drawable/icon_tteokbokki"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_weight="1"/>
@@ -118,7 +193,7 @@
                             android:id="@+id/main_imgv5"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@drawable/icon_steak"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_weight="1"/>
@@ -129,49 +204,59 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="음식1"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
+                            android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="붕어빵"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginRight="16dp"
                             android:gravity="center"/>
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="음식1"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
+                            android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="닭꼬치"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="16dp"
                             android:gravity="center"/>
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="음식1"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
+                            android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="타코야끼"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
                             android:gravity="center"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
-                            android:text="음식1"
+                            android:text="떡볶이"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
                             android:layout_marginTop="3dp"
                             android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"
+                            android:layout_marginRight="6dp"
                             android:gravity="center"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
-                            android:text="음식1"
+                            android:text="스테이크"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
                             android:layout_marginTop="3dp"
                             android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"
+                            android:layout_marginRight="14dp"
                             android:gravity="center"/>
 
                     </LinearLayout>
@@ -183,7 +268,7 @@
                             android:id="@+id/main_imgv6"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@drawable/icon_toast"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_weight="1"/>
@@ -191,7 +276,7 @@
                             android:id="@+id/main_imgv7"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@drawable/icon_hamburger"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_weight="1"/>
@@ -199,7 +284,7 @@
                             android:id="@+id/main_imgv8"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@drawable/icon_churros"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_weight="1"/>
@@ -207,7 +292,7 @@
                             android:id="@+id/main_imgv9"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@drawable/icon_icecream"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_weight="1"/>
@@ -215,7 +300,7 @@
                             android:id="@+id/main_imgv10"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@drawable/icon_sushi"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_weight="1"/>
@@ -228,47 +313,47 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="음식1"
+                            android:text="토스트"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"
+                            android:layout_marginLeft="20dp"
                             android:gravity="center"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="음식1"
+                            android:text="햄버거"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"
+                            android:layout_marginLeft="40dp"
                             android:gravity="center"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="음식1"
+                            android:text="츄러스"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"
+                            android:layout_marginLeft="42dp"
                             android:gravity="center"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="음식1"
+                            android:text="아이스크림"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"
+                            android:layout_marginLeft="27dp"
                             android:gravity="center"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="음식1"
+                            android:text="초밥"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"
+                            android:layout_marginLeft="38dp"
                             android:gravity="center"/>
 
                     </LinearLayout>
@@ -280,9 +365,8 @@
                     android:id="@+id/layout_expand1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#FFF6A9"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:layout_marginBottom="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -292,7 +376,7 @@
                             android:id="@+id/main_imgv11"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@drawable/icon_pizza"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_weight="1"/>
@@ -300,7 +384,7 @@
                             android:id="@+id/main_imgv12"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@drawable/icon_chicken"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_weight="1"/>
@@ -308,7 +392,7 @@
                             android:id="@+id/main_imgv13"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@drawable/icon_parfait"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_weight="1"/>
@@ -319,7 +403,8 @@
                             android:src="@mipmap/ic_launcher"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1"
+                            android:visibility="invisible"/>
                         <ImageView
                             android:id="@+id/main_imgv15"
                             android:layout_width="50dp"
@@ -327,7 +412,8 @@
                             android:src="@mipmap/ic_launcher"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1"
+                            android:visibility="invisible"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -337,52 +423,63 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="음식1"
+                            android:text="피자"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"
+                            android:layout_marginLeft="24dp"
+                            android:gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="치킨"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginLeft="54dp"
+                            android:gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="파르페"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginLeft="47dp"
                             android:gravity="center"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="음식1"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
                             android:layout_marginTop="3dp"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_weight="1"
-                            android:gravity="center"/>
+                            android:gravity="center"
+                            android:visibility="invisible"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="음식1"
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
                             android:layout_marginTop="3dp"
                             android:layout_marginLeft="16dp"
                             android:layout_marginRight="16dp"
                             android:layout_weight="1"
-                            android:gravity="center"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="음식1"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"
-                            android:gravity="center"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="음식1"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"
-                            android:gravity="center"/>
+                            android:gravity="center"
+                            android:visibility="invisible"/>
 
                     </LinearLayout>
 
                 </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#D2D2D2"
+                    android:layout_marginBottom="20dp"/>
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/todo_list"

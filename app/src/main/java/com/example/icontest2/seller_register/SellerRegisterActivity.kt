@@ -22,6 +22,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.icontest2.*
 import com.example.icontest2.databinding.ActivitySellerRegisterBinding
+import com.example.icontest2.seller_login.SellerLoginActivity
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -314,7 +315,7 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
                             Log.d(TAG, "성공")
                             Log.d(TAG, "${response.body()}")
                             Log.d(TAG, "$response")
-                            val intent = Intent(applicationContext, SignUpActivity::class.java)
+                            val intent = Intent(applicationContext, SellerLoginActivity::class.java)
                             startActivity(intent)
                         } else {
                             // 요청 실패
