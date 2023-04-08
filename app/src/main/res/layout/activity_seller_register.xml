@@ -51,6 +51,7 @@
                 android:paddingEnd="20dp"
                 android:layout_marginBottom="5dp"
                 android:gravity="center">
+
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
@@ -58,20 +59,21 @@
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:layout_marginRight="20dp"/>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/seller_register_id_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="아이디 입력"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    android:orientation="horizontal">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/seller_register_id_edt"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        />
-
-
+                        android:layout_height="45dp"
+                        style="@style/EditTextHint"
+                        android:background="@drawable/edit_text_style"
+                        android:paddingStart="16dp"
+                        android:hint="아이디 입력"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
@@ -82,7 +84,8 @@
                 android:text="5~20자의 영문, 숫자만 사용 가능합니다."
                 android:gravity="right"
                 android:paddingEnd="20dp"
-                style="@style/EditTextHint"
+                android:textSize="14sp"
+                android:textColor="@color/gray"
                 android:visibility="gone"/>
 
             <LinearLayout
@@ -134,7 +137,8 @@
                     android:hint="비밀번호 입력"
                     android:paddingStart="16dp"
                     style="@style/EditTextHint"
-                    android:inputType="textPassword"/>
+                    android:inputType="textPassword"
+                    app:passwordToggleEnabled="true"/>
             </LinearLayout>
 
             <LinearLayout
@@ -159,7 +163,8 @@
                     android:hint="비밀번호 입력"
                     android:paddingStart="16dp"
                     style="@style/EditTextHint"
-                    android:inputType="textPassword"/>
+                    android:inputType="textPassword"
+                    app:passwordToggleEnabled="true"/>
             </LinearLayout>
 
             <LinearLayout

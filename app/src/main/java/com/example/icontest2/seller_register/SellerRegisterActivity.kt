@@ -490,16 +490,19 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
         val length = text.length
 
         return if (length < minLength) {
-            binding.sellerRegisterIdLayout.isErrorEnabled = true
-            binding.sellerRegisterIdLayout.error = "최소 ${minLength}자 이상 입력하세요"
-            //editText.error = "최소 ${minLength}자 이상 입력하세요"
+            //binding.sellerRegisterIdLayout.isErrorEnabled = true
+            //binding.sellerRegisterIdLayout.error = "최소 ${minLength}자 이상 입력하세요"
+            editText.error = "최소 ${minLength}자 이상 입력하세요"
             false
         } else if (length > maxLength) {
-            binding.sellerRegisterIdLayout.isErrorEnabled = true
-            binding.sellerRegisterIdLayout.error = "최소 ${minLength}자 이상 입력하세요"
-            //editText.error = "최대 ${maxLength}자까지 입력 가능합니다"
+            //binding.sellerRegisterIdLayout.isErrorEnabled = true
+            //binding.sellerRegisterIdLayout.error = "최소 ${minLength}자 이상 입력하세요"
+            editText.error = "최대 ${maxLength}자까지 입력 가능합니다"
             false
-        } else true
+        } else {
+            //binding.sellerRegisterIdLayout.isErrorEnabled = false
+            true
+        }
     }
     // 영+숫 확인 함수
     fun checkAlphaNumber(editText: EditText): Boolean {
