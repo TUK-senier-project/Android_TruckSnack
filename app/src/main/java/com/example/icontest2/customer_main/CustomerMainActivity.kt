@@ -94,12 +94,7 @@ class CustomerMainActivity : AppCompatActivity() {
             mainImgv15.setOnClickListener { moveMenuActivity() }
 
         }
-
         initViews()
-
-        // val listBtn = findViewById<Button>(R.id.list_btn)
-
-
     }
     private fun moveMenuActivity() {
         val intent = Intent(this, MenuListsActivity::class.java)

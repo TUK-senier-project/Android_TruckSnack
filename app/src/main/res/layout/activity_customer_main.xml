@@ -90,38 +90,57 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/basic_profile"/>
-                <TextView
-                    android:id="@+id/customer_main_id_tv"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_weight="8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_weight="3"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/basic_profile"/>
+                    <TextView
+                        android:id="@+id/customer_main_id_tv"
+                        android:layout_weight="3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="난하이볼"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="right"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="30dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="님"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        />
+                    <View
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="난하이볼"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="30dp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="님"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="10dp"
-                    />
-                <ImageButton
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_search"
-                    android:background="@color/white"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="120dp"
-                    android:scaleType="fitXY"/>
+                    android:gravity="center"
+                    android:layout_gravity="center">
+                    <ImageButton
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_search"
+                        android:background="@color/white"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"/>
+                </LinearLayout>
+
 
 
             </LinearLayout>
@@ -160,44 +179,39 @@
                         android:orientation="horizontal">
                         <ImageView
                             android:id="@+id/main_imgv1"
-                            android:layout_width="50dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:src="@drawable/icon_goldfish"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"/>
+                            android:padding="4dp"/>
                         <ImageView
                             android:id="@+id/main_imgv2"
-                            android:layout_width="50dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:src="@drawable/icon_chicken_skewers"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"/>
+                            android:padding="4dp"/>
                         <ImageView
                             android:id="@+id/main_imgv3"
-                            android:layout_width="50dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:src="@drawable/icon_takoyaki"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"/>
+                            android:padding="4dp"/>
                         <ImageView
                             android:id="@+id/main_imgv4"
-                            android:layout_width="50dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:src="@drawable/icon_tteokbokki"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"/>
+                            android:padding="4dp"/>
                         <ImageView
                             android:id="@+id/main_imgv5"
-                            android:layout_width="50dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:src="@drawable/icon_steak"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"/>
+                            android:padding="4dp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -212,8 +226,6 @@
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="14dp"
-                            android:layout_marginRight="16dp"
                             android:gravity="center"/>
                         <TextView
                             android:layout_width="0dp"
@@ -223,8 +235,6 @@
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="16dp"
                             android:gravity="center"/>
                         <TextView
                             android:layout_width="0dp"
@@ -234,8 +244,6 @@
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="8dp"
                             android:gravity="center"/>
                         <TextView
                             android:layout_width="0dp"
@@ -245,8 +253,6 @@
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="6dp"
                             android:gravity="center"/>
                         <TextView
                             android:layout_width="0dp"
@@ -256,55 +262,49 @@
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="14dp"
                             android:gravity="center"/>
 
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:layout_marginTop="5dp">
                         <ImageView
                             android:id="@+id/main_imgv6"
-                            android:layout_width="50dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:src="@drawable/icon_toast"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"/>
+                            android:padding="4dp"/>
                         <ImageView
                             android:id="@+id/main_imgv7"
-                            android:layout_width="50dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:src="@drawable/icon_hamburger"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"/>
+                            android:padding="4dp"/>
                         <ImageView
                             android:id="@+id/main_imgv8"
-                            android:layout_width="50dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:src="@drawable/icon_churros"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"/>
+                            android:padding="4dp"/>
                         <ImageView
                             android:id="@+id/main_imgv9"
-                            android:layout_width="50dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:src="@drawable/icon_icecream"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"/>
+                            android:padding="4dp"/>
                         <ImageView
                             android:id="@+id/main_imgv10"
-                            android:layout_width="50dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:src="@drawable/icon_sushi"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"/>
+                            android:padding="4dp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -312,49 +312,49 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="토스트"
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="20dp"
                             android:gravity="center"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="햄버거"
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="40dp"
                             android:gravity="center"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="츄러스"
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="42dp"
                             android:gravity="center"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="아이스크림"
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="27dp"
                             android:gravity="center"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="초밥"
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="38dp"
                             android:gravity="center"/>
 
                     </LinearLayout>
@@ -376,46 +376,41 @@
                         android:orientation="horizontal">
                         <ImageView
                             android:id="@+id/main_imgv11"
-                            android:layout_width="50dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:src="@drawable/icon_pizza"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"/>
+                            android:padding="4dp"/>
                         <ImageView
                             android:id="@+id/main_imgv12"
-                            android:layout_width="50dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:src="@drawable/icon_chicken"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"/>
+                            android:padding="4dp"/>
                         <ImageView
                             android:id="@+id/main_imgv13"
-                            android:layout_width="50dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:src="@drawable/icon_parfait"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"/>
+                            android:padding="4dp"/>
                         <ImageView
                             android:id="@+id/main_imgv14"
-                            android:layout_width="50dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:src="@mipmap/ic_launcher"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"
-                            android:visibility="invisible"/>
+                            android:visibility="invisible"
+                            android:padding="4dp"/>
                         <ImageView
                             android:id="@+id/main_imgv15"
-                            android:layout_width="50dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:src="@mipmap/ic_launcher"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"
-                            android:visibility="invisible"/>
+                            android:visibility="invisible"
+                            android:padding="4dp"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -423,54 +418,50 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="피자"
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="24dp"
                             android:gravity="center"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="치킨"
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="54dp"
                             android:gravity="center"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="파르페"
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="47dp"
                             android:gravity="center"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="음식1"
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"
                             android:gravity="center"
                             android:visibility="invisible"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="음식1"
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:layout_weight="1"
                             android:gravity="center"
                             android:visibility="invisible"/>
 

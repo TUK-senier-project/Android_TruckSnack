@@ -39,7 +39,7 @@ class CustomerLoginActivity : AppCompatActivity() {
         loginButton.setOnClickListener {
             var intent = Intent(applicationContext, CustomerMainActivity::class.java) // 성공시 화면 전환
             startActivity(intent)
-
+            /*
             val idEditText = binding.customerLoginId
             val pwEditText = binding.customerLoginPw
             val customer_id = idEditText.text.toString()
@@ -117,6 +117,7 @@ class CustomerLoginActivity : AppCompatActivity() {
                     Log.d(TAG, "$e")
                 }
             }
+            */
         }
         // 로그인 화면에서 아이디찾기 버튼 누를 때
         idFindButton.setOnClickListener {

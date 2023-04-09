@@ -15,6 +15,13 @@
         <!-- Customize your theme here. -->
 
     </style>
+    <style name="MaterialComponents" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+
+    </style>
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+    </style>
     <style name="EditTextHint">
         <item name="android:textSize">14sp</item>
         <item name="android:textColorHint">#9F9F9F</item>

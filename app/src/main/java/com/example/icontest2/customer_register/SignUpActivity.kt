@@ -202,7 +202,7 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback{
             }
             val customerCheckIdDTO = CustomerCheckIdDTO(customerId)
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://13.209.18.214:8080")
+                .baseUrl("http://13.124.112.81:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             val customerRegisterAPI = retrofit.create(CustomerRegisterAPI::class.java)
@@ -268,7 +268,7 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback{
             Log.d(TAG, "${phoneNumber::class.java}")
             Log.d(TAG, "${location::class.java}")
             val retrofit = Retrofit.Builder() // 서버통신
-                .baseUrl("http://13.209.18.214:8080")
+                .baseUrl("http://13.124.112.81:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             // API 서비스 인터페이스 구현체 생성
@@ -492,8 +492,5 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback{
                 REQUEST_LOCATION_PERMISSION
             )
         }
-        
     }
-
-
 }

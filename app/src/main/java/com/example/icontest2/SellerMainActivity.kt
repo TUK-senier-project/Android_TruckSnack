@@ -34,6 +34,7 @@ class SellerMainActivity : AppCompatActivity() {
         imageView1.setImageBitmap(bitmap1)
         */
 
-
+    }
+    override fun onBackPressed() {
     }
 }

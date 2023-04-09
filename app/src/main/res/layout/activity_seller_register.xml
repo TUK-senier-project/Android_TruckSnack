@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".seller_register.SellerRegisterActivity"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:theme="@style/MaterialComponents">
 
     <!-- ToolBar 생성 -->
     <androidx.appcompat.widget.Toolbar
@@ -21,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="회원가입"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -36,6 +37,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -49,8 +51,7 @@
                 android:orientation="horizontal"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:layout_marginBottom="5dp"
-                android:gravity="center">
+                android:layout_marginBottom="5dp">
 
                 <TextView
                     android:layout_width="100dp"
@@ -64,14 +65,14 @@
                     android:id="@+id/seller_register_id_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    style="@style/Widget.App.TextInputLayout">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/seller_register_id_edt"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp"
+                        android:layout_height="wrap_content"
                         style="@style/EditTextHint"
-                        android:background="@drawable/edit_text_style"
                         android:paddingStart="16dp"
                         android:hint="아이디 입력"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -100,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:text="이미 존재하는 아이디입니다."
                     android:textSize="12sp"
-                    android:textColor="#FF0000"
+                    android:textColor="@color/red"
                     android:layout_marginRight="10dp"
                     android:visibility="invisible"/>
                 <Button
@@ -120,7 +121,7 @@
                 android:orientation="horizontal"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="5dp">
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
@@ -129,17 +130,35 @@
                     android:textColor="@color/black"
                     android:layout_marginRight="20dp"
                     />
-                <EditText
-                    android:id="@+id/seller_register_password_edt"
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/seller_register_pw_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="@drawable/edit_text_style"
-                    android:hint="비밀번호 입력"
-                    android:paddingStart="16dp"
-                    style="@style/EditTextHint"
-                    android:inputType="textPassword"
-                    app:passwordToggleEnabled="true"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    style="@style/Widget.App.TextInputLayout"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/seller_register_password_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/EditTextHint"
+                        android:paddingStart="16dp"
+                        android:hint="비밀번호 입력"
+                        android:inputType="textPassword"/>
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
+            <TextView
+                android:id="@+id/seller_register_pw_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="8~20자의 영문+숫자만 사용 가능합니다."
+                android:gravity="right"
+                android:paddingEnd="20dp"
+                android:textSize="14sp"
+                android:textColor="@color/gray"
+                android:visibility="gone"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -155,16 +174,24 @@
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:layout_marginRight="20dp"/>
-                <EditText
-                    android:id="@+id/seller_register_password_check_edt"
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/seller_register_pw_check_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="@drawable/edit_text_style"
-                    android:hint="비밀번호 입력"
-                    android:paddingStart="16dp"
-                    style="@style/EditTextHint"
-                    android:inputType="textPassword"
-                    app:passwordToggleEnabled="true"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    style="@style/Widget.App.TextInputLayout"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/seller_register_password_check_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/EditTextHint"
+                        android:paddingStart="16dp"
+                        android:hint="비밀번호 확인"
+                        android:inputType="textPassword"/>
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -173,7 +200,7 @@
                 android:orientation="horizontal"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="5dp">
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
@@ -181,15 +208,34 @@
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:layout_marginRight="20dp"/>
-                <EditText
-                    android:id="@+id/seller_register_business_name_edt"
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/seller_register_name_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="@drawable/edit_text_style"
-                    android:hint="사업명 입력"
-                    android:paddingStart="16dp"
-                    style="@style/EditTextHint"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    style="@style/Widget.App.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/seller_register_business_name_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/EditTextHint"
+                        android:paddingStart="16dp"
+                        android:hint="사업명 입력"/>
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/seller_register_business_name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1~10자의 한글만 사용 가능합니다."
+                android:gravity="right"
+                android:paddingEnd="20dp"
+                android:textSize="14sp"
+                android:textColor="@color/gray"
+                android:visibility="gone"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -197,6 +243,7 @@
                 android:orientation="horizontal"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="20dp"
                 android:gravity="center_vertical">
 
@@ -209,14 +256,22 @@
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
-                <EditText
-                    android:id="@+id/seller_register_content_edt"
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/seller_register_content_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="110dp"
-                    android:background="@drawable/edit_text_style"
-                    android:hint="소개글 입력"
-                    android:paddingStart="16dp"
-                    style="@style/EditTextHint"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    style="@style/Widget.App.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/seller_register_content_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        style="@style/EditTextHint"
+                        android:paddingStart="16dp"
+                        android:hint="소개글 입력"/>
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -304,15 +359,34 @@
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:layout_marginRight="20dp"/>
-                <EditText
-                    android:id="@+id/seller_register_phone_number_edt"
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/seller_register_phone_number_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="@drawable/edit_text_style"
-                    android:hint="휴대폰 번호 입력"
-                    android:paddingStart="16dp"
-                    style="@style/EditTextHint"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    style="@style/Widget.App.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/seller_register_phone_number_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/EditTextHint"
+                        android:paddingStart="16dp"
+                        android:hint="휴대폰 번호 입력"/>
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/seller_register_phone_number_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- 을 제외하여 작성해주십시오."
+                android:gravity="right"
+                android:paddingEnd="20dp"
+                android:textSize="14sp"
+                android:textColor="@color/gray"
+                android:visibility="gone"/>
 
             <com.google.android.gms.maps.MapView
                 android:id="@+id/mapView"
@@ -334,15 +408,34 @@
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:layout_marginRight="20dp"/>
-                <EditText
-                    android:id="@+id/seller_register_location_edt"
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/seller_register_location_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="@drawable/edit_text_style"
-                    android:hint="주소 입력"
-                    android:paddingStart="16dp"
-                    style="@style/EditTextHint"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    style="@style/Widget.App.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/seller_register_location_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/EditTextHint"
+                        android:paddingStart="16dp"
+                        android:hint="주소 입력"/>
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/seller_register_location_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="공백을 제외하여 작성해주십시오."
+                android:gravity="right"
+                android:paddingEnd="20dp"
+                android:textSize="14sp"
+                android:textColor="@color/gray"
+                android:visibility="gone"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -351,12 +444,12 @@
                 android:gravity="right"
                 android:layout_marginBottom="25dp">
                 <TextView
-                    android:id="@+id/seller_register_location_tv"
+                    android:id="@+id/seller_register_location_tvv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textSize="12sp"
-                    android:textColor="#FF0000"
+                    android:textColor="@color/red"
                     android:layout_marginRight="10dp"
                     android:visibility="invisible"/>
                 <Button

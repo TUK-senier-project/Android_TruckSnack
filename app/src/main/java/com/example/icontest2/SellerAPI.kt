@@ -2,8 +2,6 @@ package com.example.icontest2
 
 import com.example.icontest2.seller_login.SellerIdFindDTO
 import com.example.icontest2.seller_login.SellerLoginDTO
-import com.example.icontest2.seller_login.SellerLoginErrorResponse
-import com.example.icontest2.seller_login.SellerLoginResponse
 import com.example.icontest2.seller_register.SellerCheckIdDTO
 import com.example.icontest2.seller_register.SellerRegisterDTO
 import retrofit2.Response
