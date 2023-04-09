@@ -475,7 +475,7 @@
                     android:layout_marginBottom="20dp"/>
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/todo_list"
+                android:id="@+id/seller_list_rv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>

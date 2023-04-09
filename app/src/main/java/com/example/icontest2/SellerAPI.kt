@@ -9,8 +9,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 import okhttp3.ResponseBody
 
-
-
 interface SellerAPI {
     @POST("/seller/register")
     suspend fun registerSeller(@Body sellerData: SellerRegisterDTO): Response<Unit>

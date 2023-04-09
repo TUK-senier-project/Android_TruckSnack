@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.icontest2.*
+import com.example.icontest2.customer_food_list.CustomerFoodListActivity
 import com.example.icontest2.databinding.ActivityCustomerMainBinding
 
 class CustomerMainActivity : AppCompatActivity() {
@@ -77,39 +78,33 @@ class CustomerMainActivity : AppCompatActivity() {
         // 어떤 메뉴를 클릭했는지의 정보는 여기서 주고, 메뉴 정보를 찾는 것은 메뉴 액티비티에서.
 
         with(binding) {
-            mainImgv1.setOnClickListener { moveMenuActivity() }
-            mainImgv2.setOnClickListener { moveMenuActivity() }
-            mainImgv3.setOnClickListener { moveMenuActivity() }
-            mainImgv4.setOnClickListener { moveMenuActivity() }
-            mainImgv5.setOnClickListener { moveMenuActivity() }
-            mainImgv6.setOnClickListener { moveMenuActivity() }
-            mainImgv7.setOnClickListener { moveMenuActivity() }
-            mainImgv8.setOnClickListener { moveMenuActivity() }
-            mainImgv9.setOnClickListener { moveMenuActivity() }
-            mainImgv10.setOnClickListener { moveMenuActivity() }
-            mainImgv11.setOnClickListener { moveMenuActivity() }
-            mainImgv12.setOnClickListener { moveMenuActivity() }
-            mainImgv13.setOnClickListener { moveMenuActivity() }
-            mainImgv14.setOnClickListener { moveMenuActivity() }
-            mainImgv15.setOnClickListener { moveMenuActivity() }
-
+            mainImgv1.setOnClickListener { moveMenuActivity(1) }
+            mainImgv2.setOnClickListener { moveMenuActivity(2) }
+            mainImgv3.setOnClickListener { moveMenuActivity(3) }
+            mainImgv4.setOnClickListener { moveMenuActivity(4) }
+            mainImgv5.setOnClickListener { moveMenuActivity(5) }
+            mainImgv6.setOnClickListener { moveMenuActivity(6) }
+            mainImgv7.setOnClickListener { moveMenuActivity(7) }
+            mainImgv8.setOnClickListener { moveMenuActivity(8) }
+            mainImgv9.setOnClickListener { moveMenuActivity(9) }
+            mainImgv10.setOnClickListener { moveMenuActivity(10) }
+            mainImgv11.setOnClickListener { moveMenuActivity(11) }
+            mainImgv12.setOnClickListener { moveMenuActivity(12) }
+            mainImgv13.setOnClickListener { moveMenuActivity(13) }
+            mainImgv14.setOnClickListener { moveMenuActivity(14) }
+            mainImgv15.setOnClickListener { moveMenuActivity(15) }
         }
         initViews()
     }
-    private fun moveMenuActivity() {
-        val intent = Intent(this, MenuListsActivity::class.java)
+    private fun moveMenuActivity(num : Int) {
+        val intent = Intent(this, CustomerFoodListActivity::class.java).apply {
+            putExtra("foodCategory", num)
+        }
         startActivity(intent)
     }
 
     private fun initViews() {
-        binding.todoList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.todoList.adapter = SellerListAdapter(lists)
+        binding.sellerListRv.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        binding.sellerListRv.adapter = SellerListAdapter(lists)
     }
-
-    fun move(){
-        val intent = Intent(this, MapActivity::class.java)
-        startActivity(intent)
-    }
-
-    // 마이 페이지 버튼 클릭 시, 해당 UI 다시 작업 시작!
 }
