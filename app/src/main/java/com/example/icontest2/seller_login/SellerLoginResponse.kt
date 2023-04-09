@@ -7,7 +7,7 @@ data class SellerLoginResponse(
     @SerializedName("base64EncodedImage") val base64EncodedImage: Any
 )
 data class Seller(
-    @SerializedName("businessName") val businessName: Any?,
+    @SerializedName("businessName") val businessName: String,
     @SerializedName("category") val category: Int,
     @SerializedName("content") val content: Any?,
     @SerializedName("deadline") val deadline: Int,

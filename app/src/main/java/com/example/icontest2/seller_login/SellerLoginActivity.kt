@@ -151,7 +151,8 @@ class SellerLoginActivity : AppCompatActivity() {
                             Toast.makeText(applicationContext, "${sellerLoginDto.seller.id} 님 환영합니다.", Toast.LENGTH_SHORT).show()
                         }
                         val intent = Intent(applicationContext, SellerMainActivity::class.java).apply {
-                            putExtra("sellerInfo", "${sellerLoginDto.seller}")
+                            putExtra("sellerId", sellerLoginDto.seller.id)
+                            putExtra("sellerBusinessName", sellerLoginDto.seller.businessName)
                         }
                         startActivity(intent)
                     } else {
@@ -169,7 +170,9 @@ class SellerLoginActivity : AppCompatActivity() {
                             runOnUiThread {
                                 Toast.makeText(applicationContext, "${sellerLoginDto.seller.id} 님 환영합니다.", Toast.LENGTH_SHORT).show()
                             }
-                            val intent = Intent(applicationContext, SellerMainActivity::class.java)
+                            val intent = Intent(applicationContext, SellerMainActivity::class.java).apply {
+
+                            }
                             startActivity(intent)
                         }
                     }

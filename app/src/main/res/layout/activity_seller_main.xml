@@ -10,15 +10,22 @@
     android:background="@color/white">
 
 
-    <ImageView
-        android:id="@+id/image_view1"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="210dp"
+        android:layout_height="200dp"
         android:background="@drawable/image_view_round"
-        android:src="@drawable/food_truck"
-        />
+        android:padding="1dp">
+        <ImageView
+            android:id="@+id/seller_main_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/food_truck"
+            />
+    </LinearLayout>
+
 
     <TextView
+        android:id="@+id/seller_main_businessName_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="붕어빵먹자 1호트럭"
@@ -89,29 +96,14 @@
             android:gravity="left"/>
     </LinearLayout>
     -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/seller_main_id_tv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="마감시간 "
-            android:textColor="#676767"/>
-        <TextView
-            android:id="@+id/seller_main_deadline_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="21"
-            android:textColor="#676767"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="시"
-            android:textColor="#676767"/>
-    </LinearLayout>
+        android:text="아이디"
+        android:textColor="@color/dark_gray"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
