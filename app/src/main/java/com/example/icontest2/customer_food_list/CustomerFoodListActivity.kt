@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.icontest2.customer_main.SellerListAdapter
 import com.example.icontest2.customer_main.SellerListDTO
 import com.example.icontest2.databinding.ActivityCustomerFoodListBinding
-import com.example.icontest2.databinding.SellerListBinding
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

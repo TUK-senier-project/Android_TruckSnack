@@ -10,4 +10,7 @@ import retrofit2.http.Path
 interface CustomerFoodAPI {
     @GET("/food-list/{categoryNumber}")
     suspend fun customerFoodList(@Path("categoryNumber") categoryNumber: Int): ResponseBody
+
+    @GET("/food-list/detail/{sellerId}")
+    suspend fun customerFoodDetail(@Path("sellerId") sellerId: String): ResponseBody
 }

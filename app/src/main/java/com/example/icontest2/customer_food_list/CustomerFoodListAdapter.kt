@@ -31,9 +31,10 @@ class CustomerFoodListAdapter(private val lists: List<CustomerFoodListDTOItem>) 
         holder.itemView.setOnClickListener {
             onItemClickListener?.invoke(lists[position])
             Log.d("CUSTOMER_FOOD_LIST", "Clicked item: ${lists[position]}")
-            /*val intent = Intent(holder.itemView.context, YourNextActivity::class.java)
-            intent.putExtra("selected_item", lists[position])
-            holder.itemView.context.startActivity(intent)*/
+            val intent = Intent(holder.itemView.context, CustomerFoodDetailActivity::class.java). apply {
+                putExtra("selected_item", lists[position])
+            }
+            holder.itemView.context.startActivity(intent)
         }
     }
     override fun getItemCount(): Int = lists.size
