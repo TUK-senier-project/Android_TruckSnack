@@ -95,12 +95,13 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content">
                     <ImageView
+                        android:id="@+id/customer_main_profile"
                         android:layout_weight="3"
                         android:layout_width="0dp"
                         android:layout_height="80dp"
                         android:src="@drawable/basic_profile"/>
                     <TextView
-                        android:id="@+id/customer_main_id_tv"
+                        android:id="@+id/customer_main_name_tv"
                         android:layout_weight="3"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -189,14 +190,14 @@
                             android:layout_weight="1"
                             android:layout_width="0dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/icon_chicken_skewers"
+                            android:src="@drawable/icon_takoyaki"
                             android:padding="4dp"/>
                         <ImageView
                             android:id="@+id/main_imgv3"
                             android:layout_weight="1"
                             android:layout_width="0dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/icon_takoyaki"
+                            android:src="@drawable/icon_chicken_skewers"
                             android:padding="4dp"/>
                         <ImageView
                             android:id="@+id/main_imgv4"
@@ -231,7 +232,7 @@
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
-                            android:text="닭꼬치"
+                            android:text="타코야끼"
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"
@@ -240,7 +241,7 @@
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
-                            android:text="타코야끼"
+                            android:text="닭꼬치"
                             android:textSize="13sp"
                             android:textColor="@color/black"
                             android:layout_marginTop="3dp"

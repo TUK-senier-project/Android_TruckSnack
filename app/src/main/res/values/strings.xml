@@ -2,6 +2,7 @@
     <string name="app_name">IconTest2</string>
     <string name="kakao_native_key">7147a999af58921ffcba467af8dd0aa3</string>
     <string name="kakao_native_key_manifest">kakao7147a999af58921ffcba467af8dd0aa3</string>
+    <string name="mapbox_access_token">sk.eyJ1IjoibWluaHllb2s5OSIsImEiOiJjbGdkOXJuZXAwNmptM2RxM2IwN2F4bmliIn0.UE22dbrN4IlDPGZRYkm0vg</string>
     <string name="home">홈</string>
     <string name="search">검색</string>
     <string name="map">맵</string>

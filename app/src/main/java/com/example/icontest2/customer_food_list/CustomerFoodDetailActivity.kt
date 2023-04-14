@@ -1,11 +1,13 @@
 package com.example.icontest2.customer_food_list
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.icontest2.databinding.ActivityCustomerFoodDetailBinding
+import com.example.icontest2.navigation.NavigationActivity
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -85,6 +87,10 @@ class CustomerFoodDetailActivity : AppCompatActivity() {
                 Log.d(TAG, "예외")
                 Log.d(TAG, "$e")
             }
+        }
+        binding.customerFoodDetailLocationImg.setOnClickListener {
+            val intent = Intent(this, NavigationActivity::class.java)
+            startActivity(intent)
         }
     }
     private fun initViews() {

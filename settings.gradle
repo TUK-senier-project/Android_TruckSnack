@@ -4,6 +4,17 @@ pluginManagement {
         google()
         mavenCentral()
         maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
+        maven {
+            url 'https://api.mapbox.com/downloads/v2/releases/maven'
+            authentication {
+                basic(BasicAuthentication)
+            }
+            credentials {
+                username = "mapbox"
+                password = "sk.eyJ1IjoibWluaHllb2s5OSIsImEiOiJjbGdkOXJuZXAwNmptM2RxM2IwN2F4bmliIn0.UE22dbrN4IlDPGZRYkm0vg"
+            }
+        }
+
     }
 }
 dependencyResolutionManagement {
@@ -11,7 +22,18 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        gradlePluginPortal()
         maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
+        maven {
+            url 'https://api.mapbox.com/downloads/v2/releases/maven'
+            authentication {
+                basic(BasicAuthentication)
+            }
+            credentials {
+                username = "mapbox"
+                password = "sk.eyJ1IjoibWluaHllb2s5OSIsImEiOiJjbGdkOXJuZXAwNmptM2RxM2IwN2F4bmliIn0.UE22dbrN4IlDPGZRYkm0vg"
+            }
+        }
         //maven { url 'https://jitpack.io'}
     }
 }

@@ -15,6 +15,9 @@ class SellerMainActivity : AppCompatActivity() {
         binding.sellerMainIdTv.text = intent.getStringExtra("sellerId")
         binding.sellerMainBusinessNameTv.text = intent.getStringExtra("sellerBusinessName")
     }
+    /*
+    // 뒤로가기 막기.(로그인 완료시)
     override fun onBackPressed() {
     }
+    */
 }

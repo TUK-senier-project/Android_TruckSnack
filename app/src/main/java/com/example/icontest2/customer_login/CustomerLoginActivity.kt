@@ -37,9 +37,11 @@ class CustomerLoginActivity : AppCompatActivity() {
 
         // 로그인 버튼
         loginButton.setOnClickListener {
+            /*
             var intent = Intent(applicationContext, CustomerMainActivity::class.java) // 성공시 화면 전환
             startActivity(intent)
-            /*
+            */
+
             val idEditText = binding.customerLoginId
             val pwEditText = binding.customerLoginPw
             val customer_id = idEditText.text.toString()
@@ -50,7 +52,7 @@ class CustomerLoginActivity : AppCompatActivity() {
             Log.d(TAG, "${pwEditText::class.java}")
 
             val retrofit = Retrofit.Builder() // 서버통신
-                .baseUrl("http://13.209.18.214:8080")
+                .baseUrl("http://13.124.112.81:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             // API 서비스 인터페이스 구현체 생성
@@ -71,7 +73,7 @@ class CustomerLoginActivity : AppCompatActivity() {
                         // 서버에서 반환하는 데이터가 text/plain인 경우 처리
                         val data = response.string()
                         Log.d(TAG, "5$data")
-                        if (data == ""){ // 로그인 실패
+                        if (data == "login fail"){ // 로그인 실패
                             Log.d(TAG, "6$data")
                             runOnUiThread {
                                 Toast.makeText(applicationContext, "아이디와 비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show()
@@ -80,7 +82,9 @@ class CustomerLoginActivity : AppCompatActivity() {
                             val customerLoginDto = gson.fromJson(data, CustomerLoginResponse::class.java)
                             Log.d(TAG, "7$customerLoginDto")
                             val intent = Intent(applicationContext, CustomerMainActivity::class.java) // 성공시 화면 전환
-                            intent.putExtra("customerId", "${customerLoginDto.id}")
+                            intent.putExtra("customerName", customerLoginDto.customer.name)
+                            intent.putExtra("customerId", customerLoginDto.customer.id)
+                            intent.putExtra("base64String", customerLoginDto.base64EncodedImage)
                             startActivity(intent)
                             // 성공 처리 토스트 메세지
                             runOnUiThread {
@@ -117,7 +121,7 @@ class CustomerLoginActivity : AppCompatActivity() {
                     Log.d(TAG, "$e")
                 }
             }
-            */
+
         }
         // 로그인 화면에서 아이디찾기 버튼 누를 때
         idFindButton.setOnClickListener {

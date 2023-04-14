@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class SellerLoginResponse(
     @SerializedName("seller") val seller: Seller,
-    @SerializedName("base64EncodedImage") val base64EncodedImage: Any
+    @SerializedName("base64EncodedImage") val base64EncodedImage: String
 )
 data class Seller(
     @SerializedName("businessName") val businessName: String,
