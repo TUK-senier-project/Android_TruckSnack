@@ -2,12 +2,19 @@ package com.example.icontest2.customer_food_list
 
 import android.content.ContentValues
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.icontest2.databinding.SellerListBinding
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
 
 
 class CustomerFoodListAdapter(private val lists: List<CustomerFoodListDTOItem>) : RecyclerView.Adapter<CustomerFoodListAdapter.ListViewHolder>(){
@@ -27,7 +34,7 @@ class CustomerFoodListAdapter(private val lists: List<CustomerFoodListDTOItem>) 
     // position = 리스트 상에서 몇번째인지 의미
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         Log.d(ContentValues.TAG, "onBindViewHolder: $position")
-        holder.bind(lists[position])
+        holder.bind(lists[position], holder)
         holder.itemView.setOnClickListener {
             onItemClickListener?.invoke(lists[position])
             Log.d("CUSTOMER_FOOD_LIST", "Clicked item: ${lists[position]}")
@@ -42,15 +49,36 @@ class CustomerFoodListAdapter(private val lists: List<CustomerFoodListDTOItem>) 
     class ListViewHolder(private val binding: SellerListBinding) : RecyclerView.ViewHolder(binding.root) {
         // private val mainActivity = CustomerMainActivity.getInstance()
 
-        /*
-        init {
-            binding.customerMainLikeBtn.setOnClickListener {
-                // 찜기능
+        fun bind(todo: CustomerFoodListDTOItem, holder: ListViewHolder) {
+            // 내부 저장소 경로 가져오기
+            val directory = holder.itemView.context.filesDir
+            // 파일 경로 생성
+            val filePath = File(directory, todo.businessName)
+            if(todo.base64Img != null){
+                /*Glide.with(holder.itemView.context)
+                    .load(todo.base64Img)
+                    .into(binding.sellerListImg)*/
+                val decodedBytes = Base64.decode(todo.base64Img, Base64.DEFAULT)
+                // Bitmap 으로 변환
+                val decodedBitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+                binding.sellerListImg.setImageBitmap(decodedBitmap)
+                // 파일 쓰기
+                FileOutputStream(filePath).use { fileOutputStream ->
+                    decodedBitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream)
+                }
             }
-        }
-        */
-
-        fun bind(todo: CustomerFoodListDTOItem) {
+            if(todo.sellerImgS3Url != null){
+                // 파일 읽기
+                val inputStream = FileInputStream(filePath)
+                val bitmap = BitmapFactory.decodeStream(inputStream)
+                binding.sellerListImg.setImageBitmap(bitmap)
+            }
+            /*if(todo.sellerImgS3Url != null){
+                val decodedBytes = Base64.decode(todo.sellerImgS3Url, Base64.DEFAULT)
+                // Bitmap 으로 변환
+                val decodedBitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+                binding.sellerListImg.setImageBitmap(decodedBitmap)
+            }*/
             binding.customerMainBusinessNameTv.text = todo.businessName
             binding.customerMainGradeTv.text = todo.grade.toString()
             binding.customerMainDeadlineTv.text = todo.deadline.toString()

@@ -13,12 +13,14 @@ import com.example.icontest2.customer_main.SellerListAdapter
 import com.example.icontest2.customer_main.SellerListDTO
 import com.example.icontest2.databinding.ActivityCustomerFoodListBinding
 import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.json.JSONArray
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.net.InterfaceAddress
 
 class CustomerFoodListActivity : AppCompatActivity() {
 
@@ -31,10 +33,16 @@ class CustomerFoodListActivity : AppCompatActivity() {
             return instance
         }
     }
-
     private lateinit var binding : ActivityCustomerFoodListBinding
-
     private lateinit var lists : List<CustomerFoodListDTOItem>
+    val gson = GsonBuilder()
+        .setLenient()
+        .create()
+
+    val retrofit = Retrofit.Builder()
+        .baseUrl("http://13.124.112.81:8080")
+        .addConverterFactory(GsonConverterFactory.create(gson))
+        .build()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,14 +74,7 @@ class CustomerFoodListActivity : AppCompatActivity() {
             //15 -> binding.customerFoodListTitleTv.text = "스테이크"
         }
         Log.d("===================", "$foodCategory")
-        val gson = GsonBuilder()
-            .setLenient()
-            .create()
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.124.112.81:8080")
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .build()
 
         GlobalScope.launch(Dispatchers.IO) {
             try {
@@ -87,8 +88,8 @@ class CustomerFoodListActivity : AppCompatActivity() {
                 val contentType = response.contentType()
                 if (contentType?.type == "application" && contentType.subtype == "json") {
                     // 서버에서 반환하는 데이터가 JSON인 경우 처리
-                    val foodList = gson.fromJson(response.string(), CustomerFoodListDTO::class.java)
-                    Log.d(TAG, "4$foodList")
+                    //val foodList = gson.fromJson(response.string(), CustomerFoodListDTO::class.java)
+                    //Log.d(TAG, "4$foodList")
                 } else {
                     // 서버에서 반환하는 데이터가 text/plain인 경우 처리
                     val foodList = response.string()
@@ -96,11 +97,17 @@ class CustomerFoodListActivity : AppCompatActivity() {
                     if (foodList == "[]"){ // 실패
                         Log.d(TAG, "6$foodList")
                     } else { // 성공
-                        val foodData = gson.fromJson(foodList, CustomerFoodListDTO::class.java)
-                        Log.d(TAG, "7$foodData")
-                        Log.d(TAG, "8${foodData[0]}")
-                        lists = foodData.toList()
-                        Log.d(TAG, "9$lists")
+                        Log.d(TAG, "5${foodList}")
+                        val listType = object : TypeToken<List<CustomerFoodListDTOItem>>() {}.type
+                        val customerFoodList: List<CustomerFoodListDTOItem> = gson.fromJson(foodList, listType)
+                        Log.d(TAG, "5${customerFoodList[1]}")
+                        Log.d(TAG, "5${customerFoodList[2]}")
+                        lists = customerFoodList
+                        //val foodData = gson.fromJson(foodList, CustomerFoodListDTO::class.java)
+                        //Log.d("ASDASD", "7$foodData")
+                        //Log.d("ASDASD", "8${foodData.customerFoodListDTO[0]}")
+                        //lists = foodData.customerFoodListDTO
+                        //Log.d(TAG, "9$lists")
                         runOnUiThread {
                             initViews()
                         }
@@ -109,6 +116,48 @@ class CustomerFoodListActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 Log.d(TAG, "예외")
                 Log.d(TAG, "$e")
+            }
+        }
+        binding.foodListNumberOfOrders.setOnClickListener {
+            GlobalScope.launch(Dispatchers.IO) {
+                categoryRank("numberOfOrders", foodCategory)
+            }
+        }
+        binding.foodListReorder.setOnClickListener {
+            GlobalScope.launch(Dispatchers.IO) {
+                categoryRank("reorder", foodCategory)
+            }
+        }
+        binding.foodListGrade.setOnClickListener {
+            GlobalScope.launch(Dispatchers.IO) {
+                categoryRank("grade", foodCategory)
+            }
+        }
+    }
+    suspend fun categoryRank(type: String, categoryNumber: Int) {
+        val customerFoodAPI = retrofit.create(CustomerFoodAPI::class.java)
+        val response = customerFoodAPI.getRanking(type, categoryNumber)
+        val contentType = response.contentType()
+        if (contentType?.type == "application" && contentType.subtype == "json") {
+            // 서버에서 반환하는 데이터가 JSON인 경우 처리
+            //val foodList = gson.fromJson(response.string(), CustomerFoodListDTO::class.java)
+            Log.d(TAG, "json형식으로 들어왔습니다.")
+        } else {
+            // 서버에서 반환하는 데이터가 text/plain인 경우 처리
+            val foodList = response.string()
+            Log.d(TAG, "5$foodList")
+            if (foodList == "[]"){ // 실패
+                Log.d(TAG, "6$foodList")
+            } else { // 성공
+                Log.d(TAG, "5${foodList}")
+                val listType = object : TypeToken<List<CustomerFoodListDTOItem>>() {}.type
+                val customerFoodList: List<CustomerFoodListDTOItem> = gson.fromJson(foodList, listType)
+                Log.d(TAG, "5${customerFoodList[1]}")
+                Log.d(TAG, "5${customerFoodList[2]}")
+                lists = customerFoodList
+                runOnUiThread {
+                    initViews()
+                }
             }
         }
     }

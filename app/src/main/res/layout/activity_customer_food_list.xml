@@ -32,6 +32,34 @@
         android:layout_height="1dp"
         android:background="@color/light_gray"/>
     <!-- ToolBar 생성 끝부분 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        android:layout_marginStart="2dp">
+        <Button
+            android:id="@+id/food_list_numberOfOrders"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:text="주문순"/>
+        <Button
+            android:id="@+id/food_list_reorder"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:text="재주문순"/>
+        <Button
+            android:id="@+id/food_list_grade"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:text="평점순"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray"/>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

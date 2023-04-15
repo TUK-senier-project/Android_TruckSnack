@@ -29,6 +29,7 @@ class CustomerFoodDetailActivity : AppCompatActivity() {
     private lateinit var binding : ActivityCustomerFoodDetailBinding
     private lateinit var lists : List<CustomerFoodDetailDTOItem>
 
+    @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCustomerFoodDetailBinding.inflate(layoutInflater)
@@ -48,13 +49,13 @@ class CustomerFoodDetailActivity : AppCompatActivity() {
         binding.customerFoodDetailBusinessNameTv.text = selectedList?.businessName
         binding.customerFoodDetailGradeTv.text = selectedList?.grade.toString()
         binding.customerFoodDetailDeadlineTv.text = selectedList?.deadline.toString()
-        val sellerId = selectedList!!.id
+        val sellerId = selectedList?.id
 
         GlobalScope.launch(Dispatchers.IO) {
             try {
                 val customerFoodAPI = retrofit.create(CustomerFoodAPI::class.java)
 
-                val response = customerFoodAPI.customerFoodDetail(sellerId)
+                val response = customerFoodAPI.customerFoodDetail(sellerId!!)
                 Log.d(TAG, "통신전")
                 Log.d(TAG, "서버 응답1 : $response")
                 Log.d(TAG, "서버 응답2 : ${response.contentType()}")
