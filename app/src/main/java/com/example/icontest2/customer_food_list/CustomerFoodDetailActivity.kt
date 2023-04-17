@@ -2,18 +2,23 @@ package com.example.icontest2.customer_food_list
 
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.icontest2.databinding.ActivityCustomerFoodDetailBinding
 import com.example.icontest2.navigation.NavigationActivity
 import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.File
+import java.io.FileInputStream
 
 class CustomerFoodDetailActivity : AppCompatActivity() {
     init {
@@ -27,7 +32,7 @@ class CustomerFoodDetailActivity : AppCompatActivity() {
     }
 
     private lateinit var binding : ActivityCustomerFoodDetailBinding
-    private lateinit var lists : List<CustomerFoodDetailDTOItem>
+    private lateinit var lists : List<CustomerFoodDetailDTO>
 
     @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +54,15 @@ class CustomerFoodDetailActivity : AppCompatActivity() {
         binding.customerFoodDetailBusinessNameTv.text = selectedList?.businessName
         binding.customerFoodDetailGradeTv.text = selectedList?.grade.toString()
         binding.customerFoodDetailDeadlineTv.text = selectedList?.deadline.toString()
+        if (selectedList?.sellerImgS3Url != null){
+            // 내부 저장소 경로 가져오기
+            val directory = applicationContext.filesDir
+            // 파일 경로 생성
+            val filePath = File(directory, selectedList.businessName)
+            val inputStream = FileInputStream(filePath)
+            val bitmap = BitmapFactory.decodeStream(inputStream)
+            binding.customerFoodDetailImg.setImageBitmap(bitmap)
+        }
         val sellerId = selectedList?.id
 
         GlobalScope.launch(Dispatchers.IO) {
@@ -70,14 +84,15 @@ class CustomerFoodDetailActivity : AppCompatActivity() {
                     val foodDetail = response.string()
                     Log.d(TAG, "5$foodDetail")
                     if (foodDetail == "[]"){ // 실패
+                        lists = listOf()
                         Log.d(TAG, "6$foodDetail")
                     } else { // 성공
-                        val foodData = gson.fromJson(foodDetail, CustomerFoodDetailDTO::class.java)
-                        Log.d(TAG, "7$foodData")
-                        Log.d(TAG, "8${foodData[0]}")
-                        lists = foodData.toList()
+                        val listType = object : TypeToken<List<CustomerFoodDetailDTO>>() {}.type
+                        val foodDetailList: List<CustomerFoodDetailDTO> = gson.fromJson(foodDetail, listType)
+                        lists = foodDetailList
+                        //Log.d(TAG, "5${foodDetailList[1]}")
+                        //Log.d(TAG, "5${foodDetailList[2]}")
                         Log.d(TAG, "9$lists")
-
                         runOnUiThread {
                             initViews()
                         }

@@ -11,7 +11,7 @@
         <LinearLayout
             android:layout_weight="2"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="16dp">
             <TextView
@@ -24,9 +24,9 @@
                 android:textSize="20sp"/>
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_marginTop="5dp">
+                android:gravity="bottom">
                 <TextView
                     android:id="@+id/detail_price_tv"
                     android:layout_width="wrap_content"
@@ -46,9 +46,10 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:padding="16dp">
+            android:padding="8dp">
             <ImageView
-                android:layout_width="wrap_content"
+                android:id="@+id/food_detail_img"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </LinearLayout>
     </LinearLayout>

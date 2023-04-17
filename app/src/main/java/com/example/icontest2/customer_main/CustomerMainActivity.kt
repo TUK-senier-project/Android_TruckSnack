@@ -74,12 +74,14 @@ class CustomerMainActivity : AppCompatActivity() {
         customerId = intent.getStringExtra("customerId").toString()
         customerName = intent.getStringExtra("customerName").toString()
         binding.customerMainNameTv.text = customerName
-
-        // Base64 디코딩
-        val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
-        // Bitmap 으로 변환
-        val decodedBitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
-        binding.customerMainProfile.setImageBitmap(decodedBitmap)
+        Log.d("AAAA", "onCreate - $base64String")
+        if (base64String != null){
+            // Base64 디코딩
+            val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
+            // Bitmap 으로 변환
+            val decodedBitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+            binding.customerMainProfile.setImageBitmap(decodedBitmap)
+        }
 
         fun getRealPathFromUri(uri: Uri): String {
             val projection = arrayOf(MediaStore.Images.Media.DATA)
@@ -208,9 +210,11 @@ class CustomerMainActivity : AppCompatActivity() {
         }
     }
     private fun setImage(imageUrl: String) {
-        Glide.with(this)
-            .load(imageUrl)
-            .into(binding.customerMainProfile)
+        if (imageUrl != null){
+            Glide.with(this)
+                .load(imageUrl)
+                .into(binding.customerMainProfile)
+        }
     }
     private fun moveMenuActivity(num : Int) {
         val intent = Intent(this, CustomerFoodListActivity::class.java).apply {
