@@ -1,6 +1,5 @@
 package com.example.icontest2.customer_food_list
 
-import android.app.Dialog
 import android.content.ContentValues
 import android.content.Intent
 import android.graphics.Bitmap
@@ -8,21 +7,20 @@ import android.graphics.BitmapFactory
 import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.icontest2.R
 import com.example.icontest2.databinding.CustomerFoodDetailBinding
-import com.example.icontest2.databinding.SellerListBinding
-import com.example.icontest2.order.OrderRegisterActivity
 import java.io.File
 import java.io.FileOutputStream
 
 class CustomerFoodDetailAdapter(private val lists: List<CustomerFoodDetailDTO>) : RecyclerView.Adapter<CustomerFoodDetailAdapter.ListViewHolder>(){
     var onItemClickListener: ((CustomerFoodDetailDTO) -> Unit)? = null // 클릭 리스너
+    private var foodOrderList: MutableList<FoodOrder> = mutableListOf()
 
     // ViewHolder 생성하는 함수, 최소 생성 횟수만큼만 호출됨 (계속 호출 X)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -45,30 +43,46 @@ class CustomerFoodDetailAdapter(private val lists: List<CustomerFoodDetailDTO>) 
             val mDialogView =
                 LayoutInflater.from(holder.itemView.context).inflate(R.layout.selected_food_dialog, null)
             val mBuilder = AlertDialog.Builder(holder.itemView.context)
-                .setView(mDialogView)
+                .setView(mDialogView).create()
                 //.setTitle("")
 
             val cancel = mDialogView.findViewById<TextView>(R.id.selected_food_cancel)
             val confirm = mDialogView.findViewById<TextView>(R.id.selected_food_confirm)
             cancel.setOnClickListener {
-                val dialog = mBuilder.create()
-                dialog.dismiss()
+                mBuilder.dismiss()
                 Toast.makeText(holder.itemView.context, "gd", Toast.LENGTH_SHORT).show()
             }
             confirm.setOnClickListener {
-                val intent = Intent(holder.itemView.context, OrderRegisterActivity::class.java). apply {
+                //foodOrderList.add(FoodOrder(lists[position].foodName, lists[position].foodSeq, lists[position].price))
+                /*val intent = Intent(holder.itemView.context, CustomerFoodDetailActivity::class.java)
+                intent.putExtra("orderList", FoodOrderList(foodOrderList))
+                holder.itemView.context.startActivity(intent)*/
+                CustomerFoodDetailActivity.getInstance()?.foodOrderList?.add(FoodOrder(lists[position].foodName, lists[position].foodSeq, lists[position].price))
+                (holder.itemView.context as CustomerFoodDetailActivity).changeOrderList()
+                mBuilder.dismiss()
+                /*val intent = Intent(holder.itemView.context, OrderRegisterActivity::class.java).apply {
                     putExtra("foodName", lists[position].foodName)
                     putExtra("foodSeq", lists[position].foodSeq)
-                    putExtra("price", lists[position].price)
+                    putExtra("foodPrice", lists[position].price)
                 }
-                holder.itemView.context.startActivity(intent)
+                holder.itemView.context.startActivity(intent)*/
+                //onFoodOrderAddedListener.onFoodOrderAdded(lists[position].foodName, lists[position].foodSeq, lists[position].price)
+                //foodOrders.add(FoodOrder(lists[position].foodName, lists[position].foodSeq, lists[position].price))
+                //////CustomerFoodDetailActivity.getInstance()?.foodOrderList?.add(FoodOrder(lists[position].foodName, lists[position].foodSeq, lists[position].price))
+                //Log.d("FoodDetailAdapter", "confirm.setOnClickListener - $foodOrders")
+                /*foodOrderList.add(FoodOrder(lists[position].foodName, lists[position].foodSeq, lists[position].price))
+                val intent = Intent(holder.itemView.context, CustomerFoodDetailActivity::class.java)
+                intent.putExtra("orderList", FoodOrderList(foodOrderList))*/
+                //holder.itemView.context.startActivity(intent)
+
             }
             mBuilder.show()
-
-            // holder.itemView.context.startActivity(intent)
         }
     }
+
+
     override fun getItemCount(): Int = lists.size
+
 
     class ListViewHolder(private val binding: CustomerFoodDetailBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -87,6 +101,7 @@ class CustomerFoodDetailAdapter(private val lists: List<CustomerFoodDetailDTO>) 
                     decodedBitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream)
                 }
             }
+
             binding.detailFoodNameTv.text = todo.foodName
             binding.detailPriceTv.text = todo.price.toString()
         }

@@ -3,6 +3,7 @@ package com.example.icontest2.customer_food_list
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class CustomerFoodDetailDTO(
     @SerializedName("foodName") val foodName: String,
@@ -40,3 +41,12 @@ data class CustomerFoodDetailDTO(
         return 0
     }
 }
+data class FoodOrderList(
+    val foodOrderList: MutableList<FoodOrder>
+): Serializable
+
+data class FoodOrder(
+    val foodName: String,
+    val foodSeq: Int,
+    val foodPrice: Int
+): Serializable

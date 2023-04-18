@@ -27,6 +27,7 @@ import com.bumptech.glide.Glide
 import com.example.icontest2.*
 import com.example.icontest2.customer_food_list.CustomerFoodListActivity
 import com.example.icontest2.databinding.ActivityCustomerMainBinding
+import com.example.icontest2.order.OrderRegisterActivity
 import com.example.icontest2.seller_login.SellerLoginResponse
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.Dispatchers
@@ -74,6 +75,7 @@ class CustomerMainActivity : AppCompatActivity() {
         customerId = intent.getStringExtra("customerId").toString()
         customerName = intent.getStringExtra("customerName").toString()
         binding.customerMainNameTv.text = customerName
+
         Log.d("AAAA", "onCreate - $base64String")
         if (base64String != null){
             // Base64 디코딩
@@ -219,6 +221,7 @@ class CustomerMainActivity : AppCompatActivity() {
     private fun moveMenuActivity(num : Int) {
         val intent = Intent(this, CustomerFoodListActivity::class.java).apply {
             putExtra("foodCategory", num)
+            putExtra("customer_id", customerId)
         }
         startActivity(intent)
     }

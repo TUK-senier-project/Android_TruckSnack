@@ -3,13 +3,17 @@ package com.example.icontest2.customer_food_list
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Base64
 import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.icontest2.R
 import com.example.icontest2.databinding.ActivityCustomerFoodDetailBinding
 import com.example.icontest2.navigation.NavigationActivity
+import com.example.icontest2.order.OrderRegisterActivity
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
@@ -33,12 +37,19 @@ class CustomerFoodDetailActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityCustomerFoodDetailBinding
     private lateinit var lists : List<CustomerFoodDetailDTO>
-
+    var foodOrderList: MutableList<FoodOrder> = mutableListOf()
+    var customerId: String? = null
     @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCustomerFoodDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val intent = intent
+        if (intent != null) {
+            customerId = intent.getStringExtra("customer_id").toString()
+        }
+        Log.d("FoodDetailAct", "==========$customerId==========")
 
         val gson = GsonBuilder()
             .setLenient()
@@ -50,6 +61,7 @@ class CustomerFoodDetailActivity : AppCompatActivity() {
             .build()
 
         val selectedList = intent.getParcelableExtra<CustomerFoodListDTOItem>("selected_item")
+
         Log.d(TAG, "onCreate - selectedList - $selectedList")
         binding.customerFoodDetailBusinessNameTv.text = selectedList?.businessName
         binding.customerFoodDetailGradeTv.text = selectedList?.grade.toString()
@@ -90,8 +102,6 @@ class CustomerFoodDetailActivity : AppCompatActivity() {
                         val listType = object : TypeToken<List<CustomerFoodDetailDTO>>() {}.type
                         val foodDetailList: List<CustomerFoodDetailDTO> = gson.fromJson(foodDetail, listType)
                         lists = foodDetailList
-                        //Log.d(TAG, "5${foodDetailList[1]}")
-                        //Log.d(TAG, "5${foodDetailList[2]}")
                         Log.d(TAG, "9$lists")
                         runOnUiThread {
                             initViews()
@@ -108,9 +118,32 @@ class CustomerFoodDetailActivity : AppCompatActivity() {
             val intent = Intent(this, NavigationActivity::class.java)
             startActivity(intent)
         }
+        binding.foodDetailOrder.setOnClickListener {
+            val intent = Intent(this, OrderRegisterActivity::class.java).apply {
+                putExtra("foodOrderList", FoodOrderList(foodOrderList))
+                putExtra("selected_id", sellerId)
+                putExtra("customer_id", customerId)
+            }
+            startActivity(intent)
+        }
     }
     private fun initViews() {
         binding.customerFoodDetailRv.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.customerFoodDetailRv.adapter = CustomerFoodDetailAdapter(lists)
     }
+    fun changeOrderList () {
+        Log.d("FoodDetailAct", "changeOrderList - $foodOrderList")
+        if (foodOrderList.size == 0){
+            binding.orderCheckLayout.visibility = View.GONE
+        } else {
+            var total = 0
+            for (data in foodOrderList) {
+                total += data.foodPrice
+            }
+            binding.orderCheckLayout.visibility = View.VISIBLE
+            binding.totalOrderQuantity.text = getString(R.string.food_order_quantity, foodOrderList.size.toString())
+            binding.totalOrderAmount.text = getString(R.string.food_order_amount, total.toString())
+        }
+    }
+
 }

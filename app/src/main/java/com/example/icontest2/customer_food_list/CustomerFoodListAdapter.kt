@@ -17,7 +17,7 @@ import java.io.FileInputStream
 import java.io.FileOutputStream
 
 
-class CustomerFoodListAdapter(private val lists: List<CustomerFoodListDTOItem>) : RecyclerView.Adapter<CustomerFoodListAdapter.ListViewHolder>(){
+class CustomerFoodListAdapter(private val lists: List<CustomerFoodListDTOItem>, val customerId: String) : RecyclerView.Adapter<CustomerFoodListAdapter.ListViewHolder>(){
     var onItemClickListener: ((CustomerFoodListDTOItem) -> Unit)? = null // 클릭 리스너
 
     // ViewHolder 생성하는 함수, 최소 생성 횟수만큼만 호출됨 (계속 호출 X)
@@ -38,8 +38,10 @@ class CustomerFoodListAdapter(private val lists: List<CustomerFoodListDTOItem>) 
         holder.itemView.setOnClickListener {
             onItemClickListener?.invoke(lists[position])
             Log.d("CUSTOMER_FOOD_LIST", "Clicked item: ${lists[position]}")
+            Log.d("FoodListAdapter", "==========$customerId==========")
             val intent = Intent(holder.itemView.context, CustomerFoodDetailActivity::class.java). apply {
                 putExtra("selected_item", lists[position])
+                putExtra("customer_id", customerId)
             }
             holder.itemView.context.startActivity(intent)
         }

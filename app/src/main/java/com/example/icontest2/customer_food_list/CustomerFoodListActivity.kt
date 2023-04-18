@@ -44,6 +44,7 @@ class CustomerFoodListActivity : AppCompatActivity() {
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 
+    var customerId :String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCustomerFoodListBinding.inflate(layoutInflater)
@@ -55,7 +56,14 @@ class CustomerFoodListActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
+        val intent = intent
+        if (intent != null) {
+            customerId = intent.getStringExtra("customer_id").toString()
+        }
+        Log.d("FoodListAct", "==========$customerId==========")
+
         val foodCategory = intent.getIntExtra("foodCategory", -1)
+
         when (foodCategory) {
             1 -> binding.customerFoodListTitleTv.text = "붕어빵"
             2 -> binding.customerFoodListTitleTv.text = "타코야끼"
@@ -164,7 +172,7 @@ class CustomerFoodListActivity : AppCompatActivity() {
 
     private fun initViews() {
         binding.sellerListRv.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.sellerListRv.adapter = CustomerFoodListAdapter(lists)
+        binding.sellerListRv.adapter = CustomerFoodListAdapter(lists, customerId!!)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

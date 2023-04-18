@@ -40,7 +40,7 @@
             android:exported="false" />
         <activity
             android:name=".customer_food_list.CustomerFoodDetailActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".customer_food_list.CustomerFoodListActivity"
             android:exported="false" />

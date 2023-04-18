@@ -9,6 +9,8 @@
     <string name="mypage">마이페이지</string>
     <string name="fragment_home_string">홈 화면입니다</string>
     <string name="google_maps_key">AIzaSyAfDznPBrCCvtjUjv5h4ItjSWpaHsBrFyE</string>
+    <string name="food_order_quantity">%s개</string>
+    <string name="food_order_amount">%s원</string>
     <string-array name="category">
         <item>카테고리를 선택해 주세요.</item>
         <item>1. 붕어빵</item>
