@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.icontest2.*
+import com.example.icontest2.customer_register.SignUpActivity
 import com.example.icontest2.databinding.ActivitySellerRegisterBinding
 import com.example.icontest2.seller_login.SellerLoginActivity
 import com.google.android.gms.location.FusedLocationProviderClient

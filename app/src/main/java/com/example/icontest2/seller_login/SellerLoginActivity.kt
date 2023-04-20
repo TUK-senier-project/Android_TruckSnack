@@ -135,7 +135,7 @@ class SellerLoginActivity : AppCompatActivity() {
                 try {
                     val sellerAPI = retrofit.create(SellerAPI::class.java)
 
-                    val response = sellerAPI.sellerLogin(sellerData) // 서버에서 받아온 값
+                    val response = sellerAPI.sellerLogin(sellerData)
                     Log.d(TAG, "통신전")
                     Log.d(TAG, "서버 응답1 : $response")
                     Log.d(TAG, "서버 응답2 : ${response.contentType()}")
@@ -167,6 +167,7 @@ class SellerLoginActivity : AppCompatActivity() {
                             val intent = Intent(applicationContext, SellerMainActivity::class.java).apply {
                                 putExtra("sellerId", sellerLoginDto.seller.id)
                                 putExtra("sellerBusinessName", sellerLoginDto.seller.businessName)
+                                putExtra("base64String", sellerLoginDto.base64EncodedImage) // string값 메인에 전송
                             }
                             startActivity(intent)
                         }
@@ -186,9 +187,10 @@ class SellerLoginActivity : AppCompatActivity() {
                                 Toast.makeText(applicationContext, "${sellerLoginDto.seller.id} 님 환영합니다.", Toast.LENGTH_SHORT).show()
                             }
                             val intent = Intent(applicationContext, SellerMainActivity::class.java).apply {
-
+                                putExtra("id", sellerLoginDto.seller.id)
                             }
                             startActivity(intent)
+                            Log.d(TAG, "===========로그인에서메인전송==========")
                         }
                     }
                 } catch (e: Exception) {
