@@ -39,15 +39,15 @@ class CustomerLoginActivity : AppCompatActivity() {
         loginButton.setOnClickListener {
             val idEditText = binding.customerLoginId
             val pwEditText = binding.customerLoginPw
-            val customer_id = idEditText.text.toString()
-            val customer_pw = pwEditText.text.toString()
-            val customerlogin = CustomerLoginDTO(customer_id, customer_pw) // 사용하지 않는 파라미터는 어떻게 처리하는지 물어보기
+            val customerId = idEditText.text.toString()
+            val customerPw = pwEditText.text.toString()
+            val customerlogin = CustomerLoginDTO(customerId, customerPw) // 사용하지 않는 파라미터는 어떻게 처리하는지 물어보기
             Log.d(TAG, "$customerlogin")
             Log.d(TAG, "${idEditText::class.java}")
             Log.d(TAG, "${pwEditText::class.java}")
 
             val retrofit = Retrofit.Builder() // 서버통신
-                .baseUrl("http://13.209.18.214:8080")
+                .baseUrl("http://13.124.112.81:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             // API 서비스 인터페이스 구현체 생성
@@ -96,12 +96,12 @@ class CustomerLoginActivity : AppCompatActivity() {
                 val phoneEditText = mDialogView.findViewById<EditText>(R.id.customer_find_phone)
                 // val nameEditText = binding.customerFindName
                 // val phoneEditText = binding.customerFindPhone
-                val customer_name = nameEditText.text.toString()
-                val customer_phoneNumber = phoneEditText.text.toString()
-                val customerFind = CustomerFindDTO(customer_name, customer_phoneNumber)
+                val customerName = nameEditText.text.toString()
+                val customerPhoneNumber = phoneEditText.text.toString()
+                val customerFind = CustomerFindDTO(customerName, customerPhoneNumber)
             // Retrofit 객체 생성
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://13.209.18.214:8080")
+                .baseUrl("http://13.124.112.81:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             // API 서비스 인터페이스 구현체 생성
@@ -111,6 +111,7 @@ class CustomerLoginActivity : AppCompatActivity() {
                 try {
                     val response = customerFindAPI.findCustomer(customerFind) // 성공하면 여기에 아이디가 담겨온다
                     if (response.isSuccessful) {
+                        Log.d(TAG, "$response")
                         // 성공 처리
                         // val result = response.body() as CustomerFindDTO
                         runOnUiThread {
@@ -119,6 +120,7 @@ class CustomerLoginActivity : AppCompatActivity() {
                         }
                     } else {
                         // 실패 처리
+                        Log.d(TAG, "2$response")
                         runOnUiThread {
                             Toast.makeText(this@CustomerLoginActivity, "다시 입력해주세요.", Toast.LENGTH_SHORT).show()
                         }

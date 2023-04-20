@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.*
 import android.text.style.ForegroundColorSpan
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -33,7 +34,7 @@ import retrofit2.Response
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 
-class SignUpActivity : AppCompatActivity(){
+class SignUpActivity : AppCompatActivity(), OnMapReadyCallback{
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var mMap: GoogleMap
     private lateinit var buttonLocation: Button
@@ -45,22 +46,24 @@ class SignUpActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        
+
         // 아이디, 비밀번호, 비밀번호 확인, 이름, 휴대폰번호의 editText id
         val signUpBtn = binding.signUpBtn
         val signUptextIdLengthChecker = binding.mainTextInputLayoutID
         val signUptextPwLengthChecker = binding.mainTextInputLayoutPW
         val signUptextPwLengthChecker2 = binding.mainTextInputLayoutPW2 // 2번째 pw
         val lengthCheck = binding.mainTextInputLayoutCreateName
-        val signUPEdit_ID = binding.EditID // 아이디 만들기
-        val signUPEdit_PW = binding.EditPW // 비밀번호 만들기
-        val signUpCreate_name = binding.createName // 이름 만들기
-        val signUpCreate_phone_number = binding.phoneNumberCreate // 폰번호 숫자만 11자제한
+        val signUpEditId = binding.EditID // 아이디 만들기
+        val signUpEditPw = binding.EditPW // 비밀번호 만들기
+        val signUpCreateName = binding.createName // 이름 만들기
+        val signUpCreatePhoneNumber = binding.phoneNumberCreate // 폰번호 숫자만 11자제한
         val editText = binding.editText // 위치 조회값
-        val EditPW2 = binding.EditPW2
-        setEditTextInput(signUpCreate_phone_number, 11)
+        val editPw2 = binding.EditPW2
+        setEditTextInput(signUpCreatePhoneNumber, 11)
         val signUpCheckBtn = binding.signUpBtn
         val customerIdCheck = binding.customerRegisterIdCheckBtn
+        val idCheckTextView = binding.customerRegisterIdCheckTv
+
 
         buttonLocation = findViewById(R.id.button_location) // 사용자 위치 조회 및 입력
         buttonLocation.setOnClickListener {
@@ -98,18 +101,18 @@ class SignUpActivity : AppCompatActivity(){
             signUptextPwLengthChecker.isErrorEnabled = true
             lengthCheck.isErrorEnabled = true
 
-            signUPEdit_ID.addTextChangedListener(object : TextWatcher {
+            signUpEditId.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
                 override fun afterTextChanged(p0: Editable?) {
-                    if (signUPEdit_ID.text.contains(" ")) {
+                    if (signUpEditId.text.contains(" ")) {
                         signUptextIdLengthChecker.error = "공백이 포함될 수 없습니다."
                         isValid = false
                     } else {
-                        if (signUPEdit_ID.length() > 15) {
+                        if (signUpEditId.length() > 15) {
                             signUptextIdLengthChecker.error = "ID의 글자 수를 초과하였습니다."
                             isValid = false
-                        } else if (signUPEdit_ID.length() < 5) {
+                        } else if (signUpEditId.length() < 5) {
                             signUptextIdLengthChecker.error = "ID는 최소 5자 이상입니다."
                             isValid = false
                         } else {
@@ -118,7 +121,7 @@ class SignUpActivity : AppCompatActivity(){
                     }
                 }
             })
-            signUPEdit_PW.addTextChangedListener(object : TextWatcher {
+            signUpEditPw.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 }
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -139,11 +142,11 @@ class SignUpActivity : AppCompatActivity(){
                     }
                 }
             })
-            signUpCreate_name.addTextChangedListener(object : TextWatcher {
+            signUpCreateName.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 }
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                    if (signUpCreate_name.length() > 10) {
+                    if (signUpCreateName.length() > 10) {
                         lengthCheck.error = "이름의 글자 수를 초과 하였습니다."
                         isValid = false
                     } else {
@@ -160,7 +163,7 @@ class SignUpActivity : AppCompatActivity(){
             signUptextPwLengthChecker2.counterMaxLength = 20
             signUptextPwLengthChecker2.isErrorEnabled = true
             var isValid = true
-            EditPW2.addTextChangedListener(object : TextWatcher {
+            editPw2.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
                 override fun afterTextChanged(p0: Editable?) {
@@ -182,22 +185,22 @@ class SignUpActivity : AppCompatActivity(){
             })
             return isValid
         }
-        notKorean(signUPEdit_ID) // id 한글 예외처리
-        notKorean(signUPEdit_PW) // pw 한글 예외처리
-        notKorean(EditPW2) // 2번째 pw 한글 예외처리
-        onlyKorean(signUpCreate_name) // 이름 입력시 한글만
-        checkwhite(signUpCreate_name) // 이름 입력시 공백 확인
+        notKorean(signUpEditId) // id 한글 예외처리
+        notKorean(signUpEditPw) // pw 한글 예외처리
+        notKorean(editPw2) // 2번째 pw 한글 예외처리
+        onlyKorean(signUpCreateName) // 이름 입력시 한글만
+        checkwhite(signUpCreateName) // 이름 입력시 공백 확인
         textLengthChecker() // 문자길이 체크
         textLengthChecker2() // 2번째 pw
         checkKoreanNumber(editText) // 한글 + 숫자 확인 함수(영어 입력 X)
-        onlyEnglishAndNumber(signUPEdit_PW) // 영어와 숫자만 입력되게
-        onlyEnglishAndNumber(EditPW2) // 2번째 pw 영어와 숫자만 입력되게
+        onlyEnglishAndNumber(signUpEditPw) // 영어와 숫자만 입력되게
+        onlyEnglishAndNumber(editPw2) // 2번째 pw 영어와 숫자만 입력되게
 
 
         // 아이디 중복체크 기능
         customerIdCheck.setOnClickListener {
             Log.d(TAG, "접속 성공")
-            val customerId = signUPEdit_ID.text.toString()
+            val customerId = signUpEditId.text.toString()
             // customerId가 빈 문자열인 경우
             if (customerId.isEmpty()) {
                 Toast.makeText(this, "아이디를 입력해주세요.", Toast.LENGTH_SHORT).show()
@@ -205,7 +208,7 @@ class SignUpActivity : AppCompatActivity(){
             }
             val customerCheckIdDTO = CustomerCheckIdDTO(customerId)
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://13.209.18.214:8080")
+                .baseUrl("http://13.124.112.81:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             val customerRegisterAPI = retrofit.create(CustomerRegisterAPI::class.java)
@@ -216,12 +219,15 @@ class SignUpActivity : AppCompatActivity(){
                     if (response.isSuccessful) {
                         Log.d(TAG, "사용 가능 아이디")
                         runOnUiThread {
+                            idCheckTextView.visibility = View.INVISIBLE
                             Toast.makeText(this@SignUpActivity, "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show()
+                            signUpBtn.isEnabled = true
                         }
-                    } else {
-                        Log.d(TAG, "사용 불가능 아이디 ")
+                    }  else {
                         runOnUiThread {
-                            Toast.makeText(this@SignUpActivity, "중복된 아이디입니다.", Toast.LENGTH_SHORT).show()
+                            // 중복된 아이디일 경우
+                            idCheckTextView.visibility = View.VISIBLE
+                            signUpBtn.isEnabled = false
                         }
                     }
                 } catch (e: Exception) {
@@ -258,10 +264,10 @@ class SignUpActivity : AppCompatActivity(){
 
         signUpBtn.setOnClickListener {
             Log.d(TAG, "버튼 클릭 후 로그 체크!!}")
-            val id = signUPEdit_ID.text.toString()
-            val password = signUPEdit_PW.text.toString()
-            val name = signUpCreate_name.text.toString()
-            val phoneNumber = signUpCreate_phone_number.text.toString()
+            val id = signUpEditId.text.toString()
+            val password = signUpEditPw.text.toString()
+            val name = signUpCreateName.text.toString()
+            val phoneNumber = signUpCreatePhoneNumber.text.toString()
             val location = editText.text.toString()
             val customer = CustomerRegisterDTO(id, name, password, phoneNumber, location)
             Log.d(TAG, "$customer")
@@ -271,7 +277,7 @@ class SignUpActivity : AppCompatActivity(){
             Log.d(TAG, "${phoneNumber::class.java}")
             Log.d(TAG, "${location::class.java}")
             val retrofit = Retrofit.Builder() // 서버통신
-                .baseUrl("http://13.209.18.214:8080")
+                .baseUrl("http://13.124.112.81:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             // API 서비스 인터페이스 구현체 생성
@@ -289,7 +295,6 @@ class SignUpActivity : AppCompatActivity(){
                             startActivity(intent)
                             Toast.makeText(this@SignUpActivity, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show()
                         }
-
                         // 성공 처리
                     } else {
                         // 실패 처리
@@ -495,7 +500,7 @@ class SignUpActivity : AppCompatActivity(){
                 REQUEST_LOCATION_PERMISSION
             )
         }
-        
+
     }
 
 

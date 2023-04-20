@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 경계선 그리기 -->
+    <item>
+        <shape>
+            <stroke android:width="1dp" android:color="#888888" />
+            <solid android:color="@color/white" />
+            <corners android:radius="8dp" />  // 리니어레이아웃 경계선 사용
+        </shape>
+    </item>
+    <!-- 경계선 색 입히기 -->
+    <item android:bottom="1dp">
+        <shape>
+            <stroke android:width="1dp" android:color="#888888" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+</layer-list>

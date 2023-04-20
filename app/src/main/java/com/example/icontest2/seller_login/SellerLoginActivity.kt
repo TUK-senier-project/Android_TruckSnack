@@ -6,6 +6,8 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -16,6 +18,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.icontest2.*
+import com.example.icontest2.customer_login.CustomerLoginActivity
 import com.example.icontest2.databinding.ActivitySellerLoginBinding
 import com.example.icontest2.seller_register.SellerRegisterActivity
 import com.google.gson.GsonBuilder
@@ -37,6 +40,9 @@ class SellerLoginActivity : AppCompatActivity() {
         binding = ActivitySellerLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val sellerLoginIdEdt = binding.sellerLoginIdEdt
+        val sellerLoginPwEdt = binding.sellerLoginPwEdt
+
         // ToolBar 설정, 제목, 버튼 활성화, 아이콘 클릭 가능 설정
         setSupportActionBar(binding.sellerLoginToolbar) // 생성시 ()안에 id 변경.
         supportActionBar?.title = ""
@@ -48,13 +54,13 @@ class SellerLoginActivity : AppCompatActivity() {
             .create()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.209.18.214:8080")
+            .baseUrl("http://13.124.112.81:8080")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
         // 일반 사용자 로그인으로 이동하기 버튼 클릭 시
         binding.sellerLoginMoveCustomerLoginTv.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, CustomerLoginActivity::class.java)
             startActivity(intent)
         }
         // 회원가입 버튼 클릭 시
@@ -118,14 +124,11 @@ class SellerLoginActivity : AppCompatActivity() {
         }
         // 로그인 버튼 클릭 시
         binding.sellerLoginBtn.setOnClickListener {
+            /*
             val intent = Intent(applicationContext, SellerMainActivity::class.java)
             startActivity(intent)
-            /*
-            var id = binding.sellerLoginIdEdt.text.toString()
-            var pw = binding.sellerLoginPwEdt.text.toString()
-            val sellerData = SellerLoginDTO(id, pw)
-
-
+            */
+            val sellerData = SellerLoginDTO(sellerLoginIdEdt.text.toString(), sellerLoginPwEdt.text.toString())
 
             GlobalScope.launch(Dispatchers.IO) {
                 try {
@@ -142,8 +145,17 @@ class SellerLoginActivity : AppCompatActivity() {
                         val gson = GsonBuilder()
                             .setLenient()
                             .create()
-                        val data = gson.fromJson(response.string(), SellerLoginResponse::class.java)
-                        Log.d(TAG, "4$data")
+                        val sellerLoginDto = gson.fromJson(response.string(), SellerLoginResponse::class.java)
+                        Log.d(TAG, "4$sellerLoginDto")
+                        runOnUiThread {
+                            Toast.makeText(applicationContext, "${sellerLoginDto.seller.id} 님 환영합니다.", Toast.LENGTH_SHORT).show()
+                        }
+                        val intent = Intent(applicationContext, SellerMainActivity::class.java).apply {
+                            //putExtra("sellerInfo", "${sellerLoginDto.seller}")
+                            putExtra("sellerId", sellerLoginDto.seller.id) // sellerid 전송 부분 추가
+                            putExtra("base64String", sellerLoginDto.base64EncodedImage) // string값 메인에 전송
+                        }
+                        startActivity(intent)
                     } else {
                         // 서버에서 반환하는 데이터가 text/plain인 경우 처리
                         val data = response.string()
@@ -157,29 +169,24 @@ class SellerLoginActivity : AppCompatActivity() {
                             val sellerLoginDto = gson.fromJson(data, SellerLoginResponse::class.java)
                             Log.d(TAG, "7$sellerLoginDto")
                             runOnUiThread {
-                                Toast.makeText(applicationContext, "${sellerLoginDto.id} 님 환영합니다.", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(applicationContext, "${sellerLoginDto.seller.id} 님 환영합니다.", Toast.LENGTH_SHORT).show()
                             }
-                            val intent = Intent(applicationContext, SellerMainActivity::class.java)
+                            val intent = Intent(applicationContext, SellerMainActivity::class.java).apply {
+                                putExtra("id", sellerLoginDto.seller.id)
+                            }
                             startActivity(intent)
+                            Log.d(TAG, "===========로그인에서메인전송==========")
                         }
                     }
-
-                    // Log.d(TAG, "서버 응답 : ${response.body()}")
                 } catch (e: Exception) {
                     Log.d(TAG, "예외")
                     Log.d(TAG, "$e")
                 }
             }
-            */
+
         }
     }
-}
-
-
-
-/*.
-
-override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
                 onBackPressed()
@@ -188,54 +195,4 @@ override fun onOptionsItemSelected(item: MenuItem): Boolean {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-
-
- if (response.isNotEmpty()) {
-     // 요청 성공
-     runOnUiThread {
-         if (response == "login fail"){    // 로그인 실패한 경우
-             Log.d(TAG, "String : $response")
-             Toast.makeText(applicationContext, "아이디 혹은 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
-         } else{     // 로그인 성공한 경우
-             Log.d(TAG, "SellerLoginResponse : $response")
-             // Toast.makeText(applicationContext, "${responseBody.id} 님 환영합니다.", Toast.LENGTH_SHORT).show()
-             val intent = Intent(applicationContext, MainActivity::class.java)
-             startActivity(intent)
-         }
-     }
-     Log.d(TAG, "성공")
-     // Log.d(TAG, "${response.body()}")
-     Log.d(TAG, "$response")
- } else {
-     // 요청 실패
-     Log.d(TAG, "실패")
-     // Log.d(TAG, "${response.body()}")
-     Log.d(TAG, "$response")
- }
- */
-
-/*
-if(response.isSuccessful) {
-    val sellerLoginResponse = response.body()
-    Log.d(TAG, "$sellerLoginResponse")
-    // 로그인 성공 시 처리
-} else {
-    // 로그인 실패 시 처리
-    Log.d(TAG, "$response")
-    Log.d(TAG, "${response.body()}")
 }
-*/
-/*
-when(response) {
-    is Either.Left -> {
-        // handle error
-        val message = response.value.text
-        Log.d(TAG, "$message")
-    }
-    is Either.Right -> {
-        // handle success
-        Log.d(TAG, "${response.value}")
-    }
-}
-*/

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".seller_food.SellerFoodActivity">
+    <!-- ToolBar 생성 -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/seller_register_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="메뉴관리"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+    <!-- 회색 라인추가 부분 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D0D0D0"/>
+    <!-- ToolBar 생성 끝부분 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/seller_food_recyler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/menu_register_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/seller_register_button_style"
+            android:text="메뉴 등록하기"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+        <!--<Button
+            android:id="@+id/menu_image_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/seller_register_button_style"
+            android:text="메뉴사진 등록하기"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />-->
+        <Button
+            android:id="@+id/menu_call_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/seller_register_button_style"
+            android:text="메뉴 불러오기"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+</LinearLayout>
