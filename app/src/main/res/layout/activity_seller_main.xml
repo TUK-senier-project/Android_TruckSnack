@@ -20,14 +20,16 @@
         />
 
     <TextView
+        android:id="@+id/seller_main_businessName_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="붕어빵먹자 1호트럭"
-        android:textSize="25sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:layout_gravity="center"
         android:layout_marginTop="20dp" />
+    <!--
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,7 +38,8 @@
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
         />
-
+    -->
+    <!--
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,37 +47,58 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:gravity="center">
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="평점 "
-            android:textColor="#676767"/>
+            android:orientation="horizontal"
+            android:layout_weight="5"
+            android:gravity="right">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="평점 "
+                android:textColor="#676767"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="★ "
+                android:textColor="#FF0000"/>
+            <TextView
+                android:id="@+id/seller_main_grade_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4.5"
+                android:textColor="#676767"/>
+
+        </LinearLayout>
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="★ "
-            android:textColor="#FF0000"/>
-        <TextView
-            android:id="@+id/seller_main_grade_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4.5"
-            android:textColor="#676767"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="|"
             android:textColor="#676767"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"/>
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
         <TextView
             android:id="@+id/seller_main_deadline_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="5"
             android:text="마감시간 21시"
-            android:textColor="#676767"/>
+            android:textColor="#676767"
+            android:gravity="left"/>
     </LinearLayout>
+    -->
+    <TextView
+        android:id="@+id/seller_main_id_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아이디"
+        android:textColor="@color/dark_gray"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"

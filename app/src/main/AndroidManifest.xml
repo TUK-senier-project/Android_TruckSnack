@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="android.permission.QUERY_ALL_PACKAGES"
@@ -33,6 +34,21 @@
             android:exported="false" />
         <activity
             android:name=".seller_food.SellerFoodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".order.OrderRegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".navigation.NavigationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".seller_login.SellerFirstLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer_food_list.CustomerFoodDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".customer_food_list.CustomerFoodListActivity"
             android:exported="false" />
         <activity
             android:name=".customer_login.CustomerLoginActivity"
@@ -73,7 +89,7 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".customer_main.CustomerMainActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"

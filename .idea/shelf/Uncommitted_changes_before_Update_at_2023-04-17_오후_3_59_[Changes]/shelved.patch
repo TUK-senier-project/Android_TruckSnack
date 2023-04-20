@@ -1,0 +1,113 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_2023-04-08_오후_8_24_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-04-08_오후_8_24_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_2023-04-08_오후_8_24_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-04-08_오후_8_24_[Changes]/shelved.patch	(revision 5055f851434b7c0b7390cf3970c9c14d3478ee92)
++++ /dev/null	(revision 5055f851434b7c0b7390cf3970c9c14d3478ee92)
+@@ -1,94 +0,0 @@
+-Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30__2_29__Changes_.xml
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30__2_29__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30__2_29__Changes_.xml
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30__2_29__Changes_.xml	(revision 06f99c3f13b8a53bcc53d62e696fe8367f5faab2)
+-+++ /dev/null	(revision 06f99c3f13b8a53bcc53d62e696fe8367f5faab2)
+-@@ -1,4 +0,0 @@
+--<changelist name="Uncommitted_changes_before_Checkout_at_2023-03-30_오후_2_29_[Changes]" date="1680154188714" recycled="true" deleted="true">
+--  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_2_29_[Changes]/shelved.patch" />
+--  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 2023-03-30 오후 2:29 [Changes]" />
+--</changelist>
+-\ No newline at end of file
+-Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30__4_22__Changes_.xml
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30__4_22__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30__4_22__Changes_.xml
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30__4_22__Changes_.xml	(revision 06f99c3f13b8a53bcc53d62e696fe8367f5faab2)
+-+++ /dev/null	(revision 06f99c3f13b8a53bcc53d62e696fe8367f5faab2)
+-@@ -1,4 +0,0 @@
+--<changelist name="Uncommitted_changes_before_Checkout_at_2023-03-30_오후_4_22_[Changes]" date="1680160955178" recycled="true" deleted="true">
+--  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_4_22_[Changes]/shelved.patch" />
+--  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 2023-03-30 오후 4:22 [Changes]" />
+--</changelist>
+-\ No newline at end of file
+-Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_4_22_[Changes]/shelved.patch
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_4_22_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_4_22_[Changes]/shelved.patch
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_4_22_[Changes]/shelved.patch	(revision 06f99c3f13b8a53bcc53d62e696fe8367f5faab2)
+-+++ /dev/null	(revision 06f99c3f13b8a53bcc53d62e696fe8367f5faab2)
+-@@ -1,27 +0,0 @@
+--Index: app/src/main/AndroidManifest.xml
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    package=\"com.example.icontest2\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n    <uses-permission\r\n        android:name=\"android.permission.QUERY_ALL_PACKAGES\"\r\n        tools:ignore=\"QueryAllPackagesPermission\" />\r\n\r\n    <queries>\r\n        <package android:name=\"com.vuforia.engine.coresamples\" />\r\n    </queries>\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n\r\n    <!--android:usesCleartextTraffic=\"true\" < 서버 통신-->\r\n    <application\r\n        android:name=\".KakaoInit\"\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/food_truck\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/food_truck_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.IconTest2\"\r\n        android:usesCleartextTraffic=\"true\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".CustomerLocationRegister\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".LocationRegisterActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MenuListsActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignUpLocationActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MyPageActivity\"\r\n            android:exported=\"false\" />\r\n\r\n        <meta-data\r\n            android:name=\"com.google.android.geo.API_KEY\"\r\n            android:value=\"@string/google_maps_key\" />\r\n\r\n        <activity\r\n            android:name=\".MapActivity\"\r\n            android:exported=\"true\" />\r\n        <activity\r\n            android:name=\".SearchActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignUpActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".LoginActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity>\r\n        <activity\r\n            android:name=\".SplashActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity> <!-- Kakao 로그인 -->\r\n        <activity\r\n            android:name=\"com.kakao.sdk.auth.AuthCodeHandlerActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.VIEW\" />\r\n\r\n                <category android:name=\"android.intent.category.DEFAULT\" />\r\n                <category android:name=\"android.intent.category.BROWSABLE\" />\r\n\r\n                <!-- Redirect URI: \"kakao{NATIVE_APP_KEY}://oauth\" -->\r\n                <!-- scheme-example: \"kakao{NATIVE_APP_KEY}\" -->\r\n                <data\r\n                    android:host=\"oauth\"\r\n                    android:scheme=\"@string/kakao_native_key_manifest\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+----- a/app/src/main/AndroidManifest.xml	(revision 6f6c0dfa25c368eb9d450ccf271baec6016c63c2)
+--+++ b/app/src/main/AndroidManifest.xml	(date 1680160947353)
+--@@ -32,16 +32,10 @@
+--         android:usesCleartextTraffic="true"
+--         tools:targetApi="31">
+--         <activity
+---            android:name=".CustomerLocationRegister"
+---            android:exported="false" />
+---        <activity
+--             android:name=".LocationRegisterActivity"
+--             android:exported="false" />
+--         <activity
+--             android:name=".MenuListsActivity"
+---            android:exported="false" />
+---        <activity
+---            android:name=".SignUpLocationActivity"
+--             android:exported="false" />
+--         <activity
+--             android:name=".MyPageActivity"
+-Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_2_29_[Changes]/shelved.patch
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_2_29_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_2_29_[Changes]/shelved.patch
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_2_29_[Changes]/shelved.patch	(revision 06f99c3f13b8a53bcc53d62e696fe8367f5faab2)
+-+++ /dev/null	(revision 06f99c3f13b8a53bcc53d62e696fe8367f5faab2)
+-@@ -1,28 +0,0 @@
+--
+--Index: app/src/main/AndroidManifest.xml
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    package=\"com.example.icontest2\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n    <uses-permission\r\n        android:name=\"android.permission.QUERY_ALL_PACKAGES\"\r\n        tools:ignore=\"QueryAllPackagesPermission\" />\r\n\r\n    <queries>\r\n        <package android:name=\"com.vuforia.engine.coresamples\" />\r\n    </queries>\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n\r\n    <application\r\n        android:name=\".KakaoInit\"\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/food_truck\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/food_truck_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.IconTest2\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".CustomerLocationRegister\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".LocationRegisterActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MenuListsActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignUpLocationActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MyPageActivity\"\r\n            android:exported=\"false\" />\r\n\r\n        <meta-data\r\n            android:name=\"com.google.android.geo.API_KEY\"\r\n            android:value=\"@string/google_maps_key\" />\r\n\r\n        <activity\r\n            android:name=\".MapActivity\"\r\n            android:exported=\"true\" />\r\n        <activity\r\n            android:name=\".SearchActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignUpActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".LoginActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity>\r\n        <activity\r\n            android:name=\".SplashActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity> <!-- Kakao 로그인 -->\r\n        <activity\r\n            android:name=\"com.kakao.sdk.auth.AuthCodeHandlerActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.VIEW\" />\r\n\r\n                <category android:name=\"android.intent.category.DEFAULT\" />\r\n                <category android:name=\"android.intent.category.BROWSABLE\" />\r\n\r\n                <!-- Redirect URI: \"kakao{NATIVE_APP_KEY}://oauth\" -->\r\n                <!-- scheme-example: \"kakao{NATIVE_APP_KEY}\" -->\r\n                <data\r\n                    android:host=\"oauth\"\r\n                    android:scheme=\"@string/kakao_native_key_manifest\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+----- a/app/src/main/AndroidManifest.xml	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+--+++ b/app/src/main/AndroidManifest.xml	(date 1680154182876)
+--@@ -30,16 +30,10 @@
+--         android:theme="@style/Theme.IconTest2"
+--         tools:targetApi="31">
+--         <activity
+---            android:name=".CustomerLocationRegister"
+---            android:exported="false" />
+---        <activity
+--             android:name=".LocationRegisterActivity"
+--             android:exported="false" />
+--         <activity
+--             android:name=".MenuListsActivity"
+---            android:exported="false" />
+---        <activity
+---            android:name=".SignUpLocationActivity"
+--             android:exported="false" />
+--         <activity
+--             android:name=".MyPageActivity"
+-\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_2023-04-08__8_24__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-04-08__8_24__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_2023-04-08__8_24__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-04-08__8_24__Changes_.xml	(revision 5055f851434b7c0b7390cf3970c9c14d3478ee92)
++++ /dev/null	(revision 5055f851434b7c0b7390cf3970c9c14d3478ee92)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_2023-04-08_오후_8_24_[Changes]" date="1680953053435" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-04-08_오후_8_24_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2023-04-08 오후 8:24 [Changes]" />
+-</changelist>
+\ No newline at end of file

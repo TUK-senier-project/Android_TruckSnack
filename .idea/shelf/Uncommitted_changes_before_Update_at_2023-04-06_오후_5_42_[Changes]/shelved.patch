@@ -1,0 +1,175 @@
+Index: app/src/main/java/com/example/icontest2/seller_login/SellerLoginActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.icontest2.seller_login\r\n\r\nimport android.content.ContentValues\r\nimport android.content.ContentValues.TAG\r\nimport android.content.Intent\r\nimport android.graphics.Color\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport android.util.Log\r\nimport android.view.LayoutInflater\r\nimport android.view.MenuItem\r\nimport android.view.View\r\nimport android.widget.Button\r\nimport android.widget.EditText\r\nimport android.widget.TextView\r\nimport android.widget.Toast\r\nimport androidx.appcompat.app.AlertDialog\r\nimport arrow.core.Either\r\nimport com.example.icontest2.*\r\nimport com.example.icontest2.databinding.ActivitySellerLoginBinding\r\nimport com.example.icontest2.seller_register.SellerCheckIdDTO\r\nimport com.example.icontest2.seller_register.SellerRegisterActivity\r\nimport com.example.icontest2.seller_register.SellerRegisterDTO\r\nimport com.google.gson.GsonBuilder\r\nimport kotlinx.coroutines.Dispatchers\r\nimport kotlinx.coroutines.GlobalScope\r\nimport kotlinx.coroutines.launch\r\nimport retrofit2.Retrofit\r\nimport retrofit2.converter.gson.GsonConverterFactory\r\n\r\nclass SellerLoginActivity : AppCompatActivity() {\r\n    private lateinit var binding : ActivitySellerLoginBinding\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        binding = ActivitySellerLoginBinding.inflate(layoutInflater)\r\n        setContentView(binding.root)\r\n\r\n        // ToolBar 설정, 제목, 버튼 활성화, 아이콘 클릭 가능 설정\r\n        setSupportActionBar(binding.sellerLoginToolbar) // 생성시 ()안에 id 변경.\r\n        supportActionBar?.title = \"\"\r\n        supportActionBar?.setDisplayHomeAsUpEnabled(true)\r\n        supportActionBar?.setDisplayShowHomeEnabled(true)\r\n\r\n        val gson = GsonBuilder()\r\n            .setLenient()\r\n            .create()\r\n\r\n        val retrofit = Retrofit.Builder()\r\n            .baseUrl(\"http://13.209.18.214:8080\")\r\n            .addConverterFactory(GsonConverterFactory.create(gson))\r\n            .build()\r\n\r\n        // 일반 사용자 로그인으로 이동하기 버튼 클릭 시\r\n        binding.sellerLoginMoveCustomerLoginTv.setOnClickListener {\r\n            val intent = Intent(this, LoginActivity::class.java)\r\n            startActivity(intent)\r\n        }\r\n        // 회원가입 버튼 클릭 시\r\n        binding.sellerLoginRegisterTv.setOnClickListener {\r\n            val intent = Intent(this, SellerRegisterActivity::class.java)\r\n            startActivity(intent)\r\n        }\r\n        // 아이디 찾기 버튼 클릭 시\r\n        binding.sellerLoginFindIdTv.setOnClickListener {\r\n            // Dialog만들기\r\n            val mDialogView = LayoutInflater.from(this).inflate(R.layout.seller_find_id_dialog, null)\r\n            val mBuilder = AlertDialog.Builder(this)\r\n                .setView(mDialogView)\r\n                .setTitle(\"아이디 찾기\")\r\n            mBuilder.show()\r\n\r\n            val findIdBtn = mDialogView.findViewById<Button>(R.id.seller_find_id_btn)\r\n            findIdBtn.setOnClickListener {\r\n                val businessName = mDialogView.findViewById<EditText>(R.id.seller_find_id_name_edt).text.toString()\r\n                val phoneNumber = mDialogView.findViewById<EditText>(R.id.seller_find_id_phone_number_edt).text.toString()\r\n                val findIdTv = mDialogView.findViewById<TextView>(R.id.find_id_tv)\r\n                var sellerData = SellerIdFindDTO(businessName, phoneNumber)\r\n\r\n                val sellerAPI = retrofit.create(SellerAPI::class.java)\r\n\r\n                GlobalScope.launch(Dispatchers.IO) {\r\n                    try {\r\n                        val response = sellerAPI.sellerIdFind(sellerData)\r\n                        Log.d(TAG, \"통신전\")\r\n                        Log.d(TAG, \"$sellerData\")\r\n                        if (response.isNotEmpty()) {\r\n                            // 요청 성공\r\n                            Log.d(TAG, \"성공\")\r\n                            runOnUiThread {\r\n                                findIdTv.visibility = View.VISIBLE\r\n                                findIdTv.text = \"아이디 - ${response}\"\r\n                            }\r\n                            Log.d(TAG, \"$response\")\r\n                        } else if(response.isEmpty()) {\r\n                            // 요청 실패\r\n                            Log.d(TAG, \"실패\")\r\n                            Log.d(TAG, \"$response\")\r\n                            runOnUiThread {\r\n                                Toast.makeText(applicationContext, \"올바른 정보가 아닙니다.\", Toast.LENGTH_SHORT).show()\r\n                            }\r\n                        }\r\n                    } catch (e: Exception) {\r\n                        Log.d(TAG, \"예외\")\r\n                        Log.d(TAG, \"$e\")\r\n                    }\r\n                }\r\n            }\r\n        }\r\n        // 로그인 버튼 클릭 시\r\n        binding.sellerLoginBtn.setOnClickListener {\r\n            var id = binding.sellerLoginIdEdt.text.toString()\r\n            var pw = binding.sellerLoginPwEdt.text.toString()\r\n            val sellerData = SellerLoginDTO(id, pw)\r\n\r\n            val sellerAPI = retrofit.create(SellerAPI::class.java)\r\n\r\n            GlobalScope.launch(Dispatchers.IO) {\r\n                try {\r\n                    val response = sellerAPI.sellerLogin(sellerData)\r\n\r\n                    Log.d(TAG, \"통신전\")\r\n                    Log.d(TAG, \"$response\")\r\n                    if(response.isSuccessful) {\r\n                        val sellerLoginResponse = response.body()\r\n                        Log.d(TAG, \"$sellerLoginResponse\")\r\n                        // 로그인 성공 시 처리\r\n                    } else {\r\n                        // 로그인 실패 시 처리\r\n                        Log.d(TAG, \"$response\")\r\n                        Log.d(TAG, \"${response.body()}\")\r\n                    }\r\n                    /*\r\n                    when(response) {\r\n                        is Either.Left -> {\r\n                            // handle error\r\n                            val message = response.value.text\r\n                            Log.d(TAG, \"$message\")\r\n                        }\r\n                        is Either.Right -> {\r\n                            // handle success\r\n                            Log.d(TAG, \"${response.value}\")\r\n                        }\r\n                    }\r\n                    */\r\n                    /*\r\n                    // 응답 처리\r\n                    if (response.isSuccessful) {\r\n                        // 로그인 성공 시 Seller 객체 받아오기\r\n                        val seller: SellerLoginResponse? = response.body()\r\n                        if (seller != null) {\r\n                            // Seller 객체를 이용한 처리\r\n                            runOnUiThread {\r\n                                Toast.makeText(applicationContext, \"${seller.id} 님 환영합니다.\", Toast.LENGTH_SHORT).show()\r\n                                val intent = Intent(applicationContext, MainActivity::class.java)\r\n                                startActivity(intent)\r\n                            }\r\n                        }\r\n                    } else {\r\n                        // 로그인 실패 시 \"login fail\" 문자열 받아오기\r\n                        val errorMsg: String? = response.body().toString()\r\n                        if (errorMsg != null) {\r\n                            // \"login fail\" 문자열을 이용한 처리\r\n                            runOnUiThread {\r\n                                Toast.makeText(applicationContext, \"아이디 혹은 비밀번호가 일치하지 않습니다.\", Toast.LENGTH_SHORT).show()\r\n                            }\r\n                        }\r\n                    }\r\n                    */\r\n                    /*\r\n                    if (response.isNotEmpty()) {\r\n                        // 요청 성공\r\n                        runOnUiThread {\r\n                            if (response == \"login fail\"){    // 로그인 실패한 경우\r\n                                Log.d(TAG, \"String : $response\")\r\n                                Toast.makeText(applicationContext, \"아이디 혹은 비밀번호가 일치하지 않습니다.\", Toast.LENGTH_SHORT).show()\r\n                            } else{     // 로그인 성공한 경우\r\n                                Log.d(TAG, \"SellerLoginResponse : $response\")\r\n                                // Toast.makeText(applicationContext, \"${responseBody.id} 님 환영합니다.\", Toast.LENGTH_SHORT).show()\r\n                                val intent = Intent(applicationContext, MainActivity::class.java)\r\n                                startActivity(intent)\r\n                            }\r\n                        }\r\n                        Log.d(TAG, \"성공\")\r\n                        // Log.d(TAG, \"${response.body()}\")\r\n                        Log.d(TAG, \"$response\")\r\n                    } else {\r\n                        // 요청 실패\r\n                        Log.d(TAG, \"실패\")\r\n                        // Log.d(TAG, \"${response.body()}\")\r\n                        Log.d(TAG, \"$response\")\r\n                    }\r\n                    */\r\n                } catch (e: Exception) {\r\n                    Log.d(TAG, \"예외\")\r\n                    Log.d(TAG, \"$e\")\r\n                }\r\n            }\r\n        }\r\n    }\r\n    override fun onOptionsItemSelected(item: MenuItem): Boolean {\r\n        return when (item.itemId) {\r\n            android.R.id.home -> {\r\n                onBackPressed()\r\n                true\r\n            }\r\n            else -> super.onOptionsItemSelected(item)\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/icontest2/seller_login/SellerLoginActivity.kt b/app/src/main/java/com/example/icontest2/seller_login/SellerLoginActivity.kt
+--- a/app/src/main/java/com/example/icontest2/seller_login/SellerLoginActivity.kt	
++++ b/app/src/main/java/com/example/icontest2/seller_login/SellerLoginActivity.kt	
+@@ -21,7 +21,9 @@
+ import com.example.icontest2.seller_register.SellerCheckIdDTO
+ import com.example.icontest2.seller_register.SellerRegisterActivity
+ import com.example.icontest2.seller_register.SellerRegisterDTO
++import com.google.gson.Gson
+ import com.google.gson.GsonBuilder
++import com.google.gson.JsonObject
+ import kotlinx.coroutines.Dispatchers
+ import kotlinx.coroutines.GlobalScope
+ import kotlinx.coroutines.launch
+@@ -118,18 +120,33 @@
+             GlobalScope.launch(Dispatchers.IO) {
+                 try {
+                     val response = sellerAPI.sellerLogin(sellerData)
+-
+                     Log.d(TAG, "통신전")
+                     Log.d(TAG, "$response")
+-                    if(response.isSuccessful) {
+-                        val sellerLoginResponse = response.body()
++                    /*
++                    if (response != null) {
++                        val jsonData: JsonObject = Gson().fromJson(response.toString(), JsonObject::class.java)
++                        Log.d(TAG,"성공")
++                        Log.d(TAG, "$jsonData")
++                        Log.d(TAG,"실패")
++                        Log.d(TAG, "$response")
++                        Log.d(TAG, "${response.toString()}")
++                    }
++                    */
++                    /*
++                    if(response.isSuccessful()) {
++                        val sellerLoginResponse = response
+                         Log.d(TAG, "$sellerLoginResponse")
+                         // 로그인 성공 시 처리
+-                    } else {
++                    } /*else if(response.body().toString() == "login fail"){
++                        Log.d(TAG, "$response")
++                        Log.d(TAG, "${response.body()}")
++                    }*/
++                    else {
+                         // 로그인 실패 시 처리
+                         Log.d(TAG, "$response")
+-                        Log.d(TAG, "${response.body()}")
++                        Log.d(TAG, "${response}")
+                     }
++                    */
+                     /*
+                     when(response) {
+                         is Either.Left -> {
+@@ -143,7 +160,7 @@
+                         }
+                     }
+                     */
+-                    /*
++
+                     // 응답 처리
+                     if (response.isSuccessful) {
+                         // 로그인 성공 시 Seller 객체 받아오기
+@@ -166,7 +183,7 @@
+                             }
+                         }
+                     }
+-                    */
++
+                     /*
+                     if (response.isNotEmpty()) {
+                         // 요청 성공
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30__4_22__Changes_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30__4_22__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30__4_22__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30__4_22__Changes_.xml	
++++ /dev/null	
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Checkout_at_2023-03-30_오후_4_22_[Changes]" date="1680160955178" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_4_22_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 2023-03-30 오후 4:22 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_2_29_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_2_29_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_2_29_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_2_29_[Changes]/shelved.patch	
++++ /dev/null	
+@@ -1,27 +0,0 @@
+-Index: app/src/main/AndroidManifest.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    package=\"com.example.icontest2\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n    <uses-permission\r\n        android:name=\"android.permission.QUERY_ALL_PACKAGES\"\r\n        tools:ignore=\"QueryAllPackagesPermission\" />\r\n\r\n    <queries>\r\n        <package android:name=\"com.vuforia.engine.coresamples\" />\r\n    </queries>\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n\r\n    <application\r\n        android:name=\".KakaoInit\"\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/food_truck\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/food_truck_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.IconTest2\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".CustomerLocationRegister\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".LocationRegisterActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MenuListsActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignUpLocationActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MyPageActivity\"\r\n            android:exported=\"false\" />\r\n\r\n        <meta-data\r\n            android:name=\"com.google.android.geo.API_KEY\"\r\n            android:value=\"@string/google_maps_key\" />\r\n\r\n        <activity\r\n            android:name=\".MapActivity\"\r\n            android:exported=\"true\" />\r\n        <activity\r\n            android:name=\".SearchActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignUpActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".LoginActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity>\r\n        <activity\r\n            android:name=\".SplashActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity> <!-- Kakao 로그인 -->\r\n        <activity\r\n            android:name=\"com.kakao.sdk.auth.AuthCodeHandlerActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.VIEW\" />\r\n\r\n                <category android:name=\"android.intent.category.DEFAULT\" />\r\n                <category android:name=\"android.intent.category.BROWSABLE\" />\r\n\r\n                <!-- Redirect URI: \"kakao{NATIVE_APP_KEY}://oauth\" -->\r\n                <!-- scheme-example: \"kakao{NATIVE_APP_KEY}\" -->\r\n                <data\r\n                    android:host=\"oauth\"\r\n                    android:scheme=\"@string/kakao_native_key_manifest\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+---- a/app/src/main/AndroidManifest.xml	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-+++ b/app/src/main/AndroidManifest.xml	(date 1680154182876)
+-@@ -30,16 +30,10 @@
+-         android:theme="@style/Theme.IconTest2"
+-         tools:targetApi="31">
+-         <activity
+--            android:name=".CustomerLocationRegister"
+--            android:exported="false" />
+--        <activity
+-             android:name=".LocationRegisterActivity"
+-             android:exported="false" />
+-         <activity
+-             android:name=".MenuListsActivity"
+--            android:exported="false" />
+--        <activity
+--            android:name=".SignUpLocationActivity"
+-             android:exported="false" />
+-         <activity
+-             android:name=".MyPageActivity"
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_4_22_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_4_22_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_4_22_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_4_22_[Changes]/shelved.patch	
++++ /dev/null	
+@@ -1,27 +0,0 @@
+-Index: app/src/main/AndroidManifest.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    package=\"com.example.icontest2\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n    <uses-permission\r\n        android:name=\"android.permission.QUERY_ALL_PACKAGES\"\r\n        tools:ignore=\"QueryAllPackagesPermission\" />\r\n\r\n    <queries>\r\n        <package android:name=\"com.vuforia.engine.coresamples\" />\r\n    </queries>\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n\r\n    <!--android:usesCleartextTraffic=\"true\" < 서버 통신-->\r\n    <application\r\n        android:name=\".KakaoInit\"\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/food_truck\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/food_truck_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.IconTest2\"\r\n        android:usesCleartextTraffic=\"true\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".CustomerLocationRegister\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".LocationRegisterActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MenuListsActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignUpLocationActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MyPageActivity\"\r\n            android:exported=\"false\" />\r\n\r\n        <meta-data\r\n            android:name=\"com.google.android.geo.API_KEY\"\r\n            android:value=\"@string/google_maps_key\" />\r\n\r\n        <activity\r\n            android:name=\".MapActivity\"\r\n            android:exported=\"true\" />\r\n        <activity\r\n            android:name=\".SearchActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignUpActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".LoginActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity>\r\n        <activity\r\n            android:name=\".SplashActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity> <!-- Kakao 로그인 -->\r\n        <activity\r\n            android:name=\"com.kakao.sdk.auth.AuthCodeHandlerActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.VIEW\" />\r\n\r\n                <category android:name=\"android.intent.category.DEFAULT\" />\r\n                <category android:name=\"android.intent.category.BROWSABLE\" />\r\n\r\n                <!-- Redirect URI: \"kakao{NATIVE_APP_KEY}://oauth\" -->\r\n                <!-- scheme-example: \"kakao{NATIVE_APP_KEY}\" -->\r\n                <data\r\n                    android:host=\"oauth\"\r\n                    android:scheme=\"@string/kakao_native_key_manifest\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+---- a/app/src/main/AndroidManifest.xml	(revision 6f6c0dfa25c368eb9d450ccf271baec6016c63c2)
+-+++ b/app/src/main/AndroidManifest.xml	(date 1680160947353)
+-@@ -32,16 +32,10 @@
+-         android:usesCleartextTraffic="true"
+-         tools:targetApi="31">
+-         <activity
+--            android:name=".CustomerLocationRegister"
+--            android:exported="false" />
+--        <activity
+-             android:name=".LocationRegisterActivity"
+-             android:exported="false" />
+-         <activity
+-             android:name=".MenuListsActivity"
+--            android:exported="false" />
+--        <activity
+--            android:name=".SignUpLocationActivity"
+-             android:exported="false" />
+-         <activity
+-             android:name=".MyPageActivity"
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30__2_29__Changes_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30__2_29__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30__2_29__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30__2_29__Changes_.xml	
++++ /dev/null	
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Checkout_at_2023-03-30_오후_2_29_[Changes]" date="1680154188714" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-30_오후_2_29_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 2023-03-30 오후 2:29 [Changes]" />
+-</changelist>
+\ No newline at end of file

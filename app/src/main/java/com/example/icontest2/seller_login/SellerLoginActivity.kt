@@ -2,6 +2,7 @@ package com.example.icontest2.seller_login
 
 import android.content.ContentValues
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -142,20 +143,34 @@ class SellerLoginActivity : AppCompatActivity() {
                     val contentType = response.contentType()
                     if (contentType?.type == "application" && contentType.subtype == "json") {
                         // 서버에서 반환하는 데이터가 JSON인 경우 처리
-                        val gson = GsonBuilder()
-                            .setLenient()
-                            .create()
                         val sellerLoginDto = gson.fromJson(response.string(), SellerLoginResponse::class.java)
                         Log.d(TAG, "4$sellerLoginDto")
                         runOnUiThread {
                             Toast.makeText(applicationContext, "${sellerLoginDto.seller.id} 님 환영합니다.", Toast.LENGTH_SHORT).show()
                         }
-                        val intent = Intent(applicationContext, SellerMainActivity::class.java).apply {
-                            //putExtra("sellerInfo", "${sellerLoginDto.seller}")
-                            putExtra("sellerId", sellerLoginDto.seller.id) // sellerid 전송 부분 추가
-                            putExtra("base64String", sellerLoginDto.base64EncodedImage) // string값 메인에 전송
+
+                        // 여기서 부터 사용자의 첫 로그인인지 유무를 판단.
+                        /*val sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.putString("${sellerLoginDto.seller.id}", "login")
+                        editor.apply()*/
+                        val sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+                        val userId = sharedPreferences.getString(sellerLoginDto.seller.id, null)
+
+                        if (userId == null){ // 처음 로그인한 경우
+                            val editor = sharedPreferences.edit()
+                            editor.putString(sellerLoginDto.seller.id, "login")
+                            editor.apply()
+                            // 이미지등록 화면으로 이동
+
+                        } else{ // 로그인한 적이 있는 경우
+                            val intent = Intent(applicationContext, SellerMainActivity::class.java).apply {
+                                putExtra("sellerId", sellerLoginDto.seller.id)
+                                putExtra("sellerBusinessName", sellerLoginDto.seller.businessName)
+                                putExtra("base64String", sellerLoginDto.base64EncodedImage) // string값 메인에 전송
+                            }
+                            startActivity(intent)
                         }
-                        startActivity(intent)
                     } else {
                         // 서버에서 반환하는 데이터가 text/plain인 경우 처리
                         val data = response.string()

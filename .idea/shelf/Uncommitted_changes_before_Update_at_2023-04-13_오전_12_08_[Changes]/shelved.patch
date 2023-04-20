@@ -1,0 +1,1050 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_2023-04-03_오후_5_47_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-04-03_오후_5_47_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_2023-04-03_오후_5_47_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-04-03_오후_5_47_[Changes]/shelved.patch	(revision fdf89f59cecf131a549260f7f27211e2470f8dfc)
++++ /dev/null	(revision fdf89f59cecf131a549260f7f27211e2470f8dfc)
+@@ -1,890 +0,0 @@
+-Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27__2_34__Changes_1.xml
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27__2_34__Changes_1.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27__2_34__Changes_1.xml
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27__2_34__Changes_1.xml	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-+++ /dev/null	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-@@ -1,4 +0,0 @@
+--<changelist name="Uncommitted_changes_before_Checkout_at_2023-03-27_오후_2_34_[Changes]1" date="1679895349713" recycled="true" deleted="true">
+--  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_2_34_[Changes]1/shelved.patch" />
+--  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 2023-03-27 오후 2:34 [Changes]" />
+--</changelist>
+-\ No newline at end of file
+-Index: .idea/shelf/Uncommitted_changes_before_Update_at_2023-03-27__2_37__Changes_.xml
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-27__2_37__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-27__2_37__Changes_.xml
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-27__2_37__Changes_.xml	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-+++ /dev/null	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-@@ -1,4 +0,0 @@
+--<changelist name="Uncommitted_changes_before_Update_at_2023-03-27_오후_2_37_[Changes]" date="1679895464930" recycled="true" deleted="true">
+--  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-27_오후_2_37_[Changes]/shelved.patch" />
+--  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2023-03-27 오후 2:37 [Changes]" />
+--</changelist>
+-\ No newline at end of file
+-Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27__4_09__Changes_.xml
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27__4_09__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27__4_09__Changes_.xml
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27__4_09__Changes_.xml	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-+++ /dev/null	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-@@ -1,4 +0,0 @@
+--<changelist name="Uncommitted_changes_before_Checkout_at_2023-03-27_오후_4_09_[Changes]" date="1679901168572" recycled="true" deleted="true">
+--  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_4_09_[Changes]/shelved.patch" />
+--  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 2023-03-27 오후 4:09 [Changes]" />
+--</changelist>
+-\ No newline at end of file
+-Index: .idea/shelf/Uncommitted_changes_before_Update_at_2023-03-27_오후_2_37_[Changes]/shelved.patch
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-27_오후_2_37_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-27_오후_2_37_[Changes]/shelved.patch
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-27_오후_2_37_[Changes]/shelved.patch	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-+++ /dev/null	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-@@ -1,87 +0,0 @@
+--Index: .idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19_오전_3_20_[Changes]/shelved.patch
+--===================================================================
+--diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19_오전_3_20_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19_오전_3_20_[Changes]/shelved.patch
+--deleted file mode 100644
+----- a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19_오전_3_20_[Changes]/shelved.patch	(revision efb96718ca4fc7acadbb26c189c7520555ed17bd)
+--+++ /dev/null	(revision efb96718ca4fc7acadbb26c189c7520555ed17bd)
+--@@ -1,19 +0,0 @@
+---Index: .idea/vcs.xml
+---IDEA additional info:
+---Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+---<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\">\r\n    <mapping directory=\"$PROJECT_DIR$/..\" vcs=\"Git\" />\r\n  </component>\r\n</project>
+---Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+---<+>UTF-8
+---===================================================================
+---diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+------ a/.idea/vcs.xml	(revision 8485395d607086a3e75f813c0a2cfa5bee0744a4)
+---+++ b/.idea/vcs.xml	(date 1679162780870)
+---@@ -1,6 +1,6 @@
+--- <?xml version="1.0" encoding="UTF-8"?>
+--- <project version="4">
+---   <component name="VcsDirectoryMappings">
+----    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+---+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+---   </component>
+--- </project>
+---\ No newline at end of file
+--Index: .idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19__3_20__Changes_.xml
+--===================================================================
+--diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19__3_20__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19__3_20__Changes_.xml
+--deleted file mode 100644
+----- a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19__3_20__Changes_.xml	(revision efb96718ca4fc7acadbb26c189c7520555ed17bd)
+--+++ /dev/null	(revision efb96718ca4fc7acadbb26c189c7520555ed17bd)
+--@@ -1,4 +0,0 @@
+---<changelist name="Uncommitted_changes_before_Update_at_2023-03-19_오전_3_20_[Changes]" date="1679163643629" recycled="true" deleted="true">
+---  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19_오전_3_20_[Changes]/shelved.patch" />
+---  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2023-03-19 오전 3:20 [Changes]" />
+---</changelist>
+--\ No newline at end of file
+--Index: app/src/main/res/layout/activity_location_register.xml
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".LocationRegisterActivity\">\r\n\r\n    <com.google.android.gms.maps.MapView\r\n        android:id=\"@+id/mapView\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\" />\r\n\r\n</LinearLayout>
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/app/src/main/res/layout/activity_location_register.xml b/app/src/main/res/layout/activity_location_register.xml
+----- a/app/src/main/res/layout/activity_location_register.xml	(revision efb96718ca4fc7acadbb26c189c7520555ed17bd)
+--+++ b/app/src/main/res/layout/activity_location_register.xml	(date 1679895273695)
+--@@ -5,11 +5,13 @@
+--     xmlns:tools="http://schemas.android.com/tools"
+--     android:layout_width="match_parent"
+--     android:layout_height="match_parent"
+---    tools:context=".LocationRegisterActivity">
+--+    tools:context=".LocationRegisterActivity"
+--+    android:gravity="center">
+-- 
+--     <com.google.android.gms.maps.MapView
+--         android:id="@+id/mapView"
+---        android:layout_width="match_parent"
+---        android:layout_height="match_parent" />
+--+        android:layout_width="300dp"
+--+        android:layout_height="200dp"
+--+        android:layout_gravity="center"/>
+-- 
+-- </LinearLayout>
+--\ No newline at end of file
+--Index: app/src/main/AndroidManifest.xml
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    package=\"com.example.icontest2\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n    <uses-permission\r\n        android:name=\"android.permission.QUERY_ALL_PACKAGES\"\r\n        tools:ignore=\"QueryAllPackagesPermission\" />\r\n\r\n    <queries>\r\n        <package android:name=\"com.vuforia.engine.coresamples\" />\r\n    </queries>\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n\r\n    <application\r\n        android:name=\".KakaoInit\"\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/food_truck\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/food_truck_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.IconTest2\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".LocationRegisterActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MenuListsActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignUpLocationActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MyPageActivity\"\r\n            android:exported=\"false\" />\r\n\r\n        <meta-data\r\n            android:name=\"com.google.android.geo.API_KEY\"\r\n            android:value=\"@string/google_maps_key\" />\r\n\r\n        <activity\r\n            android:name=\".MapActivity\"\r\n            android:exported=\"true\" />\r\n        <activity\r\n            android:name=\".SearchActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignUpActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".LoginActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity>\r\n        <activity\r\n            android:name=\".SplashActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity> <!-- Kakao 로그인 -->\r\n        <activity\r\n            android:name=\"com.kakao.sdk.auth.AuthCodeHandlerActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.VIEW\" />\r\n\r\n                <category android:name=\"android.intent.category.DEFAULT\" />\r\n                <category android:name=\"android.intent.category.BROWSABLE\" />\r\n\r\n                <!-- Redirect URI: \"kakao{NATIVE_APP_KEY}://oauth\" -->\r\n                <!-- scheme-example: \"kakao{NATIVE_APP_KEY}\" -->\r\n                <data\r\n                    android:host=\"oauth\"\r\n                    android:scheme=\"@string/kakao_native_key_manifest\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+----- a/app/src/main/AndroidManifest.xml	(revision efb96718ca4fc7acadbb26c189c7520555ed17bd)
+--+++ b/app/src/main/AndroidManifest.xml	(date 1679895273717)
+--@@ -14,10 +14,6 @@
+--         <package android:name="com.vuforia.engine.coresamples" />
+--     </queries>
+-- 
+---    <uses-permission android:name="android.permission.INTERNET" />
+---    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+---    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+---
+--     <application
+--         android:name=".KakaoInit"
+--         android:allowBackup="true"
+-Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27__2_38__Changes_.xml
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27__2_38__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27__2_38__Changes_.xml
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27__2_38__Changes_.xml	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-+++ /dev/null	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-@@ -1,4 +0,0 @@
+--<changelist name="Uncommitted_changes_before_Checkout_at_2023-03-27_오후_2_38_[Changes]" date="1679895485808" recycled="true" deleted="true">
+--  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_2_38_[Changes]/shelved.patch" />
+--  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 2023-03-27 오후 2:38 [Changes]" />
+--</changelist>
+-\ No newline at end of file
+-Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_4_09_[Changes]/shelved.patch
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_4_09_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_4_09_[Changes]/shelved.patch
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_4_09_[Changes]/shelved.patch	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-+++ /dev/null	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-@@ -1,233 +0,0 @@
+--Index: app/src/main/AndroidManifest.xml
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    package=\"com.example.icontest2\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n    <uses-permission\r\n        android:name=\"android.permission.QUERY_ALL_PACKAGES\"\r\n        tools:ignore=\"QueryAllPackagesPermission\" />\r\n\r\n    <queries>\r\n        <package android:name=\"com.vuforia.engine.coresamples\" />\r\n    </queries>\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n\r\n    <application\r\n        android:name=\".KakaoInit\"\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/food_truck\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/food_truck_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.IconTest2\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".CustomerLocationRegister\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".LocationRegisterActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MenuListsActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignUpLocationActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MyPageActivity\"\r\n            android:exported=\"false\" />\r\n\r\n        <meta-data\r\n            android:name=\"com.google.android.geo.API_KEY\"\r\n            android:value=\"@string/google_maps_key\" />\r\n\r\n        <activity\r\n            android:name=\".MapActivity\"\r\n            android:exported=\"true\" />\r\n        <activity\r\n            android:name=\".SearchActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignUpActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".LoginActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity>\r\n        <activity\r\n            android:name=\".SplashActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity> <!-- Kakao 로그인 -->\r\n        <activity\r\n            android:name=\"com.kakao.sdk.auth.AuthCodeHandlerActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.VIEW\" />\r\n\r\n                <category android:name=\"android.intent.category.DEFAULT\" />\r\n                <category android:name=\"android.intent.category.BROWSABLE\" />\r\n\r\n                <!-- Redirect URI: \"kakao{NATIVE_APP_KEY}://oauth\" -->\r\n                <!-- scheme-example: \"kakao{NATIVE_APP_KEY}\" -->\r\n                <data\r\n                    android:host=\"oauth\"\r\n                    android:scheme=\"@string/kakao_native_key_manifest\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+----- a/app/src/main/AndroidManifest.xml	(revision f92edb87f2e55695474c9ff524a64350fb403d11)
+--+++ b/app/src/main/AndroidManifest.xml	(date 1679842281614)
+--@@ -29,9 +29,7 @@
+--         android:supportsRtl="true"
+--         android:theme="@style/Theme.IconTest2"
+--         tools:targetApi="31">
+---        <activity
+---            android:name=".CustomerLocationRegister"
+---            android:exported="false" />
+--+
+--         <activity
+--             android:name=".LocationRegisterActivity"
+--             android:exported="false" />
+--Index: app/src/main/java/com/example/icontest2/SignUpActivity.kt
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+>package com.example.icontest2\r\n\r\nimport android.content.Intent\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport android.text.Editable\r\nimport android.text.InputFilter\r\nimport android.text.TextWatcher\r\nimport android.util.Log\r\nimport android.widget.EditText\r\nimport com.example.icontest2.databinding.ActivitySignUpBinding\r\nimport java.util.regex.Pattern\r\nimport android.Manifest\r\nimport android.content.pm.PackageManager\r\nimport android.location.Geocoder\r\nimport android.widget.Button\r\nimport android.widget.Toast\r\nimport androidx.core.app.ActivityCompat\r\nimport androidx.core.content.ContextCompat\r\nimport com.google.android.gms.location.LocationServices\r\nimport com.google.android.gms.maps.CameraUpdateFactory\r\nimport com.google.android.gms.maps.GoogleMap\r\nimport com.google.android.gms.maps.OnMapReadyCallback\r\nimport com.google.android.gms.maps.SupportMapFragment\r\nimport com.google.android.gms.maps.model.LatLng\r\nimport com.google.android.gms.maps.model.MarkerOptions\r\nimport java.util.*\r\n\r\n\r\nclass SignUpActivity : AppCompatActivity(), OnMapReadyCallback {\r\n    private lateinit var binding: ActivitySignUpBinding\r\n    private var TAG = \"SignUpActivity\"\r\n    private lateinit var mMap: GoogleMap\r\n    private lateinit var buttonLocation: Button\r\n    private val REQUEST_LOCATION_PERMISSION = 1\r\n\r\n\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?){\r\n        super.onCreate(savedInstanceState)\r\n        binding = ActivitySignUpBinding.inflate(layoutInflater)\r\n        setContentView(binding.root)\r\n\r\n        val returnIntent = Intent(this, LoginActivity::class.java)\r\n        val locationRegisterIntent = Intent(this, LocationRegisterActivity::class.java)\r\n\r\n        // 아이디, 비밀번호, 비밀번호 확인, 이름, 휴대폰번호의 editText id\r\n        val signUpIdEdit = binding.signUpIdEdit // 아이디\r\n        val signUpPasswdEdit = binding.signUpPasswdEdit\r\n        val signUpCheckPasswdEdit = binding.signUpCheckPasswdEdit\r\n        val signUpNameEdit = binding.signUpNameEdit\r\n        val signUpPhoneEdit = binding.signUpPhoneEdit\r\n        val signUptextIdLengthChecker = binding.mainTextInputLayoutID\r\n        val signUptextPwLengthChecker = binding.mainTextInputLayoutPW\r\n        val lengthCheck = binding.mainTextInputLayoutCreateName\r\n        val signUPEdit_ID = binding.EditID // 아이디 만들기\r\n        val signUPEdit_PW = binding.EditPW // 비밀번호 만들기\r\n        val signUpCreate_name = binding.createName // 이름 만들기\r\n        val signUpCreate_phone_number = binding.phoneNumberCreate // 폰번호 숫자만 11자제한\r\n        setEditTextInput(signUpCreate_phone_number, 11)\r\n\r\n        buttonLocation = findViewById(R.id.button_location) // 사용자 위치 조회 및 입력\r\n        buttonLocation.setOnClickListener {\r\n            requestLocationPermission()\r\n            showUserLocation()\r\n        }\r\n        val mapFragment =\r\n            supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment\r\n        mapFragment.getMapAsync(this)\r\n\r\n        val buttonShowLocation = findViewById<Button>(R.id.button_location)\r\n        buttonShowLocation.setOnClickListener {\r\n            if (ContextCompat.checkSelfPermission(this,\r\n                    Manifest.permission.ACCESS_FINE_LOCATION)\r\n                == PackageManager.PERMISSION_GRANTED) {\r\n                // 위치 권한이 허용된 경우\r\n                showUserLocation()\r\n            } else {\r\n                // 위치 권한이 허용되지 않은 경우\r\n                ActivityCompat.requestPermissions(this,\r\n                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),\r\n                    REQUEST_LOCATION_PERMISSION)\r\n            }\r\n        }\r\n\r\n\r\n\r\n        // 아이디, 패스워드 초과 경고 메세지\r\n        fun textLengthChecker() {\r\n            signUptextIdLengthChecker.isCounterEnabled = true\r\n            signUptextPwLengthChecker.isCounterEnabled = true\r\n            lengthCheck.isCounterEnabled = true\r\n\r\n            signUptextIdLengthChecker.counterMaxLength = 15 // ID 최대 길이\r\n            signUptextPwLengthChecker.counterMaxLength = 20 // PW 최대 길이\r\n            lengthCheck.counterMaxLength = 10\r\n\r\n            signUptextIdLengthChecker.isErrorEnabled = true\r\n            signUptextPwLengthChecker.isErrorEnabled = true\r\n            lengthCheck.isErrorEnabled = true\r\n\r\n            signUPEdit_ID.addTextChangedListener(object : TextWatcher {\r\n                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {\r\n                }\r\n                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {\r\n                    if (signUPEdit_ID.length() > 15) {\r\n                        signUptextIdLengthChecker.error = \"ID의 글자 수를 초과하였습니다.\"\r\n                    } else {\r\n                        signUptextIdLengthChecker.error = null\r\n                    }\r\n                    if (signUPEdit_ID.length() < 5) {\r\n                        signUptextIdLengthChecker.error = \"ID는 최소 5자 이상입니다.\"\r\n                    } else {\r\n                        signUptextIdLengthChecker.error = null\r\n                    }\r\n                }\r\n                override fun afterTextChanged(p0: Editable?) {\r\n                }\r\n\r\n            })\r\n\r\n            signUPEdit_PW.addTextChangedListener(object : TextWatcher {\r\n                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {\r\n                }\r\n                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {\r\n                    if (signUPEdit_PW.length() > 20) {\r\n                        signUptextPwLengthChecker.error = \"PW의 글자 수를 초과하였습니다.\"\r\n                    } else {\r\n                        signUptextIdLengthChecker.error = null\r\n                    }\r\n                    if (signUPEdit_PW.length() < 8) {\r\n                        signUptextPwLengthChecker.error = \"PW는 최소 8자 이상입니다.\"\r\n                    } else {\r\n                        signUptextIdLengthChecker.error = null\r\n                    }\r\n                }\r\n                override fun afterTextChanged(p0: Editable?) {\r\n                }\r\n            })\r\n            signUpCreate_name.addTextChangedListener(object : TextWatcher {\r\n                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {\r\n                }\r\n                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {\r\n                    if (signUpCreate_name.length() > 10) {\r\n                        lengthCheck.error = \"이름의 글자 수를 초과 하였습니다.\"\r\n                    } else {\r\n                        lengthCheck.error = null\r\n                    }\r\n                }\r\n                override fun afterTextChanged(p0: Editable?) {\r\n                }\r\n            })\r\n        }\r\n\r\n        val textWatcher = object : TextWatcher {\r\n            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}\r\n            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}\r\n            // 사용자의 입력이 끝난 후 처리\r\n            override fun afterTextChanged(s: Editable?) {\r\n                Log.d(TAG, \"${s}\")\r\n                // 아이디\r\n                if (s == signUpIdEdit.editableText) {\r\n                    Log.d(TAG, \"in - id - length\")\r\n                    val minLength = 5\r\n                    val maxLength = 15\r\n                    checkWhiteSpace(s, signUpIdEdit) // 공백 문자 확인\r\n                    checkSpecialCharacters(s, signUpIdEdit) // 특수 문자 확인\r\n                    checkLength(s, signUpIdEdit, maxLength, minLength) // 문자열 길이 확인\r\n                }\r\n                // 비밀번호\r\n                if (s == signUpPasswdEdit.editableText) {\r\n                    Log.d(TAG, \"in - pw - length\")\r\n                    val minLength = 8\r\n                    val maxLength = 20\r\n                    checkWhiteSpace(s, signUpPasswdEdit) // 공백 문자 확인\r\n                    checkSpecialCharacters(s, signUpPasswdEdit) // 특수 문자 확인\r\n                    checkAlphaNumber(signUpPasswdEdit) // 영문 + 숫자 확인\r\n                    checkLength(s, signUpPasswdEdit, maxLength, minLength) // 문자열 길이 확인\r\n                }\r\n                // 비밀번호 체크\r\n                if (s == signUpCheckPasswdEdit.editableText) {\r\n                    Log.d(TAG, \"in - pwcheck - length\")\r\n                    if (signUpPasswdEdit.text.toString() != signUpCheckPasswdEdit.text.toString()) {\r\n                        signUpCheckPasswdEdit.error = \"비밀번호가 일치하지 않습니다.\"\r\n                    } else {\r\n                        signUpCheckPasswdEdit.error = null\r\n                    }\r\n                }\r\n                // 이름\r\n                if (s == signUpNameEdit.editableText) {\r\n                    Log.d(TAG, \"in - name - length\")\r\n                    val minLength = 1\r\n                    val maxLength = 10\r\n                    checkWhiteSpace(s, signUpNameEdit) // 공백 문자 확인\r\n                    checkSpecialCharacters(s, signUpNameEdit) // 특수 문자 확인\r\n                    checkKorean(signUpNameEdit) // 한글 확인\r\n                    checkLength(s, signUpNameEdit, maxLength, minLength) // 문자열 길이 확인\r\n                }\r\n                // 휴대폰번호\r\n                if (s == signUpPhoneEdit.editableText) {\r\n                    Log.d(TAG, \"in - phone - length\")\r\n                    checkWhiteSpace(s, signUpPhoneEdit) // 공백 문자 확인\r\n                    checkSpecialCharacters(s, signUpPhoneEdit) // 특수 문자 확인\r\n                    checkPhoneNumber(signUpPhoneEdit) // 숫자 및 11자 확인\r\n                }\r\n            }\r\n        }\r\n\r\n        // 각 항목별 공백, 특수 문자 처리\r\n        signUpIdEdit.addTextChangedListener(textWatcher)\r\n        signUpPasswdEdit.addTextChangedListener(textWatcher)\r\n        signUpCheckPasswdEdit.addTextChangedListener(textWatcher)\r\n        signUpNameEdit.addTextChangedListener(textWatcher)\r\n        signUpPhoneEdit.addTextChangedListener(textWatcher)\r\n        notKorean(signUPEdit_ID) // id 한글 예외처리\r\n        notKorean(signUPEdit_PW) // pw 한글 예외처리\r\n        onlyKorean(signUpCreate_name) // 이름 입력시 한글만\r\n        checkwhite(signUpCreate_name) // 이름 입력시 공백 확인\r\n        textLengthChecker() // 문자길이 체크\r\n\r\n        binding.signUpBtn.setOnClickListener {\r\n\r\n            returnIntent.putExtra(\"name\", binding.signUpNameEdit.text.toString())\r\n            startActivity(returnIntent)\r\n            finish()\r\n        }\r\n\r\n        binding.signUpLocationBtn.setOnClickListener {\r\n            startActivity(locationRegisterIntent)\r\n        }\r\n\r\n    }\r\n    // 공백 문자 확인 함수\r\n    fun checkWhiteSpace(editable: Editable?, editText: EditText) {\r\n        // EditText의 문자열 가져오기\r\n        val text = editable.toString()\r\n        Log.d(TAG, \"${text} - checkWhiteSpace\")\r\n        // 결과 출력\r\n        if (text.contains(\" \")) {\r\n            Log.d(TAG, \"${text} - 공백있음\")\r\n            editText.error = \"공백이 포함되어 있습니다.\"\r\n        }\r\n    }\r\n\r\n    // 특수 문자 확인 함수\r\n    fun checkSpecialCharacters(editable: Editable?, editText: EditText) {\r\n        // EditText의 문자열 가져오기\r\n        val text = editable.toString()\r\n        Log.d(TAG, \"${text} - checkSpecialCharacters\")\r\n\r\n        // 검사할 특수 문자 지정\r\n        val specialCharacters = \"!@#$%^&*()_-+=|\\\\{}[]:;\\\"'<>,.?/~`\"\r\n\r\n        // 결과 출력\r\n        if (text.matches(\".*[!@#\\$%^&*(),.?\\\":{}|<>\\\\[\\\\]~-].*\".toRegex())) {\r\n            editText.error = \"특수문자는 입력할 수 없습니다.\"\r\n        }\r\n\r\n    }\r\n\r\n    // 문자 길이 확인 함수\r\n    fun checkLength(editable: Editable?, editText: EditText, maxLength: Int, minLength: Int) {\r\n        // EditText의 문자열 가져오기\r\n        val text = editable.toString()\r\n        Log.d(TAG, \"${text} - checkLength\")\r\n\r\n        val length = text.length\r\n\r\n        if (length < minLength) {\r\n            editText.error = \"최소 ${minLength}자 이상 입력하세요\"\r\n        } else if (length > maxLength) {\r\n            editText.error = \"최대 ${maxLength}자까지 입력 가능합니다\"\r\n        }\r\n\r\n    }\r\n\r\n    // 영문 + 숫자 확인 함수\r\n    fun checkAlphaNumber(editText: EditText) {\r\n        Log.d(TAG, \" - checkAlphaNumber\")\r\n\r\n        val alphaNumbericRegex = Regex(\"[a-zA-Z0-9]+\")\r\n        val inputFilter = InputFilter { source, start, end, dest, dstart, dend ->\r\n            val input = dest.subSequence(0, dstart).toString() + source.subSequence(\r\n                start,\r\n                end\r\n            ) + dest.subSequence(dend, dest.length).toString()\r\n            return@InputFilter if (input.matches(alphaNumbericRegex)) null else \"\"\r\n        }\r\n        editText.filters = arrayOf(inputFilter)\r\n\r\n    }\r\n\r\n    // 한국어 확인 함수\r\n    fun checkKorean(editText: EditText) {\r\n        Log.d(TAG, \" - checkKorean\")\r\n\r\n        val inputFilter = InputFilter { source, _, _, _, _, _ ->\r\n            val regex = Regex(\"[ㄱ-ㅎ가-힣]+\")\r\n            if (source.toString().matches(regex)) {\r\n                source\r\n            } else {\r\n                \"\"\r\n            }\r\n        }\r\n        editText.filters = arrayOf(inputFilter)\r\n    }\r\n\r\n    // 숫자 + 11글자 확인 함수\r\n    fun checkPhoneNumber(editText: EditText): Boolean {\r\n        Log.d(TAG, \" - checkPhoneNumber\")\r\n\r\n        val regex = Regex(\"[0-9]+\")\r\n        val isNumeric = editText.text.toString().matches(regex)\r\n        val isElevenDigits = editText.text.toString().length == 11\r\n        // 숫자로만 이루어졌는지 확인\r\n        if (!isNumeric) {\r\n            editText.error = \"숫자만 입력해주십시오.\"\r\n        }\r\n        // 11글자인지 확인\r\n        if (!isElevenDigits) {\r\n            editText.error = \"11자리를 입력해주십시오.\"\r\n        }\r\n        return isNumeric && isElevenDigits\r\n    }\r\n    // 한글예외처리 함수\r\n    fun notKorean(editText: EditText){\r\n        Log.d(TAG, \" - checkNotKorean\")\r\n        editText.addTextChangedListener(object : TextWatcher {\r\n            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {\r\n            }\r\n            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {\r\n            }\r\n            override fun afterTextChanged(s: Editable?) {\r\n                val text = s.toString()\r\n                if (text.matches(Regex(\"[ㄱ-ㅎ가-힣]+\"))) {\r\n                    editText.error = \"한글은 입력할 수 없습니다.\"\r\n                } else {\r\n                    editText.error = null\r\n                }\r\n            }\r\n        })\r\n    }\r\n    // 한글만 입력함수\r\n    fun onlyKorean(editText: EditText){\r\n        Log.d(TAG, \" - checkNotKorean\")\r\n        val pattern = Pattern.compile(\"[^ㄱ-ㅎ가-힣]*$\") // 한글을 제외한 문자열 패턴\r\n        editText.addTextChangedListener(object : TextWatcher {\r\n            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}\r\n            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}\r\n            override fun afterTextChanged(s: Editable?) {\r\n                val text = s.toString()\r\n                val matcher = pattern.matcher(text)\r\n                if (matcher.matches()) {\r\n                    editText.error = \"한글을 제외한 문자열은 입력할 수 없습니다.\"\r\n                } else {\r\n                    editText.error = null\r\n                }\r\n            }\r\n        })\r\n    }\r\n    // 공백체크함수\r\n    fun checkwhite(editText: EditText){\r\n        editText.addTextChangedListener(object : TextWatcher {\r\n            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}\r\n            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}\r\n            override fun afterTextChanged(s: Editable?) {\r\n                // EditText의 문자열 가져오기\r\n                val text = s.toString()\r\n                Log.d(TAG, \"${text} - checkWhiteSpace\")\r\n                // 결과 출력\r\n                if (text.contains(\" \")) {\r\n                    Log.d(TAG, \"${text} - 공백있음\")\r\n                    editText.error = \"공백이 포함되어 있습니다.\"\r\n                }\r\n            }\r\n        })\r\n\r\n    }\r\n    // 폰번호 입력시 11자제한, 숫자만 입력\r\n    fun setEditTextInput(editText: EditText, maxLength: Int) {\r\n        val inputFilter = arrayOf<InputFilter>(InputFilter { source, _, _, _, _, _ ->\r\n            if (source.toString().matches(Regex(\"[0-9]+\"))) {\r\n                null // 숫자일 경우, null 리턴\r\n            } else {\r\n                \"\" // 숫자가 아닐 경우, 빈 문자열(\"\") 리턴\r\n            }\r\n        })\r\n        editText.filters = inputFilter\r\n        editText.addTextChangedListener(object : TextWatcher {\r\n            override fun afterTextChanged(s: Editable?) {\r\n                val input = s.toString()\r\n                if (input.length > maxLength) {\r\n                    editText.error = \"입력할 수 있는 숫자는 ${maxLength}자리 이하입니다.\"\r\n                } else {\r\n                    editText.error = null\r\n                }\r\n                val text = s.toString()\r\n                Log.d(TAG, \"${text} - checkWhiteSpace\")\r\n                // 결과 출력\r\n                if (text.contains(\" \")) {\r\n                    Log.d(TAG, \"${text} - 공백있음\")\r\n                    editText.error = \"공백이 포함되어 있습니다.\"\r\n                }\r\n\r\n\r\n            }\r\n            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}\r\n            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}\r\n        })\r\n    }\r\n    // 사용자 위치 조회, 위치 입력\r\n    private fun showUserLocation() {\r\n        val editText = findViewById<EditText>(R.id.editText)\r\n        if (ContextCompat.checkSelfPermission(this,\r\n                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {\r\n            mMap.isMyLocationEnabled = true\r\n\r\n            // 사용자 위치 가져오기\r\n            val fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)\r\n            fusedLocationProviderClient.lastLocation.addOnSuccessListener { location ->\r\n                if (location != null) {\r\n                    val geocoder = Geocoder(this, Locale.KOREAN)\r\n                    val addresses = geocoder.getFromLocation(location.latitude, location.longitude, 1)\r\n                    if (addresses != null) {\r\n                        if (addresses.isNotEmpty()) {\r\n                            val address = addresses[0]\r\n                            val addressStr = address.getAddressLine(0)\r\n                            editText.setText(addressStr)\r\n                        }\r\n                    }\r\n\r\n\r\n                    val latLng = LatLng(location.latitude, location.longitude)\r\n                    mMap.addMarker(MarkerOptions().position(latLng).title(\"User Location\"))\r\n                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))\r\n                }\r\n            }\r\n        }\r\n    }\r\n    override fun onMapReady(googleMap: GoogleMap) {\r\n        mMap = googleMap\r\n        mMap.uiSettings.isZoomControlsEnabled = true\r\n    }\r\n    override fun onRequestPermissionsResult(\r\n        requestCode: Int,\r\n        permissions: Array<out String>,\r\n        grantResults: IntArray\r\n    ) {\r\n        super.onRequestPermissionsResult(requestCode, permissions, grantResults)\r\n        if (requestCode == REQUEST_LOCATION_PERMISSION) {\r\n            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {\r\n                showUserLocation()\r\n            }\r\n        }\r\n    }\r\n    private fun requestLocationPermission() {\r\n        if (ContextCompat.checkSelfPermission(\r\n                this,\r\n                Manifest.permission.ACCESS_FINE_LOCATION\r\n            ) == PackageManager.PERMISSION_GRANTED\r\n        ) {\r\n            showUserLocation()\r\n        } else {\r\n            ActivityCompat.requestPermissions(\r\n                this,\r\n                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),\r\n                REQUEST_LOCATION_PERMISSION\r\n            )\r\n        }\r\n    }\r\n\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/app/src/main/java/com/example/icontest2/SignUpActivity.kt b/app/src/main/java/com/example/icontest2/SignUpActivity.kt
+----- a/app/src/main/java/com/example/icontest2/SignUpActivity.kt	(revision f92edb87f2e55695474c9ff524a64350fb403d11)
+--+++ b/app/src/main/java/com/example/icontest2/SignUpActivity.kt	(date 1679897482506)
+--@@ -341,16 +341,15 @@
+--         })
+--     }
+--     // 한글만 입력함수
+---    fun onlyKorean(editText: EditText){
+---        Log.d(TAG, " - checkNotKorean")
+---        val pattern = Pattern.compile("[^ㄱ-ㅎ가-힣]*$") // 한글을 제외한 문자열 패턴
+--+    fun onlyKorean(editText: EditText) {
+--+        val pattern = Pattern.compile("[^ㄱ-ㅎ가-힣]*")
+--         editText.addTextChangedListener(object : TextWatcher {
+--             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+--             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+--             override fun afterTextChanged(s: Editable?) {
+--                 val text = s.toString()
+--                 val matcher = pattern.matcher(text)
+---                if (matcher.matches()) {
+--+                if (!matcher.matches()) {
+--                     editText.error = "한글을 제외한 문자열은 입력할 수 없습니다."
+--                 } else {
+--                     editText.error = null
+--@@ -358,6 +357,7 @@
+--             }
+--         })
+--     }
+--+
+--     // 공백체크함수
+--     fun checkwhite(editText: EditText){
+--         editText.addTextChangedListener(object : TextWatcher {
+--Index: app/src/main/java/com/example/icontest2/CustomerLocationRegister.kt
+--===================================================================
+--diff --git a/app/src/main/java/com/example/icontest2/CustomerLocationRegister.kt b/app/src/main/java/com/example/icontest2/CustomerLocationRegister.kt
+--deleted file mode 100644
+----- a/app/src/main/java/com/example/icontest2/CustomerLocationRegister.kt	(revision f92edb87f2e55695474c9ff524a64350fb403d11)
+--+++ /dev/null	(revision f92edb87f2e55695474c9ff524a64350fb403d11)
+--@@ -1,85 +0,0 @@
+---package com.example.icontest2
+---
+---import android.Manifest
+---import android.app.Activity
+---import android.content.Intent
+---import android.content.pm.PackageManager
+---import android.location.Geocoder
+---import android.os.Bundle
+---import android.widget.Button
+---import android.widget.EditText
+---import androidx.appcompat.app.AppCompatActivity
+---import androidx.core.app.ActivityCompat
+---import com.google.android.gms.location.FusedLocationProviderClient
+---import com.google.android.gms.maps.*
+---import com.google.android.gms.maps.model.LatLng
+---import com.google.android.gms.maps.model.MarkerOptions
+---import java.io.IOException
+---import java.util.*
+---
+---class CustomerLocationRegister : AppCompatActivity(),OnMapReadyCallback {
+---    private lateinit var mMap: GoogleMap
+---    private lateinit var userLocation: LatLng
+---    private lateinit var addressEditText: EditText
+---    override fun onCreate(savedInstanceState: Bundle?) {
+---        super.onCreate(savedInstanceState)
+---        setContentView(R.layout.activity_customer_location_register)
+---
+---        addressEditText = findViewById(R.id.address_text_view)
+---        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+---        mapFragment.getMapAsync(this)
+---
+---        val locationButton = findViewById<Button>(R.id.location_button)
+---        locationButton.setOnClickListener {
+---            mMap.clear()
+---            val location = mMap.myLocation
+---            if (location != null) {
+---                userLocation = LatLng(location.latitude, location.longitude) // userLocation 초기화
+---                mMap.addMarker(MarkerOptions().position(userLocation).title("User Location"))
+---                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15f))
+---
+---                val geocoder = Geocoder(this)
+---                try {
+---                    val addresses =
+---                        geocoder.getFromLocation(userLocation.latitude, userLocation.longitude, 1)
+---                    if (addresses != null) {
+---                        if (addresses.isNotEmpty() && addresses[0].getAddressLine(0) != null) {
+---                            val address = addresses[0].getAddressLine(0)
+---                            addressEditText.setText(address)
+---                        } else {
+---                            addressEditText.setText("주소 정보를 가져올 수 없습니다.")
+---                        }
+---                    }
+---                } catch (e: IOException) {
+---                    e.printStackTrace()
+---                }
+---            }
+---        }
+---    }
+---
+---    override fun onBackPressed() {
+---        val userLocation = mMap.myLocation
+---        if (userLocation != null) {
+---            val geocoder = Geocoder(this, Locale.getDefault())
+---            val addresses = geocoder.getFromLocation(userLocation.latitude, userLocation.longitude, 1)
+---            if (addresses != null) {
+---                if (addresses.isNotEmpty()) {
+---                    val address = addresses[0].getAddressLine(0)
+---                    val intent = Intent()
+---                    intent.putExtra("address", address)
+---                    intent.putExtra("latitude", userLocation.latitude) // userLocation 정보 추가
+---                    intent.putExtra("longitude", userLocation.longitude)
+---                    setResult(Activity.RESULT_OK, intent)
+---                }
+---            }
+---        }
+---        super.onBackPressed()
+---    }
+---
+---    override fun onMapReady(p0: GoogleMap) {
+---
+---    }
+---
+---
+---}
+---
+--Index: app/src/main/res/layout/activity_customer_location_register.xml
+--===================================================================
+--diff --git a/app/src/main/res/layout/activity_customer_location_register.xml b/app/src/main/res/layout/activity_customer_location_register.xml
+--deleted file mode 100644
+----- a/app/src/main/res/layout/activity_customer_location_register.xml	(revision f92edb87f2e55695474c9ff524a64350fb403d11)
+--+++ /dev/null	(revision f92edb87f2e55695474c9ff524a64350fb403d11)
+--@@ -1,75 +0,0 @@
+---<?xml version="1.0" encoding="utf-8"?>
+---<LinearLayout
+---    xmlns:android="http://schemas.android.com/apk/res/android"
+---    android:layout_width="match_parent"
+---    android:layout_height="match_parent"
+---    android:orientation="vertical">
+---
+---    <!-- 지도를 표시할 프래그먼트 -->
+---    <fragment
+---        android:id="@+id/map"
+---        android:name="com.google.android.gms.maps.SupportMapFragment"
+---        android:layout_width="match_parent"
+---        android:layout_height="match_parent"
+---        android:layout_above="@+id/layout"
+---        android:layout_alignParentTop="true" />
+---
+---    <!-- 사용자 위치를 표시할 레이아웃 -->
+---    <RelativeLayout
+---        android:id="@+id/layout"
+---        android:layout_width="match_parent"
+---        android:layout_height="100dp"
+---        android:layout_alignParentBottom="true"
+---        android:background="@android:color/white">
+---
+---        <TextView
+---            android:id="@+id/address_text_view"
+---            android:layout_width="match_parent"
+---            android:layout_height="wrap_content"
+---            android:layout_margin="10dp"
+---            android:gravity="center"
+---            android:text="사용자 위치를 조회해주세요."
+---            android:textColor="@android:color/black"
+---            android:textSize="16sp" />
+---
+---        <Button
+---            android:id="@+id/location_button"
+---            android:layout_below="@+id/address_text_view"
+---            android:layout_width="wrap_content"
+---            android:layout_height="wrap_content"
+---            android:layout_weight="1"
+---            android:text="사용자 위치 조회" />
+---
+---    </RelativeLayout>
+---<!--    <com.google.android.material.textfield.TextInputLayout // 복사한 부분 시작-->
+---<!--        android:id="@+id/main_textInputLayout_customer_location_register"-->
+---<!--        android:layout_width="match_parent"-->
+---<!--        android:layout_height="wrap_content">-->
+---<!--        <EditText-->
+---<!--            android:id="@+id/customer_location_register"-->
+---<!--            android:layout_width="match_parent"-->
+---<!--            android:layout_height="50dp"-->
+---<!--            android:inputType="text"-->
+---<!--            android:hint="주소를 등록해주세요."-->
+---<!--            android:layout_gravity="center"/>-->
+---
+---<!--    </com.google.android.material.textfield.TextInputLayout>-->
+---<!--    <com.google.android.gms.maps.MapView-->
+---<!--        android:id="@+id/map_view"-->
+---<!--        android:layout_width="match_parent"-->
+---<!--        android:layout_height="match_parent" />-->
+---
+---<!--    <Button-->
+---<!--        android:id="@+id/customer_location_register_btn"-->
+---<!--        android:layout_width="wrap_content"-->
+---<!--        android:layout_height="wrap_content"-->
+---<!--        android:text="위치등록"/>-->
+---<!--    <FrameLayout-->
+---<!--        android:id="@+id/map_container"-->
+---<!--        android:layout_width="match_parent"-->
+---<!--        android:layout_height="match_parent"/>-->
+---
+---</LinearLayout>
+---
+---
+---
+-Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_2_34_[Changes]1/shelved.patch
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_2_34_[Changes]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_2_34_[Changes]1/shelved.patch
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_2_34_[Changes]1/shelved.patch	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-+++ /dev/null	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-@@ -1,87 +0,0 @@
+--Index: app/src/main/res/layout/activity_location_register.xml
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".LocationRegisterActivity\">\r\n\r\n    <com.google.android.gms.maps.MapView\r\n        android:id=\"@+id/mapView\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\" />\r\n\r\n</LinearLayout>
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/app/src/main/res/layout/activity_location_register.xml b/app/src/main/res/layout/activity_location_register.xml
+----- a/app/src/main/res/layout/activity_location_register.xml	
+--+++ b/app/src/main/res/layout/activity_location_register.xml	
+--@@ -5,11 +5,13 @@
+--     xmlns:tools="http://schemas.android.com/tools"
+--     android:layout_width="match_parent"
+--     android:layout_height="match_parent"
+---    tools:context=".LocationRegisterActivity">
+--+    tools:context=".LocationRegisterActivity"
+--+    android:gravity="center">
+-- 
+--     <com.google.android.gms.maps.MapView
+--         android:id="@+id/mapView"
+---        android:layout_width="match_parent"
+---        android:layout_height="match_parent" />
+--+        android:layout_width="300dp"
+--+        android:layout_height="200dp"
+--+        android:layout_gravity="center"/>
+-- 
+-- </LinearLayout>
+--\ No newline at end of file
+--Index: app/src/main/AndroidManifest.xml
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    package=\"com.example.icontest2\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n    <uses-permission\r\n        android:name=\"android.permission.QUERY_ALL_PACKAGES\"\r\n        tools:ignore=\"QueryAllPackagesPermission\" />\r\n\r\n    <queries>\r\n        <package android:name=\"com.vuforia.engine.coresamples\" />\r\n    </queries>\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n\r\n    <application\r\n        android:name=\".KakaoInit\"\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/food_truck\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/food_truck_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.IconTest2\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".CustomerLocationRegister\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".LocationRegisterActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MenuListsActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignUpLocationActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MyPageActivity\"\r\n            android:exported=\"false\" />\r\n\r\n        <meta-data\r\n            android:name=\"com.google.android.geo.API_KEY\"\r\n            android:value=\"@string/google_maps_key\" />\r\n\r\n        <activity\r\n            android:name=\".MapActivity\"\r\n            android:exported=\"true\" />\r\n        <activity\r\n            android:name=\".SearchActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignUpActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".LoginActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity>\r\n        <activity\r\n            android:name=\".SplashActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity> <!-- Kakao 로그인 -->\r\n        <activity\r\n            android:name=\"com.kakao.sdk.auth.AuthCodeHandlerActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.VIEW\" />\r\n\r\n                <category android:name=\"android.intent.category.DEFAULT\" />\r\n                <category android:name=\"android.intent.category.BROWSABLE\" />\r\n\r\n                <!-- Redirect URI: \"kakao{NATIVE_APP_KEY}://oauth\" -->\r\n                <!-- scheme-example: \"kakao{NATIVE_APP_KEY}\" -->\r\n                <data\r\n                    android:host=\"oauth\"\r\n                    android:scheme=\"@string/kakao_native_key_manifest\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+----- a/app/src/main/AndroidManifest.xml	
+--+++ b/app/src/main/AndroidManifest.xml	
+--@@ -14,10 +14,6 @@
+--         <package android:name="com.vuforia.engine.coresamples" />
+--     </queries>
+-- 
+---    <uses-permission android:name="android.permission.INTERNET" />
+---    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+---    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+---
+--     <application
+--         android:name=".KakaoInit"
+--         android:allowBackup="true"
+--Index: .idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19_오전_3_20_[Changes]/shelved.patch
+--===================================================================
+--diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19_오전_3_20_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19_오전_3_20_[Changes]/shelved.patch
+--deleted file mode 100644
+----- a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19_오전_3_20_[Changes]/shelved.patch	
+--+++ /dev/null	
+--@@ -1,19 +0,0 @@
+---Index: .idea/vcs.xml
+---IDEA additional info:
+---Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+---<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\">\r\n    <mapping directory=\"$PROJECT_DIR$/..\" vcs=\"Git\" />\r\n  </component>\r\n</project>
+---Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+---<+>UTF-8
+---===================================================================
+---diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+------ a/.idea/vcs.xml	(revision 8485395d607086a3e75f813c0a2cfa5bee0744a4)
+---+++ b/.idea/vcs.xml	(date 1679162780870)
+---@@ -1,6 +1,6 @@
+--- <?xml version="1.0" encoding="UTF-8"?>
+--- <project version="4">
+---   <component name="VcsDirectoryMappings">
+----    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+---+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+---   </component>
+--- </project>
+---\ No newline at end of file
+--Index: .idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19__3_20__Changes_.xml
+--===================================================================
+--diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19__3_20__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19__3_20__Changes_.xml
+--deleted file mode 100644
+----- a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19__3_20__Changes_.xml	
+--+++ /dev/null	
+--@@ -1,4 +0,0 @@
+---<changelist name="Uncommitted_changes_before_Update_at_2023-03-19_오전_3_20_[Changes]" date="1679163643629" recycled="true" deleted="true">
+---  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-19_오전_3_20_[Changes]/shelved.patch" />
+---  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2023-03-19 오전 3:20 [Changes]" />
+---</changelist>
+--\ No newline at end of file
+-Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_2_38_[Changes]/shelved.patch
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_2_38_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_2_38_[Changes]/shelved.patch
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_2_38_[Changes]/shelved.patch	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-+++ /dev/null	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-@@ -1,49 +0,0 @@
+--Index: app/src/main/res/layout/activity_location_register.xml
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".LocationRegisterActivity\">\r\n\r\n    <com.google.android.gms.maps.MapView\r\n        android:id=\"@+id/mapView\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\" />\r\n\r\n</LinearLayout>
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/app/src/main/res/layout/activity_location_register.xml b/app/src/main/res/layout/activity_location_register.xml
+----- a/app/src/main/res/layout/activity_location_register.xml	(revision 2dca4c0f18e37d197bdb8b2e8f8d90100786ddb7)
+--+++ b/app/src/main/res/layout/activity_location_register.xml	(date 1679895464870)
+--@@ -5,11 +5,13 @@
+--     xmlns:tools="http://schemas.android.com/tools"
+--     android:layout_width="match_parent"
+--     android:layout_height="match_parent"
+---    tools:context=".LocationRegisterActivity">
+--+    tools:context=".LocationRegisterActivity"
+--+    android:gravity="center">
+-- 
+--     <com.google.android.gms.maps.MapView
+--         android:id="@+id/mapView"
+---        android:layout_width="match_parent"
+---        android:layout_height="match_parent" />
+--+        android:layout_width="300dp"
+--+        android:layout_height="200dp"
+--+        android:layout_gravity="center"/>
+-- 
+-- </LinearLayout>
+--\ No newline at end of file
+--Index: app/src/main/AndroidManifest.xml
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    package=\"com.example.icontest2\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n    <uses-permission\r\n        android:name=\"android.permission.QUERY_ALL_PACKAGES\"\r\n        tools:ignore=\"QueryAllPackagesPermission\" />\r\n\r\n    <queries>\r\n        <package android:name=\"com.vuforia.engine.coresamples\" />\r\n    </queries>\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n\r\n    <application\r\n        android:name=\".KakaoInit\"\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/food_truck\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/food_truck_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.IconTest2\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".CustomerLocationRegister\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".LocationRegisterActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MenuListsActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignUpLocationActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MyPageActivity\"\r\n            android:exported=\"false\" />\r\n\r\n        <meta-data\r\n            android:name=\"com.google.android.geo.API_KEY\"\r\n            android:value=\"@string/google_maps_key\" />\r\n\r\n        <activity\r\n            android:name=\".MapActivity\"\r\n            android:exported=\"true\" />\r\n        <activity\r\n            android:name=\".SearchActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignUpActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".LoginActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity>\r\n        <activity\r\n            android:name=\".SplashActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity> <!-- Kakao 로그인 -->\r\n        <activity\r\n            android:name=\"com.kakao.sdk.auth.AuthCodeHandlerActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.VIEW\" />\r\n\r\n                <category android:name=\"android.intent.category.DEFAULT\" />\r\n                <category android:name=\"android.intent.category.BROWSABLE\" />\r\n\r\n                <!-- Redirect URI: \"kakao{NATIVE_APP_KEY}://oauth\" -->\r\n                <!-- scheme-example: \"kakao{NATIVE_APP_KEY}\" -->\r\n                <data\r\n                    android:host=\"oauth\"\r\n                    android:scheme=\"@string/kakao_native_key_manifest\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+----- a/app/src/main/AndroidManifest.xml	(revision 2dca4c0f18e37d197bdb8b2e8f8d90100786ddb7)
+--+++ b/app/src/main/AndroidManifest.xml	(date 1679895464880)
+--@@ -14,10 +14,6 @@
+--         <package android:name="com.vuforia.engine.coresamples" />
+--     </queries>
+-- 
+---    <uses-permission android:name="android.permission.INTERNET" />
+---    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+---    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+---
+--     <application
+--         android:name=".KakaoInit"
+--         android:allowBackup="true"
+-Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27__4_13__Changes_.xml
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27__4_13__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27__4_13__Changes_.xml
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27__4_13__Changes_.xml	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-+++ /dev/null	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-@@ -1,4 +0,0 @@
+--<changelist name="Uncommitted_changes_before_Checkout_at_2023-03-27_오후_4_13_[Changes]" date="1679901233849" recycled="true" deleted="true">
+--  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_4_13_[Changes]/shelved.patch" />
+--  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 2023-03-27 오후 4:13 [Changes]" />
+--</changelist>
+-\ No newline at end of file
+-Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_4_13_[Changes]/shelved.patch
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_4_13_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_4_13_[Changes]/shelved.patch
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-27_오후_4_13_[Changes]/shelved.patch	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-+++ /dev/null	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-@@ -1,325 +0,0 @@
+--Index: app/src/main/java/com/example/icontest2/SignUpActivity.kt
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+>package com.example.icontest2\r\n\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport android.text.Editable\r\nimport android.text.InputFilter\r\nimport android.text.TextWatcher\r\nimport android.util.Log\r\nimport android.widget.EditText\r\nimport com.example.icontest2.databinding.ActivitySignUpBinding\r\nimport java.util.regex.Pattern\r\nimport android.Manifest\r\nimport android.content.Intent\r\nimport android.content.pm.PackageManager\r\nimport android.location.Geocoder\r\nimport android.widget.Button\r\nimport androidx.core.app.ActivityCompat\r\nimport androidx.core.content.ContextCompat\r\nimport com.google.android.gms.location.LocationServices\r\nimport com.google.android.gms.maps.CameraUpdateFactory\r\nimport com.google.android.gms.maps.GoogleMap\r\nimport com.google.android.gms.maps.OnMapReadyCallback\r\nimport com.google.android.gms.maps.SupportMapFragment\r\nimport com.google.android.gms.maps.model.LatLng\r\nimport com.google.android.gms.maps.model.MarkerOptions\r\nimport java.util.*\r\n\r\n\r\nclass SignUpActivity : AppCompatActivity(), OnMapReadyCallback {\r\n    private lateinit var binding: ActivitySignUpBinding\r\n    private lateinit var mMap: GoogleMap\r\n    private lateinit var buttonLocation: Button\r\n    private val REQUEST_LOCATION_PERMISSION = 1\r\n    private var TAG = \"SignUpActivity\"\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?){\r\n        super.onCreate(savedInstanceState)\r\n        binding = ActivitySignUpBinding.inflate(layoutInflater)\r\n        setContentView(binding.root)\r\n\r\n        // 아이디, 비밀번호, 비밀번호 확인, 이름, 휴대폰번호의 editText id\r\n        val signUpBtn = binding.signUpBtn\r\n        val signUptextIdLengthChecker = binding.mainTextInputLayoutID\r\n        val signUptextPwLengthChecker = binding.mainTextInputLayoutPW\r\n        val lengthCheck = binding.mainTextInputLayoutCreateName\r\n        val signUPEdit_ID = binding.EditID // 아이디 만들기\r\n        val signUPEdit_PW = binding.EditPW // 비밀번호 만들기\r\n        val signUpCreate_name = binding.createName // 이름 만들기\r\n        val signUpCreate_phone_number = binding.phoneNumberCreate // 폰번호 숫자만 11자제한\r\n        setEditTextInput(signUpCreate_phone_number, 11)\r\n\r\n        signUpBtn.setOnClickListener {\r\n            var intent = Intent(this, LoginActivity::class.java)\r\n            startActivity(intent)\r\n        }\r\n\r\n        buttonLocation = findViewById(R.id.button_location) // 사용자 위치 조회 및 입력\r\n        buttonLocation.setOnClickListener {\r\n            requestLocationPermission()\r\n            showUserLocation()\r\n        }\r\n        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment\r\n        mapFragment.getMapAsync(this)\r\n\r\n        val buttonShowLocation = findViewById<Button>(R.id.button_location)\r\n        buttonShowLocation.setOnClickListener {\r\n            if (ContextCompat.checkSelfPermission(this,\r\n                    Manifest.permission.ACCESS_FINE_LOCATION)\r\n                == PackageManager.PERMISSION_GRANTED) {\r\n                // 위치 권한이 허용된 경우\r\n                showUserLocation()\r\n            } else {\r\n                // 위치 권한이 허용되지 않은 경우\r\n                ActivityCompat.requestPermissions(this,\r\n                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),\r\n                    REQUEST_LOCATION_PERMISSION)\r\n            }\r\n        }\r\n\r\n        // 아이디, 패스워드 초과 경고 메세지\r\n        fun textLengthChecker() {\r\n            signUptextIdLengthChecker.isCounterEnabled = true\r\n            signUptextPwLengthChecker.isCounterEnabled = true\r\n            lengthCheck.isCounterEnabled = true\r\n\r\n            signUptextIdLengthChecker.counterMaxLength = 15 // ID 최대 길이\r\n            signUptextPwLengthChecker.counterMaxLength = 20 // PW 최대 길이\r\n            lengthCheck.counterMaxLength = 10\r\n\r\n            signUptextIdLengthChecker.isErrorEnabled = true\r\n            signUptextPwLengthChecker.isErrorEnabled = true\r\n            lengthCheck.isErrorEnabled = true\r\n\r\n            signUPEdit_ID.addTextChangedListener(object : TextWatcher {\r\n                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {\r\n                }\r\n                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {\r\n                }\r\n                override fun afterTextChanged(p0: Editable?) {\r\n                    if (signUPEdit_ID.length() > 15) {\r\n                        signUptextIdLengthChecker.error = \"ID의 글자 수를 초과하였습니다.\"\r\n                    } else {\r\n                        signUptextIdLengthChecker.error = null\r\n                    }\r\n                    if (signUPEdit_ID.length() < 5) {\r\n                        signUptextIdLengthChecker.error = \"ID는 최소 5자 이상입니다.\"\r\n                    } else {\r\n                        signUptextIdLengthChecker.error = null\r\n                    }\r\n                }\r\n\r\n            })\r\n\r\n            signUPEdit_PW.addTextChangedListener(object : TextWatcher {\r\n                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {\r\n                }\r\n                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {\r\n                }\r\n                override fun afterTextChanged(p0: Editable?) {\r\n                    if (signUPEdit_PW.length() > 20) {\r\n                        signUptextPwLengthChecker.error = \"PW의 글자 수를 초과하였습니다.\"\r\n                    } else {\r\n                        signUptextIdLengthChecker.error = null\r\n                    }\r\n                    if (signUPEdit_PW.length() < 8) {\r\n                        signUptextPwLengthChecker.error = \"PW는 최소 8자 이상입니다.\"\r\n                    } else {\r\n                        signUptextIdLengthChecker.error = null\r\n                    }\r\n                }\r\n            })\r\n            signUpCreate_name.addTextChangedListener(object : TextWatcher {\r\n                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {\r\n                }\r\n                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {\r\n                    if (signUpCreate_name.length() > 10) {\r\n                        lengthCheck.error = \"이름의 글자 수를 초과 하였습니다.\"\r\n                    } else {\r\n                        lengthCheck.error = null\r\n                    }\r\n                }\r\n                override fun afterTextChanged(p0: Editable?) {\r\n                }\r\n            })\r\n        }\r\n\r\n        notKorean(signUPEdit_ID) // id 한글 예외처리\r\n        notKorean(signUPEdit_PW) // pw 한글 예외처리\r\n        onlyKorean(signUpCreate_name) // 이름 입력시 한글만\r\n        checkwhite(signUpCreate_name) // 이름 입력시 공백 확인\r\n        textLengthChecker() // 문자길이 체크\r\n\r\n    }\r\n\r\n    // 한글예외처리 함수\r\n    fun notKorean(editText: EditText){\r\n        Log.d(TAG, \" - checkNotKorean\")\r\n        editText.addTextChangedListener(object : TextWatcher {\r\n            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {\r\n            }\r\n            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {\r\n            }\r\n            override fun afterTextChanged(s: Editable?) {\r\n                val text = s.toString()\r\n                if (text.matches(Regex(\"[ㄱ-ㅎ가-힣]+\"))) {\r\n                    editText.error = \"한글은 입력할 수 없습니다.\"\r\n                } else {\r\n                    editText.error = null\r\n                }\r\n            }\r\n        })\r\n    }\r\n    // 한글만 입력함수\r\n    fun onlyKorean(editText: EditText){\r\n        Log.d(TAG, \" - checkNotKorean\")\r\n        val pattern = Pattern.compile(\"[^ㄱ-ㅎ가-힣]*$\") // 한글을 제외한 문자열 패턴\r\n        editText.addTextChangedListener(object : TextWatcher {\r\n            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}\r\n            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}\r\n            override fun afterTextChanged(s: Editable?) {\r\n                val text = s.toString()\r\n                val matcher = pattern.matcher(text)\r\n                if (matcher.matches()) {\r\n                    editText.error = \"한글을 제외한 문자열은 입력할 수 없습니다.\"\r\n                } else {\r\n                    editText.error = null\r\n                }\r\n            }\r\n        })\r\n    }\r\n    // 공백체크함수\r\n    fun checkwhite(editText: EditText){\r\n        editText.addTextChangedListener(object : TextWatcher {\r\n            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}\r\n            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}\r\n            override fun afterTextChanged(s: Editable?) {\r\n                // EditText의 문자열 가져오기\r\n                val text = s.toString()\r\n                Log.d(TAG, \"${text} - checkWhiteSpace\")\r\n                // 결과 출력\r\n                if (text.contains(\" \")) {\r\n                    Log.d(TAG, \"${text} - 공백있음\")\r\n                    editText.error = \"공백이 포함되어 있습니다.\"\r\n                }\r\n            }\r\n        })\r\n\r\n    }\r\n    // 폰번호 입력시 11자제한, 숫자만 입력\r\n    fun setEditTextInput(editText: EditText, maxLength: Int) {\r\n        val inputFilter = arrayOf<InputFilter>(InputFilter { source, _, _, _, _, _ ->\r\n            if (source.toString().matches(Regex(\"[0-9]+\"))) {\r\n                null // 숫자일 경우, null 리턴\r\n            } else {\r\n                \"\" // 숫자가 아닐 경우, 빈 문자열(\"\") 리턴\r\n            }\r\n        })\r\n        editText.filters = inputFilter\r\n        editText.addTextChangedListener(object : TextWatcher {\r\n            override fun afterTextChanged(s: Editable?) {\r\n                val input = s.toString()\r\n                if (input.length > maxLength) {\r\n                    editText.error = \"입력할 수 있는 숫자는 ${maxLength}자리 이하입니다.\"\r\n                } else {\r\n                    editText.error = null\r\n                }\r\n                val text = s.toString()\r\n                Log.d(TAG, \"${text} - checkWhiteSpace\")\r\n                // 결과 출력\r\n                if (text.contains(\" \")) {\r\n                    Log.d(TAG, \"${text} - 공백있음\")\r\n                    editText.error = \"공백이 포함되어 있습니다.\"\r\n                }\r\n\r\n\r\n            }\r\n            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}\r\n            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}\r\n        })\r\n    }\r\n    // 사용자 위치 조회, 위치 입력\r\n    private fun showUserLocation() {\r\n        val editText = findViewById<EditText>(R.id.editText)\r\n        if (ContextCompat.checkSelfPermission(this,\r\n                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {\r\n            mMap.isMyLocationEnabled = true\r\n\r\n            // 사용자 위치 가져오기\r\n            val fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)\r\n            fusedLocationProviderClient.lastLocation.addOnSuccessListener { location ->\r\n                if (location != null) {\r\n                    val geocoder = Geocoder(this, Locale.KOREAN)\r\n                    val addresses = geocoder.getFromLocation(location.latitude, location.longitude, 1)\r\n                    if (addresses != null) {\r\n                        if (addresses.isNotEmpty()) {\r\n                            val address = addresses[0]\r\n                            val addressStr = address.getAddressLine(0)\r\n                            editText.setText(addressStr)\r\n                        }\r\n                    }\r\n\r\n\r\n                    val latLng = LatLng(location.latitude, location.longitude)\r\n                    mMap.addMarker(MarkerOptions().position(latLng).title(\"User Location\"))\r\n                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))\r\n                }\r\n            }\r\n        }\r\n    }\r\n    override fun onMapReady(googleMap: GoogleMap) {\r\n        mMap = googleMap\r\n        mMap.uiSettings.isZoomControlsEnabled = true\r\n    }\r\n    override fun onRequestPermissionsResult(\r\n        requestCode: Int,\r\n        permissions: Array<out String>,\r\n        grantResults: IntArray\r\n    ) {\r\n        super.onRequestPermissionsResult(requestCode, permissions, grantResults)\r\n        if (requestCode == REQUEST_LOCATION_PERMISSION) {\r\n            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {\r\n                showUserLocation()\r\n            }\r\n        }\r\n    }\r\n    private fun requestLocationPermission() {\r\n        if (ContextCompat.checkSelfPermission(\r\n                this,\r\n                Manifest.permission.ACCESS_FINE_LOCATION\r\n            ) == PackageManager.PERMISSION_GRANTED\r\n        ) {\r\n            showUserLocation()\r\n        } else {\r\n            ActivityCompat.requestPermissions(\r\n                this,\r\n                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),\r\n                REQUEST_LOCATION_PERMISSION\r\n            )\r\n        }\r\n    }\r\n\r\n}
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/app/src/main/java/com/example/icontest2/SignUpActivity.kt b/app/src/main/java/com/example/icontest2/SignUpActivity.kt
+----- a/app/src/main/java/com/example/icontest2/SignUpActivity.kt	(revision 225d742c0fbf6a64fb066cd6742ad190fb7a5e7d)
+--+++ b/app/src/main/java/com/example/icontest2/SignUpActivity.kt	(date 1679901168387)
+--@@ -1,5 +1,6 @@
+-- package com.example.icontest2
+-- 
+--+import android.content.Intent
+-- import androidx.appcompat.app.AppCompatActivity
+-- import android.os.Bundle
+-- import android.text.Editable
+--@@ -10,10 +11,10 @@
+-- import com.example.icontest2.databinding.ActivitySignUpBinding
+-- import java.util.regex.Pattern
+-- import android.Manifest
+---import android.content.Intent
+-- import android.content.pm.PackageManager
+-- import android.location.Geocoder
+-- import android.widget.Button
+--+import android.widget.Toast
+-- import androidx.core.app.ActivityCompat
+-- import androidx.core.content.ContextCompat
+-- import com.google.android.gms.location.LocationServices
+--@@ -28,18 +29,27 @@
+-- 
+-- class SignUpActivity : AppCompatActivity(), OnMapReadyCallback {
+--     private lateinit var binding: ActivitySignUpBinding
+--+    private var TAG = "SignUpActivity"
+--     private lateinit var mMap: GoogleMap
+--     private lateinit var buttonLocation: Button
+--     private val REQUEST_LOCATION_PERMISSION = 1
+---    private var TAG = "SignUpActivity"
+--+
+--+
+-- 
+--     override fun onCreate(savedInstanceState: Bundle?){
+--         super.onCreate(savedInstanceState)
+--         binding = ActivitySignUpBinding.inflate(layoutInflater)
+--         setContentView(binding.root)
+-- 
+--+        val returnIntent = Intent(this, LoginActivity::class.java)
+--+        val locationRegisterIntent = Intent(this, LocationRegisterActivity::class.java)
+--+
+--         // 아이디, 비밀번호, 비밀번호 확인, 이름, 휴대폰번호의 editText id
+---        val signUpBtn = binding.signUpBtn
+--+        val signUpIdEdit = binding.signUpIdEdit // 아이디
+--+        val signUpPasswdEdit = binding.signUpPasswdEdit
+--+        val signUpCheckPasswdEdit = binding.signUpCheckPasswdEdit
+--+        val signUpNameEdit = binding.signUpNameEdit
+--+        val signUpPhoneEdit = binding.signUpPhoneEdit
+--         val signUptextIdLengthChecker = binding.mainTextInputLayoutID
+--         val signUptextPwLengthChecker = binding.mainTextInputLayoutPW
+--         val lengthCheck = binding.mainTextInputLayoutCreateName
+--@@ -49,17 +59,13 @@
+--         val signUpCreate_phone_number = binding.phoneNumberCreate // 폰번호 숫자만 11자제한
+--         setEditTextInput(signUpCreate_phone_number, 11)
+-- 
+---        signUpBtn.setOnClickListener {
+---            var intent = Intent(this, LoginActivity::class.java)
+---            startActivity(intent)
+---        }
+---
+--         buttonLocation = findViewById(R.id.button_location) // 사용자 위치 조회 및 입력
+--         buttonLocation.setOnClickListener {
+--             requestLocationPermission()
+--             showUserLocation()
+--         }
+---        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+--+        val mapFragment =
+--+            supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+--         mapFragment.getMapAsync(this)
+-- 
+--         val buttonShowLocation = findViewById<Button>(R.id.button_location)
+--@@ -77,6 +83,8 @@
+--             }
+--         }
+-- 
+--+
+--+
+--         // 아이디, 패스워드 초과 경고 메세지
+--         fun textLengthChecker() {
+--             signUptextIdLengthChecker.isCounterEnabled = true
+--@@ -95,8 +103,6 @@
+--                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+--                 }
+--                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+---                }
+---                override fun afterTextChanged(p0: Editable?) {
+--                     if (signUPEdit_ID.length() > 15) {
+--                         signUptextIdLengthChecker.error = "ID의 글자 수를 초과하였습니다."
+--                     } else {
+--@@ -108,6 +114,8 @@
+--                         signUptextIdLengthChecker.error = null
+--                     }
+--                 }
+--+                override fun afterTextChanged(p0: Editable?) {
+--+                }
+-- 
+--             })
+-- 
+--@@ -115,8 +123,6 @@
+--                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+--                 }
+--                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+---                }
+---                override fun afterTextChanged(p0: Editable?) {
+--                     if (signUPEdit_PW.length() > 20) {
+--                         signUptextPwLengthChecker.error = "PW의 글자 수를 초과하였습니다."
+--                     } else {
+--@@ -128,6 +134,8 @@
+--                         signUptextIdLengthChecker.error = null
+--                     }
+--                 }
+--+                override fun afterTextChanged(p0: Editable?) {
+--+                }
+--             })
+--             signUpCreate_name.addTextChangedListener(object : TextWatcher {
+--                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+--@@ -144,14 +152,176 @@
+--             })
+--         }
+-- 
+--+        val textWatcher = object : TextWatcher {
+--+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+--+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+--+            // 사용자의 입력이 끝난 후 처리
+--+            override fun afterTextChanged(s: Editable?) {
+--+                Log.d(TAG, "${s}")
+--+                // 아이디
+--+                if (s == signUpIdEdit.editableText) {
+--+                    Log.d(TAG, "in - id - length")
+--+                    val minLength = 5
+--+                    val maxLength = 15
+--+                    checkWhiteSpace(s, signUpIdEdit) // 공백 문자 확인
+--+                    checkSpecialCharacters(s, signUpIdEdit) // 특수 문자 확인
+--+                    checkLength(s, signUpIdEdit, maxLength, minLength) // 문자열 길이 확인
+--+                }
+--+                // 비밀번호
+--+                if (s == signUpPasswdEdit.editableText) {
+--+                    Log.d(TAG, "in - pw - length")
+--+                    val minLength = 8
+--+                    val maxLength = 20
+--+                    checkWhiteSpace(s, signUpPasswdEdit) // 공백 문자 확인
+--+                    checkSpecialCharacters(s, signUpPasswdEdit) // 특수 문자 확인
+--+                    checkAlphaNumber(signUpPasswdEdit) // 영문 + 숫자 확인
+--+                    checkLength(s, signUpPasswdEdit, maxLength, minLength) // 문자열 길이 확인
+--+                }
+--+                // 비밀번호 체크
+--+                if (s == signUpCheckPasswdEdit.editableText) {
+--+                    Log.d(TAG, "in - pwcheck - length")
+--+                    if (signUpPasswdEdit.text.toString() != signUpCheckPasswdEdit.text.toString()) {
+--+                        signUpCheckPasswdEdit.error = "비밀번호가 일치하지 않습니다."
+--+                    } else {
+--+                        signUpCheckPasswdEdit.error = null
+--+                    }
+--+                }
+--+                // 이름
+--+                if (s == signUpNameEdit.editableText) {
+--+                    Log.d(TAG, "in - name - length")
+--+                    val minLength = 1
+--+                    val maxLength = 10
+--+                    checkWhiteSpace(s, signUpNameEdit) // 공백 문자 확인
+--+                    checkSpecialCharacters(s, signUpNameEdit) // 특수 문자 확인
+--+                    checkKorean(signUpNameEdit) // 한글 확인
+--+                    checkLength(s, signUpNameEdit, maxLength, minLength) // 문자열 길이 확인
+--+                }
+--+                // 휴대폰번호
+--+                if (s == signUpPhoneEdit.editableText) {
+--+                    Log.d(TAG, "in - phone - length")
+--+                    checkWhiteSpace(s, signUpPhoneEdit) // 공백 문자 확인
+--+                    checkSpecialCharacters(s, signUpPhoneEdit) // 특수 문자 확인
+--+                    checkPhoneNumber(signUpPhoneEdit) // 숫자 및 11자 확인
+--+                }
+--+            }
+--+        }
+--+
+--+        // 각 항목별 공백, 특수 문자 처리
+--+        signUpIdEdit.addTextChangedListener(textWatcher)
+--+        signUpPasswdEdit.addTextChangedListener(textWatcher)
+--+        signUpCheckPasswdEdit.addTextChangedListener(textWatcher)
+--+        signUpNameEdit.addTextChangedListener(textWatcher)
+--+        signUpPhoneEdit.addTextChangedListener(textWatcher)
+--         notKorean(signUPEdit_ID) // id 한글 예외처리
+--         notKorean(signUPEdit_PW) // pw 한글 예외처리
+--         onlyKorean(signUpCreate_name) // 이름 입력시 한글만
+--         checkwhite(signUpCreate_name) // 이름 입력시 공백 확인
+--         textLengthChecker() // 문자길이 체크
+-- 
+---    }
+--+        binding.signUpBtn.setOnClickListener {
+--+
+--+            returnIntent.putExtra("name", binding.signUpNameEdit.text.toString())
+--+            startActivity(returnIntent)
+--+            finish()
+--+        }
+-- 
+--+        binding.signUpLocationBtn.setOnClickListener {
+--+            startActivity(locationRegisterIntent)
+--+        }
+--+
+--+    }
+--+    // 공백 문자 확인 함수
+--+    fun checkWhiteSpace(editable: Editable?, editText: EditText) {
+--+        // EditText의 문자열 가져오기
+--+        val text = editable.toString()
+--+        Log.d(TAG, "${text} - checkWhiteSpace")
+--+        // 결과 출력
+--+        if (text.contains(" ")) {
+--+            Log.d(TAG, "${text} - 공백있음")
+--+            editText.error = "공백이 포함되어 있습니다."
+--+        }
+--+    }
+--+
+--+    // 특수 문자 확인 함수
+--+    fun checkSpecialCharacters(editable: Editable?, editText: EditText) {
+--+        // EditText의 문자열 가져오기
+--+        val text = editable.toString()
+--+        Log.d(TAG, "${text} - checkSpecialCharacters")
+--+
+--+        // 검사할 특수 문자 지정
+--+        val specialCharacters = "!@#$%^&*()_-+=|\\{}[]:;\"'<>,.?/~`"
+--+
+--+        // 결과 출력
+--+        if (text.matches(".*[!@#\$%^&*(),.?\":{}|<>\\[\\]~-].*".toRegex())) {
+--+            editText.error = "특수문자는 입력할 수 없습니다."
+--+        }
+--+
+--+    }
+--+
+--+    // 문자 길이 확인 함수
+--+    fun checkLength(editable: Editable?, editText: EditText, maxLength: Int, minLength: Int) {
+--+        // EditText의 문자열 가져오기
+--+        val text = editable.toString()
+--+        Log.d(TAG, "${text} - checkLength")
+--+
+--+        val length = text.length
+--+
+--+        if (length < minLength) {
+--+            editText.error = "최소 ${minLength}자 이상 입력하세요"
+--+        } else if (length > maxLength) {
+--+            editText.error = "최대 ${maxLength}자까지 입력 가능합니다"
+--+        }
+--+
+--+    }
+--+
+--+    // 영문 + 숫자 확인 함수
+--+    fun checkAlphaNumber(editText: EditText) {
+--+        Log.d(TAG, " - checkAlphaNumber")
+--+
+--+        val alphaNumbericRegex = Regex("[a-zA-Z0-9]+")
+--+        val inputFilter = InputFilter { source, start, end, dest, dstart, dend ->
+--+            val input = dest.subSequence(0, dstart).toString() + source.subSequence(
+--+                start,
+--+                end
+--+            ) + dest.subSequence(dend, dest.length).toString()
+--+            return@InputFilter if (input.matches(alphaNumbericRegex)) null else ""
+--+        }
+--+        editText.filters = arrayOf(inputFilter)
+--+
+--+    }
+--+
+--+    // 한국어 확인 함수
+--+    fun checkKorean(editText: EditText) {
+--+        Log.d(TAG, " - checkKorean")
+--+
+--+        val inputFilter = InputFilter { source, _, _, _, _, _ ->
+--+            val regex = Regex("[ㄱ-ㅎ가-힣]+")
+--+            if (source.toString().matches(regex)) {
+--+                source
+--+            } else {
+--+                ""
+--+            }
+--+        }
+--+        editText.filters = arrayOf(inputFilter)
+--+    }
+--+
+--+    // 숫자 + 11글자 확인 함수
+--+    fun checkPhoneNumber(editText: EditText): Boolean {
+--+        Log.d(TAG, " - checkPhoneNumber")
+--+
+--+        val regex = Regex("[0-9]+")
+--+        val isNumeric = editText.text.toString().matches(regex)
+--+        val isElevenDigits = editText.text.toString().length == 11
+--+        // 숫자로만 이루어졌는지 확인
+--+        if (!isNumeric) {
+--+            editText.error = "숫자만 입력해주십시오."
+--+        }
+--+        // 11글자인지 확인
+--+        if (!isElevenDigits) {
+--+            editText.error = "11자리를 입력해주십시오."
+--+        }
+--+        return isNumeric && isElevenDigits
+--+    }
+--     // 한글예외처리 함수
+--     fun notKorean(editText: EditText){
+--         Log.d(TAG, " - checkNotKorean")
+--@@ -299,4 +469,20 @@
+--         }
+--     }
+-- 
+---}
+--\ No newline at end of file
+--+}
+--+
+--+
+--+
+--+
+--+
+--+
+--+
+--+
+--+
+--+
+--+
+--+
+--+
+--+
+--+
+--+
+-Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-26__12_18__Changes_.xml
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-26__12_18__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-26__12_18__Changes_.xml
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-26__12_18__Changes_.xml	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-+++ /dev/null	(revision a56503cbb7d84c2d9c925368e1cf68fc63f70743)
+-@@ -1,4 +0,0 @@
+--<changelist name="Uncommitted_changes_before_Checkout_at_2023-03-26_오전_12_18_[Changes]" date="1679757540988" recycled="true" deleted="true">
+--  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-26_오전_12_18_[Changes]/shelved.patch" />
+--  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 2023-03-26 오전 12:18 [Changes]" />
+--</changelist>
+-\ No newline at end of file
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-26_오전_12_18_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-03-26_오전_12_18_[Changes]/shelved.patch
+-deleted file mode 100644
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-04-05_오후_2_59_[Changes]1/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-04-05_오후_2_59_[Changes]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-04-05_오후_2_59_[Changes]1/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-04-05_오후_2_59_[Changes]1/shelved.patch	(revision fdf89f59cecf131a549260f7f27211e2470f8dfc)
++++ /dev/null	(revision fdf89f59cecf131a549260f7f27211e2470f8dfc)
+@@ -1,122 +0,0 @@
+-Index: app/src/main/res/layout/activity_seller_main.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".SellerMainActivity\"\r\n    android:orientation=\"vertical\"\r\n    android:background=\"@color/white\">\r\n\r\n\r\n    <ImageView\r\n        android:id=\"@+id/image_view1\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"210dp\"\r\n        android:background=\"@drawable/image_view_round\"\r\n        android:src=\"@drawable/image3\"\r\n        />\r\n\r\n    <TextView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"붕어빵먹자 1호트럭\"\r\n        android:textSize=\"25sp\"\r\n        android:textStyle=\"bold\"\r\n        android:textColor=\"@color/black\"\r\n        android:layout_gravity=\"center\"\r\n        android:layout_marginTop=\"20dp\" />\r\n    <TextView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"#붕어빵 #팥 #슈크림 #피자\"\r\n        android:textColor=\"@color/black\"\r\n        android:layout_marginTop=\"10dp\"\r\n        android:layout_gravity=\"center\"\r\n        />\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:orientation=\"horizontal\"\r\n        android:layout_marginTop=\"20dp\"\r\n        android:layout_marginBottom=\"20dp\"\r\n        android:gravity=\"center\">\r\n        <TextView\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"평점 \"\r\n            android:textColor=\"#676767\"/>\r\n        <TextView\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"★ \"\r\n            android:textColor=\"#FF0000\"/>\r\n        <TextView\r\n            android:id=\"@+id/seller_main_grade_tv\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"4.5\"\r\n            android:textColor=\"#676767\"/>\r\n        <TextView\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"|\"\r\n            android:textColor=\"#676767\"\r\n            android:layout_gravity=\"center\"\r\n            android:layout_marginLeft=\"10dp\"\r\n            android:layout_marginRight=\"10dp\"/>\r\n        <TextView\r\n            android:id=\"@+id/seller_main_deadline_tv\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"마감시간 21시\"\r\n            android:textColor=\"#676767\"/>\r\n    </LinearLayout>\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:orientation=\"vertical\"\r\n        android:layout_marginBottom=\"25dp\">\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"0dp\"\r\n            android:layout_weight=\"1\"\r\n            android:gravity=\"center\">\r\n            <Button\r\n                android:layout_width=\"150dp\"\r\n                android:layout_height=\"150dp\"\r\n                android:layout_marginEnd=\"15dp\"\r\n                android:background=\"@drawable/seller_main_button\"\r\n                android:drawableTop=\"@drawable/seller_main_button_food_truck_img\"\r\n                android:text=\"가게관리\"\r\n                android:textColor=\"@color/black\"\r\n                android:textStyle=\"bold\"\r\n                android:textSize=\"18sp\"\r\n                android:paddingBottom=\"10dp\"/>\r\n            <Button\r\n                android:layout_width=\"150dp\"\r\n                android:layout_height=\"150dp\"\r\n                android:layout_marginStart=\"15dp\"\r\n                android:background=\"@drawable/seller_main_button\"\r\n                android:drawableTop=\"@drawable/seller_main_button_menu_img\"\r\n                android:text=\"메뉴관리\"\r\n                android:textColor=\"@color/black\"\r\n                android:textStyle=\"bold\"\r\n                android:textSize=\"18sp\"\r\n                android:paddingTop=\"10dp\"/>\r\n        </LinearLayout>\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"0dp\"\r\n            android:layout_weight=\"1\"\r\n            android:gravity=\"center\">\r\n            <Button\r\n                android:layout_width=\"150dp\"\r\n                android:layout_height=\"150dp\"\r\n                android:layout_marginEnd=\"15dp\"\r\n                android:background=\"@drawable/seller_main_button\"\r\n                android:drawableTop=\"@drawable/seller_main_button_statistics_img\"\r\n                android:text=\"통계관리\"\r\n                android:textColor=\"@color/black\"\r\n                android:textStyle=\"bold\"\r\n                android:textSize=\"18sp\"\r\n                android:paddingTop=\"5dp\"/>\r\n            <Button\r\n                android:layout_width=\"150dp\"\r\n                android:layout_height=\"150dp\"\r\n                android:layout_marginStart=\"15dp\"\r\n                android:background=\"@drawable/seller_main_button\"\r\n                android:drawableTop=\"@drawable/seller_main_button_order_img\"\r\n                android:text=\"메뉴관리\"\r\n                android:textColor=\"@color/black\"\r\n                android:textStyle=\"bold\"\r\n                android:textSize=\"18sp\"\r\n                android:paddingBottom=\"12dp\"/>\r\n\r\n        </LinearLayout>\r\n\r\n    </LinearLayout>\r\n\r\n\r\n\r\n</LinearLayout>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/res/layout/activity_seller_main.xml b/app/src/main/res/layout/activity_seller_main.xml
+---- a/app/src/main/res/layout/activity_seller_main.xml	
+-+++ b/app/src/main/res/layout/activity_seller_main.xml	
+-@@ -41,40 +41,48 @@
+-         android:layout_height="wrap_content"
+-         android:orientation="horizontal"
+-         android:layout_marginTop="20dp"
+--        android:layout_marginBottom="20dp"
+--        android:gravity="center">
+--        <TextView
+--            android:layout_width="wrap_content"
+--            android:layout_height="wrap_content"
+--            android:text="평점 "
+--            android:textColor="#676767"/>
+--        <TextView
+--            android:layout_width="wrap_content"
+--            android:layout_height="wrap_content"
+--            android:text="★ "
+--            android:textColor="#FF0000"/>
+--        <TextView
+--            android:id="@+id/seller_main_grade_tv"
+--            android:layout_width="wrap_content"
+--            android:layout_height="wrap_content"
+--            android:text="4.5"
+--            android:textColor="#676767"/>
+-+        android:layout_marginBottom="20dp">
+-+        <LinearLayout
+-+            android:layout_width="0dp"
+-+            android:layout_weight="5"
+-+            android:layout_height="wrap_content"
+-+            android:orientation="horizontal"
+-+            android:gravity="right">
+-+            <TextView
+-+                android:layout_width="wrap_content"
+-+                android:layout_height="wrap_content"
+-+                android:text="평점 "
+-+                android:textColor="#676767"/>
+-+            <TextView
+-+                android:layout_width="wrap_content"
+-+                android:layout_height="wrap_content"
+-+                android:text="★ "
+-+                android:textColor="#FF0000"/>
+-+            <TextView
+-+                android:id="@+id/seller_main_grade_tv"
+-+                android:layout_width="wrap_content"
+-+                android:layout_height="wrap_content"
+-+                android:text="4.5"
+-+                android:textColor="#676767"/>
+-+        </LinearLayout>
+-         <TextView
+--            android:layout_width="wrap_content"
+-+            android:layout_width="0dp"
+-+            android:layout_weight="1"
+-             android:layout_height="wrap_content"
+-             android:text="|"
+-             android:textColor="#676767"
+--            android:layout_gravity="center"
+--            android:layout_marginLeft="10dp"
+--            android:layout_marginRight="10dp"/>
+-+            android:gravity="center"/>
+-         <TextView
+-             android:id="@+id/seller_main_deadline_tv"
+--            android:layout_width="wrap_content"
+-+            android:layout_width="0dp"
+-+            android:layout_weight="5"
+-             android:layout_height="wrap_content"
+-             android:text="마감시간 21시"
+--            android:textColor="#676767"/>
+-+            android:textColor="#676767"
+-+            android:gravity="left"/>
+-     </LinearLayout>
+- 
+-+
+-     <LinearLayout
+-         android:layout_width="match_parent"
+-         android:layout_height="match_parent"
+-@@ -86,6 +94,7 @@
+-             android:layout_weight="1"
+-             android:gravity="center">
+-             <Button
+-+                android:id="@+id/seller_main_food_truck_btn"
+-                 android:layout_width="150dp"
+-                 android:layout_height="150dp"
+-                 android:layout_marginEnd="15dp"
+-@@ -97,6 +106,7 @@
+-                 android:textSize="18sp"
+-                 android:paddingBottom="10dp"/>
+-             <Button
+-+                android:id="@+id/seller_main_menu_btn"
+-                 android:layout_width="150dp"
+-                 android:layout_height="150dp"
+-                 android:layout_marginStart="15dp"
+-@@ -114,6 +124,7 @@
+-             android:layout_weight="1"
+-             android:gravity="center">
+-             <Button
+-+                android:id="@+id/seller_main_statistics_btn"
+-                 android:layout_width="150dp"
+-                 android:layout_height="150dp"
+-                 android:layout_marginEnd="15dp"
+-@@ -125,12 +136,13 @@
+-                 android:textSize="18sp"
+-                 android:paddingTop="5dp"/>
+-             <Button
+-+                android:id="@+id/seller_main_order_btn"
+-                 android:layout_width="150dp"
+-                 android:layout_height="150dp"
+-                 android:layout_marginStart="15dp"
+-                 android:background="@drawable/seller_main_button"
+-                 android:drawableTop="@drawable/seller_main_button_order_img"
+--                android:text="메뉴관리"
+-+                android:text="주문관리"
+-                 android:textColor="@color/black"
+-                 android:textStyle="bold"
+-                 android:textSize="18sp"
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2023-04-05__2_59__Changes_1.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-04-05__2_59__Changes_1.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-04-05__2_59__Changes_1.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-04-05__2_59__Changes_1.xml	(revision fdf89f59cecf131a549260f7f27211e2470f8dfc)
++++ /dev/null	(revision fdf89f59cecf131a549260f7f27211e2470f8dfc)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Checkout_at_2023-04-05_오후_2_59_[Changes]1" date="1680674416171" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-04-05_오후_2_59_[Changes]1/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 2023-04-05 오후 2:59 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_2023-04-03__5_47__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-04-03__5_47__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_2023-04-03__5_47__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_2023-04-03__5_47__Changes_.xml	(revision fdf89f59cecf131a549260f7f27211e2470f8dfc)
++++ /dev/null	(revision fdf89f59cecf131a549260f7f27211e2470f8dfc)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_2023-04-03_오후_5_47_[Changes]" date="1680511651017" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-04-03_오후_5_47_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2023-04-03 오후 5:47 [Changes]" />
+-</changelist>
+\ No newline at end of file

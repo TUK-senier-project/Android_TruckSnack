@@ -13,6 +13,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.view.View.OnFocusChangeListener
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.EditText
@@ -119,18 +120,56 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
         // FusedLocationProviderClient 초기화
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
+        sellerRegisterIdEdt.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
+            if (hasFocus){
+                binding.sellerRegisterIdTv.visibility = View.VISIBLE
+            } else{
+                binding.sellerRegisterIdTv.visibility = View.GONE
+            }
+        }
+        sellerRegisterPasswordEdt.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
+            if (hasFocus){
+                binding.sellerRegisterPwTv.visibility = View.VISIBLE
+            } else{
+                binding.sellerRegisterPwTv.visibility = View.GONE
+            }
+        }
+        sellerRegisterBusinessNameEdt.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
+            if (hasFocus){
+                binding.sellerRegisterBusinessNameTv.visibility = View.VISIBLE
+            } else{
+                binding.sellerRegisterPwTv.visibility = View.GONE
+            }
+        }
+        sellerRegisterPhoneNumberEdt.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
+            if (hasFocus){
+                binding.sellerRegisterPhoneNumberTv.visibility = View.VISIBLE
+            } else{
+                binding.sellerRegisterPwTv.visibility = View.GONE
+            }
+        }
+        sellerRegisterLocationEdt.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
+            if (hasFocus){
+                binding.sellerRegisterLocationTv.visibility = View.VISIBLE
+            } else{
+                binding.sellerRegisterPwTv.visibility = View.GONE
+            }
+        }
+
         val textWatcher = object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             // 사용자의 입력이 끝난 후 처리
             override fun afterTextChanged(s: Editable?) {
                 Log.d(TAG, "${s}")
                 // 아이디
                 if (s == sellerRegisterIdEdt.editableText) {
+                    binding.sellerRegisterIdTv.visibility = View.GONE
                     Log.d(TAG, "in - id")
                     val minLength = 5
                     val maxLength = 15
-
                     idCheck = checkLength(s, sellerRegisterIdEdt, maxLength, minLength) &&
                             checkWhiteSpace(s, sellerRegisterIdEdt) &&
                             checkSpecialCharacters(s, sellerRegisterIdEdt) &&
@@ -142,6 +181,7 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
                 // 비밀번호
                 if (s == sellerRegisterPasswordEdt.editableText) {
+                    binding.sellerRegisterPwTv.visibility = View.GONE
                     Log.d(TAG, "in - pw")
                     val minLength = 8
                     val maxLength = 20
@@ -165,6 +205,7 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
                 // 사업명
                 if (s == sellerRegisterBusinessNameEdt.editableText) {
+                    binding.sellerRegisterBusinessNameTv.visibility = View.GONE
                     Log.d(TAG, "in - name")
                     val minLength = 1
                     val maxLength = 10
@@ -183,6 +224,7 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
                 // 휴대폰번호
                 if (s == sellerRegisterPhoneNumberEdt.editableText) {
+                    binding.sellerRegisterPhoneNumberTv.visibility = View.GONE
                     Log.d(TAG, "in - phone")
 
                     phoneCheck = checkPhoneNumber(sellerRegisterPhoneNumberEdt) &&
@@ -191,6 +233,7 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
                 // 주소
                 if (s == sellerRegisterLocationEdt.editableText){
+                    binding.sellerRegisterLocationTv.visibility = View.GONE
                     Log.d(TAG, "in - location")
                     locationCheck = checkKoreanNumber(sellerRegisterLocationEdt)
                 }
@@ -482,12 +525,46 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
         val length = text.length
 
         return if (length < minLength) {
-            editText.error = "최소 ${minLength}자 이상 입력하세요"
+            //binding.sellerRegisterIdLayout.isErrorEnabled = true
+            //binding.sellerRegisterIdLayout.error = "최소 ${minLength}자 이상 입력하세요"
+            //editText.error = "최소 ${minLength}자 이상 입력하세요"
+            when (editText) {
+                binding.sellerRegisterIdEdt -> binding.sellerRegisterIdLayout.error = "최소 ${minLength}자 이상 입력하세요"
+                binding.sellerRegisterPasswordEdt -> binding.sellerRegisterPwLayout.error = "최소 ${minLength}자 이상 입력하세요"
+                binding.sellerRegisterPasswordCheckEdt -> binding.sellerRegisterPwCheckLayout.error = "최소 ${minLength}자 이상 입력하세요"
+                binding.sellerRegisterBusinessNameEdt -> binding.sellerRegisterNameLayout.error = "최소 ${minLength}자 이상 입력하세요"
+                binding.sellerRegisterContentEdt -> binding.sellerRegisterContentLayout.error = "최소 ${minLength}자 이상 입력하세요"
+                binding.sellerRegisterPhoneNumberEdt -> binding.sellerRegisterPhoneNumberLayout.error = "최소 ${minLength}자 이상 입력하세요"
+                binding.sellerRegisterLocationEdt -> binding.sellerRegisterLocationLayout.error = "최소 ${minLength}자 이상 입력하세요"
+            }
             false
         } else if (length > maxLength) {
-            editText.error = "최대 ${maxLength}자까지 입력 가능합니다"
+            //binding.sellerRegisterIdLayout.isErrorEnabled = true
+            //binding.sellerRegisterIdLayout.error = "최소 ${minLength}자 이상 입력하세요"
+            //editText.error = "최대 ${maxLength}자까지 입력 가능합니다"
+            when (editText) {
+                binding.sellerRegisterIdEdt -> binding.sellerRegisterIdLayout.error = "최대 ${maxLength}자까지 입력 가능합니다"
+                binding.sellerRegisterPasswordEdt -> binding.sellerRegisterPwLayout.error = "최대 ${maxLength}자까지 입력 가능합니다"
+                binding.sellerRegisterPasswordCheckEdt -> binding.sellerRegisterPwCheckLayout.error = "최대 ${maxLength}자까지 입력 가능합니다"
+                binding.sellerRegisterBusinessNameEdt -> binding.sellerRegisterNameLayout.error = "최대 ${maxLength}자까지 입력 가능합니다"
+                binding.sellerRegisterContentEdt -> binding.sellerRegisterContentLayout.error = "최대 ${maxLength}자까지 입력 가능합니다"
+                binding.sellerRegisterPhoneNumberEdt -> binding.sellerRegisterPhoneNumberLayout.error = "최대 ${maxLength}자까지 입력 가능합니다"
+                binding.sellerRegisterLocationEdt -> binding.sellerRegisterLocationLayout.error = "최대 ${maxLength}자까지 입력 가능합니다"
+            }
             false
-        } else true
+        } else {
+            //binding.sellerRegisterIdLayout.isErrorEnabled = false
+            when (editText) {
+                binding.sellerRegisterIdEdt -> binding.sellerRegisterIdLayout.isErrorEnabled = false
+                binding.sellerRegisterPasswordEdt -> binding.sellerRegisterPwLayout.isErrorEnabled = false
+                binding.sellerRegisterPasswordCheckEdt -> binding.sellerRegisterPwCheckLayout.isErrorEnabled = false
+                binding.sellerRegisterBusinessNameEdt -> binding.sellerRegisterNameLayout.isErrorEnabled = false
+                binding.sellerRegisterContentEdt -> binding.sellerRegisterContentLayout.isErrorEnabled = false
+                binding.sellerRegisterPhoneNumberEdt -> binding.sellerRegisterPhoneNumberLayout.isErrorEnabled = false
+                binding.sellerRegisterLocationEdt -> binding.sellerRegisterLocationLayout.isErrorEnabled = false
+            }
+            true
+        }
     }
     // 영+숫 확인 함수
     fun checkAlphaNumber(editText: EditText): Boolean {

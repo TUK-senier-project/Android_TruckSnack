@@ -15,9 +15,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.icontest2.MainActivity
+import com.example.icontest2.customer_main.CustomerMainActivity
 import com.example.icontest2.R
-import com.example.icontest2.customer_login.CustomerLoginActivity
 import com.example.icontest2.databinding.ActivitySignUpBinding
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -30,7 +29,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
-import retrofit2.Response
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 
@@ -40,7 +38,6 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback{
     private lateinit var buttonLocation: Button
     private val REQUEST_LOCATION_PERMISSION = 1
     private var TAG = "SignUpActivity"
-
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
@@ -291,7 +288,7 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback{
                         Log.d(TAG, "${response.body()}")
                         Log.d(TAG, "$response")
                         runOnUiThread {
-                            val intent = Intent(this@SignUpActivity, MainActivity::class.java)
+                            val intent = Intent(this@SignUpActivity, CustomerMainActivity::class.java)
                             startActivity(intent)
                             Toast.makeText(this@SignUpActivity, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show()
                         }
@@ -502,6 +499,4 @@ class SignUpActivity : AppCompatActivity(), OnMapReadyCallback{
         }
 
     }
-
-
 }
