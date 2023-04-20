@@ -7,11 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".SellerMainActivity"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:id="@+id/seller_main">
 
 
     <ImageView
-        android:id="@+id/image_view1"
+        android:id="@+id/seller_image_view"
         android:layout_width="match_parent"
         android:layout_height="210dp"
         android:background="@drawable/image_view_round"
@@ -97,6 +98,7 @@
                 android:textSize="18sp"
                 android:paddingBottom="10dp"/>
             <Button
+                android:id="@+id/seller_food_btn"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="15dp"

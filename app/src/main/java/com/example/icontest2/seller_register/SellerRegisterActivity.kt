@@ -21,7 +21,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.icontest2.*
+import com.example.icontest2.customer_register.SignUpActivity
 import com.example.icontest2.databinding.ActivitySellerRegisterBinding
+import com.example.icontest2.seller_login.SellerLoginActivity
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -92,7 +94,7 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
             .create()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.209.18.214:8080")
+            .baseUrl("http://13.124.112.81:8080")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
@@ -314,7 +316,7 @@ class SellerRegisterActivity : AppCompatActivity(), OnMapReadyCallback {
                             Log.d(TAG, "성공")
                             Log.d(TAG, "${response.body()}")
                             Log.d(TAG, "$response")
-                            val intent = Intent(applicationContext, SignUpActivity::class.java)
+                            val intent = Intent(applicationContext, SellerLoginActivity::class.java)
                             startActivity(intent)
                         } else {
                             // 요청 실패
