@@ -1,23 +1,12 @@
 package com.example.icontest2.seller_food
 
 import android.content.ContentValues
-import android.content.Context
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.icontest2.ListAdapter
-import com.example.icontest2.R
-import java.io.File
-import java.io.FileOutputStream
-import java.util.*
 import android.util.Base64
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import com.example.icontest2.databinding.SellerFoodListBinding
 
 class SellerFoodAdapter(private val lists: List<SellerFoodDTO>) : RecyclerView.Adapter<SellerFoodAdapter.ListViewHolder>(){

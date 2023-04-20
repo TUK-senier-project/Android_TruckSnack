@@ -20,7 +20,6 @@ import java.io.FileOutputStream
 
 class CustomerFoodDetailAdapter(private val lists: List<CustomerFoodDetailDTO>) : RecyclerView.Adapter<CustomerFoodDetailAdapter.ListViewHolder>(){
     var onItemClickListener: ((CustomerFoodDetailDTO) -> Unit)? = null // 클릭 리스너
-    private var foodOrderList: MutableList<FoodOrder> = mutableListOf()
 
     // ViewHolder 생성하는 함수, 최소 생성 횟수만큼만 호출됨 (계속 호출 X)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -44,7 +43,6 @@ class CustomerFoodDetailAdapter(private val lists: List<CustomerFoodDetailDTO>) 
                 LayoutInflater.from(holder.itemView.context).inflate(R.layout.selected_food_dialog, null)
             val mBuilder = AlertDialog.Builder(holder.itemView.context)
                 .setView(mDialogView).create()
-                //.setTitle("")
 
             val cancel = mDialogView.findViewById<TextView>(R.id.selected_food_cancel)
             val confirm = mDialogView.findViewById<TextView>(R.id.selected_food_confirm)
@@ -53,36 +51,15 @@ class CustomerFoodDetailAdapter(private val lists: List<CustomerFoodDetailDTO>) 
                 Toast.makeText(holder.itemView.context, "gd", Toast.LENGTH_SHORT).show()
             }
             confirm.setOnClickListener {
-                //foodOrderList.add(FoodOrder(lists[position].foodName, lists[position].foodSeq, lists[position].price))
-                /*val intent = Intent(holder.itemView.context, CustomerFoodDetailActivity::class.java)
-                intent.putExtra("orderList", FoodOrderList(foodOrderList))
-                holder.itemView.context.startActivity(intent)*/
                 CustomerFoodDetailActivity.getInstance()?.foodOrderList?.add(FoodOrder(lists[position].foodName, lists[position].foodSeq, lists[position].price))
                 (holder.itemView.context as CustomerFoodDetailActivity).changeOrderList()
                 mBuilder.dismiss()
-                /*val intent = Intent(holder.itemView.context, OrderRegisterActivity::class.java).apply {
-                    putExtra("foodName", lists[position].foodName)
-                    putExtra("foodSeq", lists[position].foodSeq)
-                    putExtra("foodPrice", lists[position].price)
-                }
-                holder.itemView.context.startActivity(intent)*/
-                //onFoodOrderAddedListener.onFoodOrderAdded(lists[position].foodName, lists[position].foodSeq, lists[position].price)
-                //foodOrders.add(FoodOrder(lists[position].foodName, lists[position].foodSeq, lists[position].price))
-                //////CustomerFoodDetailActivity.getInstance()?.foodOrderList?.add(FoodOrder(lists[position].foodName, lists[position].foodSeq, lists[position].price))
-                //Log.d("FoodDetailAdapter", "confirm.setOnClickListener - $foodOrders")
-                /*foodOrderList.add(FoodOrder(lists[position].foodName, lists[position].foodSeq, lists[position].price))
-                val intent = Intent(holder.itemView.context, CustomerFoodDetailActivity::class.java)
-                intent.putExtra("orderList", FoodOrderList(foodOrderList))*/
-                //holder.itemView.context.startActivity(intent)
-
             }
             mBuilder.show()
         }
     }
 
-
     override fun getItemCount(): Int = lists.size
-
 
     class ListViewHolder(private val binding: CustomerFoodDetailBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -91,7 +68,7 @@ class CustomerFoodDetailAdapter(private val lists: List<CustomerFoodDetailDTO>) 
             val directory = holder.itemView.context.filesDir
             // 파일 경로 생성
             val filePath = File(directory, todo.foodName)
-            if(todo.base64Img != null){
+            if(todo.base64Img != ""){
                 val decodedBytes = Base64.decode(todo.base64Img, Base64.DEFAULT)
                 // Bitmap 으로 변환
                 val decodedBitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
@@ -101,10 +78,8 @@ class CustomerFoodDetailAdapter(private val lists: List<CustomerFoodDetailDTO>) 
                     decodedBitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream)
                 }
             }
-
             binding.detailFoodNameTv.text = todo.foodName
             binding.detailPriceTv.text = todo.price.toString()
         }
     }
-
 }

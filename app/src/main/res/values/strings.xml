@@ -11,6 +11,9 @@
     <string name="google_maps_key">AIzaSyAfDznPBrCCvtjUjv5h4ItjSWpaHsBrFyE</string>
     <string name="food_order_quantity">%s개</string>
     <string name="food_order_amount">%s원</string>
+    <string name="order_waiting_time">%s:%s</string>
+    <string name="order_waiting_seq">주문번호 :  %s</string>
+    <string name="order_waiting_total_amount">총 %s원</string>
     <string-array name="category">
         <item>카테고리를 선택해 주세요.</item>
         <item>1. 붕어빵</item>

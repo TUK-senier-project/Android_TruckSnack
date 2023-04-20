@@ -4,11 +4,15 @@ import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -18,6 +22,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.FileProvider
+import androidx.core.os.bundleOf
 import com.example.icontest2.*
 import com.example.icontest2.customer_login.CustomerLoginActivity
 import com.example.icontest2.databinding.ActivitySellerLoginBinding
@@ -30,7 +36,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import okhttp3.ResponseBody
-
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
 
 
 class SellerLoginActivity : AppCompatActivity() {
@@ -146,15 +154,58 @@ class SellerLoginActivity : AppCompatActivity() {
                         val sellerLoginDto = gson.fromJson(response.string(), SellerLoginResponse::class.java)
                         Log.d(TAG, "4$sellerLoginDto")
                         runOnUiThread {
-                            Toast.makeText(applicationContext, "${sellerLoginDto.seller.id} 님 환영합니다.", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(applicationContext, "3${sellerLoginDto.seller.id} 님 환영합니다.", Toast.LENGTH_SHORT).show()
+                        }
+                        // 내부 저장소 경로 가져오기
+                        val directory = applicationContext.filesDir
+                        // 파일 경로 생성
+                        val filePath = File(directory, sellerLoginDto.seller.businessName)
+                        if(sellerLoginDto.base64EncodedImage != null){
+                            /*Glide.with(holder.itemView.context)
+                                .load(todo.base64Img)
+                                .into(binding.sellerListImg)*/
+                            val decodedBytes = Base64.decode(sellerLoginDto.base64EncodedImage, Base64.DEFAULT)
+                            // Bitmap 으로 변환
+                            val decodedBitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+                            // 파일 쓰기
+                            FileOutputStream(filePath).use { fileOutputStream ->
+                                decodedBitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream)
+                            }
                         }
 
+                        val intent = Intent(applicationContext, SellerMainActivity::class.java)
+                        intent.putExtra("sellerId", sellerLoginDto.seller.id)
+                        intent.putExtra("sellerBusinessName", sellerLoginDto.seller.businessName)
+                        //intent.putExtra("sellerBase64String", sellerLoginDto.base64EncodedImage)
+                        startActivity(intent)
+                        /*val bundle = Bundle()
+                        bundle.putString("sellerId", sellerLoginDto.seller.id)
+                        bundle.putString("sellerBusinessName", sellerLoginDto.seller.businessName)
+                        bundle.putString("base64String", sellerLoginDto.base64EncodedImage)*/
+                        /*val file = File(applicationContext.cacheDir, "image")
+                        sellerLoginDto.base64EncodedImage?.let { it -> file.writeText(it) }
+                        val uri = Uri.fromFile(file)*/
+                        /*val fileName = "data.txt"
+                        applicationContext.openFileOutput(fileName, Context.MODE_PRIVATE).use {
+                            it.write(sellerLoginDto.base64EncodedImage?.toByteArray())
+                        }
+
+                        val file = File(applicationContext.filesDir, fileName)
+                        val uri = FileProvider.getUriForFile(applicationContext, "${applicationContext.packageName}.fileprovider", file)*/
+                        /*val intent = Intent(applicationContext, SellerMainActivity::class.java).apply {
+                            putExtra("imageUri", uri.toString())
+                            //putExtras(bundle)
+                            *//*putExtra("sellerId", sellerLoginDto.seller.id)
+                            putExtra("sellerBusinessName", sellerLoginDto.seller.businessName)
+                            putExtra("base64String", sellerLoginDto.base64EncodedImage)*//*
+                        }
+                        startActivity(intent)*/
                         // 여기서 부터 사용자의 첫 로그인인지 유무를 판단.
                         /*val sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
                         val editor = sharedPreferences.edit()
                         editor.putString("${sellerLoginDto.seller.id}", "login")
                         editor.apply()*/
-                        val sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+                        /*val sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
                         val userId = sharedPreferences.getString(sellerLoginDto.seller.id, null)
 
                         if (userId == null){ // 처음 로그인한 경우
@@ -170,9 +221,9 @@ class SellerLoginActivity : AppCompatActivity() {
                                 putExtra("base64String", sellerLoginDto.base64EncodedImage) // string값 메인에 전송
                             }
                             startActivity(intent)
-                        }
+                        }*/
                     } else {
-                        // 서버에서 반환하는 데이터가 text/plain인 경우 처리
+                        /*// 서버에서 반환하는 데이터가 text/plain인 경우 처리
                         val data = response.string()
                         Log.d(TAG, "5$data")
                         if (data == "login fail"){ // 로그인 실패
@@ -191,7 +242,7 @@ class SellerLoginActivity : AppCompatActivity() {
                             }
                             startActivity(intent)
                             Log.d(TAG, "===========로그인에서메인전송==========")
-                        }
+                        }*/
                     }
                 } catch (e: Exception) {
                     Log.d(TAG, "예외")

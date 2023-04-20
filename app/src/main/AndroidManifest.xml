@@ -36,6 +36,9 @@
             android:name=".seller_food.SellerFoodActivity"
             android:exported="false" />
         <activity
+            android:name=".seller_order.SellerOrderManagementActivity"
+            android:exported="false" />
+        <activity
             android:name=".order.OrderRegisterActivity"
             android:exported="false" />
         <activity

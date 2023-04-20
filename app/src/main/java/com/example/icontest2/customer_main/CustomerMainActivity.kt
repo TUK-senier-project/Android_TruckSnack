@@ -122,8 +122,6 @@ class CustomerMainActivity : AppCompatActivity() {
             startForResult.launch(intent)
         }
 
-
-
         binding.parentTv.setOnClickListener {
             if (binding.layoutExpand1.visibility == View.VISIBLE) {
                 binding.layoutExpand1.visibility = View.GONE

@@ -102,7 +102,6 @@ class CustomerFoodDetailActivity : AppCompatActivity() {
                         val listType = object : TypeToken<List<CustomerFoodDetailDTO>>() {}.type
                         val foodDetailList: List<CustomerFoodDetailDTO> = gson.fromJson(foodDetail, listType)
                         lists = foodDetailList
-                        Log.d(TAG, "9$lists")
                         runOnUiThread {
                             initViews()
                         }

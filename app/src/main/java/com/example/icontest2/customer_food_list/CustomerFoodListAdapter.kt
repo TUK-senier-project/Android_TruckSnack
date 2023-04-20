@@ -75,12 +75,6 @@ class CustomerFoodListAdapter(private val lists: List<CustomerFoodListDTOItem>, 
                 val bitmap = BitmapFactory.decodeStream(inputStream)
                 binding.sellerListImg.setImageBitmap(bitmap)
             }
-            /*if(todo.sellerImgS3Url != null){
-                val decodedBytes = Base64.decode(todo.sellerImgS3Url, Base64.DEFAULT)
-                // Bitmap 으로 변환
-                val decodedBitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
-                binding.sellerListImg.setImageBitmap(decodedBitmap)
-            }*/
             binding.customerMainBusinessNameTv.text = todo.businessName
             binding.customerMainGradeTv.text = todo.grade.toString()
             binding.customerMainDeadlineTv.text = todo.deadline.toString()

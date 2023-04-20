@@ -1,11 +1,12 @@
 package com.example.icontest2
 
+import android.content.Intent
 import android.app.Activity
 import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.icontest2.databinding.ActivitySellerMainBinding
-import android.content.Intent
+import com.example.icontest2.seller_order.SellerOrderManagementActivity
 import android.provider.MediaStore
 import android.util.Log
 import com.example.icontest2.seller_food.SellerFoodActivity
@@ -30,6 +31,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import com.example.icontest2.*
 import kotlinx.coroutines.withContext
+import java.io.FileInputStream
+import java.io.FileOutputStream
 
 
 class SellerMainActivity : AppCompatActivity() {
@@ -43,15 +46,63 @@ class SellerMainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySellerMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        var sellerBusinessName = ""
+        //var sellerBase64String = ""
+        if (intent != null){
+            sellerId = intent.getStringExtra("sellerId").toString()
+            sellerBusinessName = intent.getStringExtra("sellerBusinessName").toString()
+            //sellerBase64String = intent.getStringExtra("sellerBase64String").toString()
+        }
+
+        /*val fileUri = intent.getParcelableExtra<Uri>("fileUri")
+        val inputStream = fileUri?.let { applicationContext.contentResolver.openInputStream(it) }
+        val byteArray = inputStream?.readBytes()
+        val data = byteArray?.toString(Charsets.UTF_8)
+        Log.d("aaaaa", "-------------$fileUri-------------")
+        Log.d("aaaaa", "-------------$inputStream-------------")
+        Log.d("aaaaa", "-------------$byteArray-------------")
+        Log.d("aaaaa", "-------------$data-------------")*/
+        /*val intent = intent // 받은 인텐트
+        val imageUriString = intent.getStringExtra("imageUri")
+        val imageUri = Uri.parse(imageUriString)
+        val imageFile = File(applicationContext.cacheDir, "image")
+        val inputStream = applicationContext.contentResolver.openInputStream(imageUri)
+        val outputStream = FileOutputStream(imageFile)
+        inputStream?.copyTo(outputStream)
+        inputStream?.close()
+        outputStream.close()
+        val base64EncodedImage = imageFile.readText()
+        Log.d("aaaaa", "-------------$imageUriString-------------")
+        Log.d("aaaaa", "-------------$imageUri-------------")
+        Log.d("aaaaa", "-------------$imageFile-------------")
+        Log.d("aaaaa", "-------------$inputStream-------------")
+        Log.d("aaaaa", "-------------$outputStream-------------")
+        Log.d("aaaaa", "-------------$base64EncodedImage-------------")*/
         /*
         val imageView1 = binding.imageView1
         val bitmap1 = BitmapFactory.decodeResource(resources, R.drawable.image1) // 이미지 데이터를 받아왔을 때. 여기에 넣어주면됨.(sellerImgS3Url)
         imageView1.setImageBitmap(bitmap1)
         */
+        /*var base64String : String? = null
         // 데이터 받아오기
-        val id = intent.getStringExtra("sellerId")
+        val bundle = intent.extras
+        if (bundle != null) {
+            sellerId = bundle.getString("sellerId").toString()
+            binding.sellerMainBusinessNameTv.text = bundle.getString("sellerBusinessName").toString()
+            base64String = bundle.getString("base64String").toString()
+        }*/
+
+        /*val id = intent.getStringExtra("sellerId")
         if (id != null) {
             sellerId = id
+        }*/
+        binding.sellerMainIdTv.text = sellerId
+        binding.sellerMainBusinessNameTv.text = sellerBusinessName
+        binding.sellerMainOrderManagement.setOnClickListener {
+            val intent = Intent(this, SellerOrderManagementActivity::class.java).apply {
+                putExtra("seller_id", sellerId)
+            }
+            startActivity(intent)
         }
         //id = intent.getStringExtra("id")
         Log.d(TAG, "=========로그인에서부터받기============")
@@ -65,23 +116,19 @@ class SellerMainActivity : AppCompatActivity() {
             Log.d(TAG, "=========메인에서푸드로전송============")
             Log.d(TAG, "$id")
         }
-        val base64String = intent.getStringExtra("base64String").toString()
+        // val base64String = intent.getStringExtra("base64String").toString()
         Log.d(TAG, "=========로그인에서스트링값부터받기============")
         // Base64 디코딩
-        val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
+        //val decodedBytes = Base64.decode(sellerBase64String, Base64.DEFAULT)
         // Bitmap 으로 변환
-        val decodedBitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
-        binding.sellerImageView.setImageBitmap(decodedBitmap)
+        //val decodedBitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+        val directory = applicationContext.filesDir
+        // 파일 경로 생성
+        val filePath = File(directory, sellerBusinessName)
+        val inputStream = FileInputStream(filePath)
+        val bitmap = BitmapFactory.decodeStream(inputStream)
+        binding.sellerImageView.setImageBitmap(bitmap)
 
-//        // 메뉴관리 버튼 누르면 sellerFood로 화면전환
-//        val sellerFoodBtn = binding.sellerFoodBtn
-//        sellerFoodBtn.setOnClickListener {
-//            val intent = Intent(this@SellerMainActivity, SellerFoodActivity::class.java)
-//            intent.putExtra("sellerId", id)
-//            startActivity(intent)
-//            Log.d(TAG, "=========메인에서푸드로전송============")
-//            Log.d(TAG, "$id")
-//        }
         // 이미지를 uri로 변경
         fun getRealPathFromUri(uri: Uri): String {
             val projection = arrayOf(MediaStore.Images.Media.DATA)
@@ -118,21 +165,8 @@ class SellerMainActivity : AppCompatActivity() {
             startForResult.launch(intent)
         }
 
-        /*
-        //val imageRegisterButton = mDialogView.findViewById<Button>(R.id.seller_image_Upload_btn)
-        // 이미지뷰 다이얼로그 클릭이벤트
-        val imageChange = binding.sellerImageView
-        imageChange.setOnClickListener {
-            val mDialogView =
-                LayoutInflater.from(this).inflate(R.layout.seller_image_upload_dialog, null)
-            val mbuilder = AlertDialog.Builder(this).setView(mDialogView)
-            val dialog = mbuilder.show()
-            val sellerId = mDialogView.findViewById<EditText>(R.id.seller_id_image).text.toString()
-            // 다이얼로그에서 ImageView와 Button을 가져옴
-            val imagePreview = mDialogView.findViewById<ImageView>(R.id.image_view)
-            val imageUploadButton = mDialogView.findViewById<Button>(R.id.seller_image_register_btn)
-        }*/
-    }//온크리에잇 종료
+    }
+    //온크리에잇 종료
     // 업로드이미지에 진짜 경로를 넣어주면 서버와 통신하게끔
     private fun uploadImg(sellerId: String, imageUri: String){
         GlobalScope.launch(Dispatchers.IO) {
