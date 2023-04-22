@@ -108,8 +108,8 @@ class CustomerFoodListActivity : AppCompatActivity() {
                         Log.d(TAG, "5${foodList}")
                         val listType = object : TypeToken<List<CustomerFoodListDTOItem>>() {}.type
                         val customerFoodList: List<CustomerFoodListDTOItem> = gson.fromJson(foodList, listType)
-                        Log.d(TAG, "5${customerFoodList[1]}")
-                        Log.d(TAG, "5${customerFoodList[2]}")
+                        //Log.d(TAG, "5${customerFoodList[1]}")
+                        //Log.d(TAG, "5${customerFoodList[2]}")
                         lists = customerFoodList
                         //val foodData = gson.fromJson(foodList, CustomerFoodListDTO::class.java)
                         //Log.d("ASDASD", "7$foodData")
@@ -160,9 +160,10 @@ class CustomerFoodListActivity : AppCompatActivity() {
                 Log.d(TAG, "5${foodList}")
                 val listType = object : TypeToken<List<CustomerFoodListDTOItem>>() {}.type
                 val customerFoodList: List<CustomerFoodListDTOItem> = gson.fromJson(foodList, listType)
-                Log.d(TAG, "5${customerFoodList[1]}")
-                Log.d(TAG, "5${customerFoodList[2]}")
+                //Log.d(TAG, "5${customerFoodList[1]}")
+                //Log.d(TAG, "5${customerFoodList[2]}")
                 lists = customerFoodList
+                Log.d("categoryRank", "categoryRank - lists - $lists")
                 runOnUiThread {
                     initViews()
                 }

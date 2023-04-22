@@ -22,6 +22,7 @@ data class CustomerFoodListDTOItem(
     @SerializedName("deadline") val deadline: Int,
     @SerializedName("grade") val grade: Double,
     @SerializedName("id") val id: String?,
+    @SerializedName("sellerId") val sellerId: String?,
     @SerializedName("phoneNumber") val phoneNumber: String,
     @SerializedName("base64Img") val base64Img: String?,
     @SerializedName("sellerImgS3Url") val sellerImgS3Url: String?
@@ -45,6 +46,7 @@ data class CustomerFoodListDTOItem(
         parcel.readInt(),
         parcel.readDouble(),
         parcel.readString(),
+        parcel.readString(),
         parcel.readString()!!,
         parcel.readString(),
         parcel.readString()
@@ -56,6 +58,7 @@ data class CustomerFoodListDTOItem(
         parcel.writeInt(deadline)
         parcel.writeDouble(grade)
         parcel.writeString(id)
+        parcel.writeString(sellerId)
         parcel.writeString(phoneNumber)
         parcel.writeString(base64Img)
         parcel.writeString(sellerImgS3Url)

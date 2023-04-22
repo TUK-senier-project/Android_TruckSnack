@@ -11,6 +11,7 @@ import com.example.icontest2.customer_food_list.CustomerFoodDetailActivity
 import com.example.icontest2.databinding.OrderListBinding
 import java.io.File
 import java.io.FileInputStream
+import java.io.FileNotFoundException
 
 class OrderRegisterAdapter(private val lists: List<OrderListDTO>) : RecyclerView.Adapter<OrderRegisterAdapter.ListViewHolder>(){
     var onItemClickListener: ((OrderListDTO) -> Unit)? = null // 클릭 리스너
@@ -47,11 +48,16 @@ class OrderRegisterAdapter(private val lists: List<OrderListDTO>) : RecyclerView
             val directory = holder.itemView.context.filesDir
             // 파일 경로 생성
             val filePath = File(directory, todo.foodName)
-            val inputStream = FileInputStream(filePath)
-            val bitmap = BitmapFactory.decodeStream(inputStream)
-            if (bitmap != null){
-                binding.orderListImg.setImageBitmap(bitmap)
+            try {
+                val inputStream = FileInputStream(filePath)
+                val bitmap = BitmapFactory.decodeStream(inputStream)
+                if (bitmap != null) {
+                    binding.orderListImg.setImageBitmap(bitmap)
+                }
+            } catch (e: FileNotFoundException) {
+                Log.e("ListViewHolder", "파일이 없습니다.", e)
             }
+
             binding.orderListCount.text = todo.quantity.toString()
             binding.orderListName.text = todo.foodName
             binding.orderListPrice.text = holder.itemView.context.getString(R.string.food_order_amount, todo.foodTotalPrice.toString())

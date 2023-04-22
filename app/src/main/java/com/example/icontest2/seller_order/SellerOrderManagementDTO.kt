@@ -8,7 +8,8 @@ data class SellerOrderManagementDTO(
     @SerializedName("orderState") val orderState: Int,
     @SerializedName("orderTotalPrice") val orderTotalPrice: Int,
     @SerializedName("sellerId") val sellerId: String,
-    @SerializedName("seq") val seq: Int
+    @SerializedName("seq") val seq: Int,
+    @SerializedName("isUpdated") val isUpdated: List<Int>
 )
 data class SellerIdDTO(
     @SerializedName("sellerId") val sellerId: String
@@ -20,4 +21,10 @@ data class SellerOrderDetailResponse(
     @SerializedName("foodSeq") val foodSeq: Int,
     @SerializedName("quantity") val quantity: Int,
     @SerializedName("totalPrice") val totalPrice: Int
+)
+data class FoodText(
+    val foodSeq: Int,
+    val quantity: Int,
+    val totalPrice: Int,
+    val foodName: String
 )

@@ -30,16 +30,6 @@ class SellerListAdapter(private val lists: List<SellerListDTO>) : RecyclerView.A
     override fun getItemCount(): Int = lists.size
 
     class ListViewHolder(private val binding: SellerListBinding) : RecyclerView.ViewHolder(binding.root) {
-        // private val mainActivity = CustomerMainActivity.getInstance()
-
-        /*
-        init {
-            binding.customerMainLikeBtn.setOnClickListener {
-                // 찜기능
-            }
-        }
-        */
-
         fun bind(todo: SellerListDTO) {
             binding.customerMainBusinessNameTv.text = todo.businessName
             binding.customerMainContentTv.text = todo.content

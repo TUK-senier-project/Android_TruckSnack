@@ -14,6 +14,11 @@
     <string name="order_waiting_time">%s:%s</string>
     <string name="order_waiting_seq">주문번호 :  %s</string>
     <string name="order_waiting_total_amount">총 %s원</string>
+    <string name="order_waiting_total_quantity">총 메뉴 %s개</string>
+    <string name="order_date">%s-%s-%s     %s:%s</string>
+    <string name="order_waiting_btn_text">주문대기\n%s</string>
+    <string name="order_processing_btn_text">처리중\n%s</string>
+    <string name="order_complete_btn_text">완료\n%s</string>
     <string-array name="category">
         <item>카테고리를 선택해 주세요.</item>
         <item>1. 붕어빵</item>

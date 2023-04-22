@@ -44,10 +44,11 @@ class CustomerFoodDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCustomerFoodDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        var selectedList: CustomerFoodListDTOItem? = null
         val intent = intent
         if (intent != null) {
             customerId = intent.getStringExtra("customer_id").toString()
+            selectedList = intent.getParcelableExtra("selected_item")
         }
         Log.d("FoodDetailAct", "==========$customerId==========")
 
@@ -59,8 +60,6 @@ class CustomerFoodDetailActivity : AppCompatActivity() {
             .baseUrl("http://13.124.112.81:8080")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
-
-        val selectedList = intent.getParcelableExtra<CustomerFoodListDTOItem>("selected_item")
 
         Log.d(TAG, "onCreate - selectedList - $selectedList")
         binding.customerFoodDetailBusinessNameTv.text = selectedList?.businessName
@@ -75,10 +74,14 @@ class CustomerFoodDetailActivity : AppCompatActivity() {
             val bitmap = BitmapFactory.decodeStream(inputStream)
             binding.customerFoodDetailImg.setImageBitmap(bitmap)
         }
-        val sellerId = selectedList?.id
+        var sellerId = selectedList?.sellerId
+        var id = selectedList?.id
+        if (sellerId == null){
+            sellerId = id
+        }
 
         GlobalScope.launch(Dispatchers.IO) {
-            try {
+            //try {
                 val customerFoodAPI = retrofit.create(CustomerFoodAPI::class.java)
 
                 val response = customerFoodAPI.customerFoodDetail(sellerId!!)
@@ -102,16 +105,17 @@ class CustomerFoodDetailActivity : AppCompatActivity() {
                         val listType = object : TypeToken<List<CustomerFoodDetailDTO>>() {}.type
                         val foodDetailList: List<CustomerFoodDetailDTO> = gson.fromJson(foodDetail, listType)
                         lists = foodDetailList
+                        Log.d(TAG, "lists - $lists")
                         runOnUiThread {
                             initViews()
                         }
 
                     }
                 }
-            } catch (e: Exception) {
-                Log.d(TAG, "예외")
-                Log.d(TAG, "$e")
-            }
+            //} catch (e: Exception) {
+            //    Log.d(TAG, "예외")
+            //    Log.d(TAG, "$e")
+            //}
         }
         binding.customerFoodDetailLocationImg.setOnClickListener {
             val intent = Intent(this, NavigationActivity::class.java)

@@ -14,6 +14,7 @@ import com.example.icontest2.R
 import com.example.icontest2.customer_food_list.CustomerFoodDetailActivity
 import com.example.icontest2.customer_food_list.CustomerFoodListDTOItem
 import com.example.icontest2.databinding.SellerListBinding
+import com.example.icontest2.databinding.SellerOrderProcessingListBinding
 import com.example.icontest2.databinding.SellerOrderWaitingListBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -23,13 +24,13 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
 
-class SellerOrderManagementAdapter(private val lists: List<SellerOrderManagementDTO>) : RecyclerView.Adapter<SellerOrderManagementAdapter.ListViewHolder>(){
+class SellerOrderProcessingAdapter(private val lists: List<SellerOrderManagementDTO>) : RecyclerView.Adapter<SellerOrderProcessingAdapter.ListViewHolder>(){
     var onItemClickListener: ((SellerOrderManagementDTO) -> Unit)? = null // 클릭 리스너
 
     // ViewHolder 생성하는 함수, 최소 생성 횟수만큼만 호출됨 (계속 호출 X)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         Log.d(ContentValues.TAG, "onCreateViewHolder: ")
-        val binding = SellerOrderWaitingListBinding.inflate(
+        val binding = SellerOrderProcessingListBinding.inflate(
             LayoutInflater.from(parent.context), // layoutInflater 를 넘기기위해 함수 사용, ViewGroup 는 View 를 상속하고 View 는 이미 Context 를 가지고 있음
             parent, // 부모(리싸이클러뷰 = 뷰그룹)
             false   // 리싸이클러뷰가 attach 하도록 해야함 (우리가 하면 안됨)
@@ -44,35 +45,27 @@ class SellerOrderManagementAdapter(private val lists: List<SellerOrderManagement
         holder.itemView.setOnClickListener {
             onItemClickListener?.invoke(lists[position])
             Log.d("CUSTOMER_FOOD_LIST", "Clicked item: ${lists[position]}")
-
         }
     }
     override fun getItemCount(): Int = lists.size
 
-    class ListViewHolder(private val binding: SellerOrderWaitingListBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ListViewHolder(private val binding: SellerOrderProcessingListBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(todo: SellerOrderManagementDTO, holder: ListViewHolder) {
             val position = adapterPosition
             val orderLists = SellerOrderManagementActivity.getInstance()?.orderLists
             val seq = orderLists?.get(position)?.seq
 
-            binding.orderWaitingTimeTv.text = holder.itemView.context.getString(R.string.order_waiting_time, String.format("%02d", todo.isCreated[3]), String.format("%02d", todo.isCreated[4]))
-            binding.orderWaitingSeq.text = holder.itemView.context.getString(R.string.order_waiting_seq, todo.seq.toString())
-            binding.orderWaitingTotalAmount.text = holder.itemView.context.getString(R.string.order_waiting_total_amount, todo.orderTotalPrice.toString())
-            binding.orderWaitingRefuseBtn.setOnClickListener {
-                if (seq != null) {
+            binding.orderProcessingTimeTv .text = holder.itemView.context.getString(R.string.order_waiting_time, String.format("%02d", todo.isCreated[3]), String.format("%02d", todo.isCreated[4]))
+            binding.orderProcessingSeq .text = holder.itemView.context.getString(R.string.order_waiting_seq, todo.seq.toString())
+            binding.orderProcessingTotalAmount.text = holder.itemView.context.getString(R.string.order_waiting_total_amount, todo.orderTotalPrice.toString())
+            binding.orderProcessingCompleteBtn.setOnClickListener {
+                if (seq != null){
                     GlobalScope.launch(Dispatchers.IO) {
-                        SellerOrderManagementActivity.getInstance()?.getOrderCancel(seq)
+                        SellerOrderManagementActivity.getInstance()?.getOrderComplete(seq)
                     }
                 }
             }
-            binding.orderWaitingAcceptBtn.setOnClickListener {
-                if (seq != null) {
-                    GlobalScope.launch(Dispatchers.IO) {
-                        SellerOrderManagementActivity.getInstance()?.getOrderCheck(seq)
-                    }
-                }
-            }
-            binding.orderWaitingDetail.setOnClickListener {
+            binding.orderProcessingDetail.setOnClickListener {
                 if (seq != null) {
                     GlobalScope.launch(Dispatchers.IO) {
                         SellerOrderManagementActivity.getInstance()?.getOrderDetailList(seq)
@@ -112,8 +105,8 @@ class SellerOrderManagementAdapter(private val lists: List<SellerOrderManagement
                                 binding.layoutExpand1.visibility = View.GONE
                             } else {
                                 binding.layoutExpand1.visibility = View.VISIBLE
-                                binding.orderWaitingTotalQuantity.text = holder.itemView.context.getString(R.string.order_waiting_total_quantity, foodTextList.sumOf { it.quantity }.toString())
-                                binding.orderWaitingFoodList.text = resultText
+                                binding.orderProcessingTotalQuantity.text = holder.itemView.context.getString(R.string.order_waiting_total_quantity, foodTextList.sumOf { it.quantity }.toString())
+                                binding.orderProcessingFoodList.text = resultText
                             }
                         }
                     }
