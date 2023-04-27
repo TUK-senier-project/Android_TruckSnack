@@ -3,13 +3,12 @@ package com.example.icontest2.customer_food_list
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.graphics.BitmapFactory
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.icontest2.ARMainActivity
 import com.example.icontest2.R
 import com.example.icontest2.databinding.ActivityCustomerFoodDetailBinding
 import com.example.icontest2.navigation.NavigationActivity
@@ -81,45 +80,50 @@ class CustomerFoodDetailActivity : AppCompatActivity() {
         }
 
         GlobalScope.launch(Dispatchers.IO) {
-            //try {
-                val customerFoodAPI = retrofit.create(CustomerFoodAPI::class.java)
 
-                val response = customerFoodAPI.customerFoodDetail(sellerId!!)
-                Log.d(TAG, "통신전")
-                Log.d(TAG, "서버 응답1 : $response")
-                Log.d(TAG, "서버 응답2 : ${response.contentType()}")
-                Log.d(TAG, "서버 응답3 : ${response.source()}")
-                val contentType = response.contentType()
-                if (contentType?.type == "application" && contentType.subtype == "json") {
-                    // 서버에서 반환하는 데이터가 JSON인 경우 처리
-                    val foodList = gson.fromJson(response.string(), CustomerFoodDetailDTO::class.java)
-                    Log.d(TAG, "4$foodList")
-                } else {
-                    // 서버에서 반환하는 데이터가 text/plain인 경우 처리
-                    val foodDetail = response.string()
-                    Log.d(TAG, "5$foodDetail")
-                    if (foodDetail == "[]"){ // 실패
-                        lists = listOf()
-                        Log.d(TAG, "6$foodDetail")
-                    } else { // 성공
-                        val listType = object : TypeToken<List<CustomerFoodDetailDTO>>() {}.type
-                        val foodDetailList: List<CustomerFoodDetailDTO> = gson.fromJson(foodDetail, listType)
-                        lists = foodDetailList
-                        Log.d(TAG, "lists - $lists")
-                        runOnUiThread {
-                            initViews()
-                        }
+            val customerFoodAPI = retrofit.create(CustomerFoodAPI::class.java)
 
+            val response = customerFoodAPI.customerFoodDetail(sellerId!!)
+            Log.d(TAG, "통신전")
+            Log.d(TAG, "서버 응답1 : $response")
+            Log.d(TAG, "서버 응답2 : ${response.contentType()}")
+            Log.d(TAG, "서버 응답3 : ${response.source()}")
+            val contentType = response.contentType()
+            if (contentType?.type == "application" && contentType.subtype == "json") {
+                // 서버에서 반환하는 데이터가 JSON인 경우 처리
+                val foodList = gson.fromJson(response.string(), CustomerFoodDetailDTO::class.java)
+                Log.d(TAG, "4$foodList")
+            } else {
+                // 서버에서 반환하는 데이터가 text/plain인 경우 처리
+                val foodDetail = response.string()
+                Log.d(TAG, "5$foodDetail")
+                if (foodDetail == "[]"){ // 실패
+                    lists = listOf()
+                    Log.d(TAG, "6$foodDetail")
+                } else { // 성공
+                    val listType = object : TypeToken<List<CustomerFoodDetailDTO>>() {}.type
+                    val foodDetailList: List<CustomerFoodDetailDTO> = gson.fromJson(foodDetail, listType)
+                    lists = foodDetailList
+                    Log.d(TAG, "lists - $lists")
+                    runOnUiThread {
+                        initViews()
                     }
+
                 }
-            //} catch (e: Exception) {
-            //    Log.d(TAG, "예외")
-            //    Log.d(TAG, "$e")
-            //}
+            }
         }
         binding.customerFoodDetailLocationImg.setOnClickListener {
+            val intent = Intent(this, ARMainActivity::class.java)
+            startActivity(intent)
+        }
+        binding.customerFoodDetailNavigationImg.setOnClickListener {
             val intent = Intent(this, NavigationActivity::class.java)
             startActivity(intent)
+        }
+        binding.customerFoodDetailArImg.setOnClickListener {
+            val packageName = "com.vuforia.engine.coresamples"
+            val launchIntent = packageManager.getLaunchIntentForPackage(packageName)
+            startActivity(launchIntent)
         }
         binding.foodDetailOrder.setOnClickListener {
             val intent = Intent(this, OrderRegisterActivity::class.java).apply {

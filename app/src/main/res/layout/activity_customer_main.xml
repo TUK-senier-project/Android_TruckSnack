@@ -8,39 +8,6 @@
     tools:context=".customer_main.CustomerMainActivity"
     android:orientation="vertical"
     android:background="@color/white">
-    <!--
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/main_home_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="홈"/>
-        <Button
-            android:id="@+id/main_search_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="검색"/>
-        <Button
-            android:id="@+id/main_map_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="맵"/>
-        <Button
-            android:id="@+id/main_my_page_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="마이페이지"/>
-    </LinearLayout>
-    <Button
-        android:id="@+id/main_location_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="위치등록"/>
-    -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -48,7 +15,7 @@
         android:layout_marginBottom="10dp">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/location_tv"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
             android:gravity="center"
@@ -67,7 +34,7 @@
             android:background="#FFAB0F"
             android:src="@drawable/arrow_down_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintStart_toEndOf="@+id/location_tv"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginStart="15dp"
             android:scaleType="fitXY"/>

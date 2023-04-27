@@ -75,6 +75,7 @@ class CustomerMainActivity : AppCompatActivity() {
         customerId = intent.getStringExtra("customerId").toString()
         customerName = intent.getStringExtra("customerName").toString()
         binding.customerMainNameTv.text = customerName
+        //binding.locationTv.text = intent.getStringExtra("location").toString()
 
         Log.d("AAAA", "onCreate - $base64String")
         if (base64String != null){

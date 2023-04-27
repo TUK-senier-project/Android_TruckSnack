@@ -23,6 +23,10 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        flatDir {
+            include 'unityLibrary:Firebase.androidlib'
+            dirs "${project(':unityLibrary').projectDir}/libs"
+        }
         maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
         maven {
             url 'https://api.mapbox.com/downloads/v2/releases/maven'
@@ -39,3 +43,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "IconTest2"
 include ':app'
+
+include ':unityLibrary'
+project(':unityLibrary').projectDir=new File('C:\\Users\\minhyeok\\AndroidStudioProjects\\Android_TruckSnack2\\unityLibrary')

@@ -14,6 +14,7 @@ import com.example.icontest2.customer_main.CustomerMainActivity
 import com.example.icontest2.R
 import com.example.icontest2.customer_register.SignUpActivity
 import com.example.icontest2.databinding.ActivityCustomerLoginBinding
+import com.example.icontest2.seller_login.SellerLoginActivity
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -34,6 +35,11 @@ class CustomerLoginActivity : AppCompatActivity() {
         val loginButton = binding.loginButton
         val idFindButton = binding.idFindButton
         val goToCustomerRegister = binding.toCustomerLogin
+
+        binding.customerLoginMoveSellerLoginTv.setOnClickListener {
+            val intent = Intent(this, SellerLoginActivity::class.java)
+            startActivity(intent)
+        }
 
         // 로그인 버튼
         loginButton.setOnClickListener {
@@ -85,6 +91,7 @@ class CustomerLoginActivity : AppCompatActivity() {
                             intent.putExtra("customerName", customerLoginDto.customer.name)
                             intent.putExtra("customerId", customerLoginDto.customer.id)
                             intent.putExtra("base64String", customerLoginDto.base64EncodedImage)
+                            intent.putExtra("location", customerLoginDto.customer.location)
                             startActivity(intent)
                             // 성공 처리 토스트 메세지
                             runOnUiThread {

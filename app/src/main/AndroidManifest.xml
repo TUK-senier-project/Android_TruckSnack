@@ -9,6 +9,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
     <uses-permission
         android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission" />
@@ -29,6 +31,21 @@
         android:theme="@style/Theme.IconTest2"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".UnityHandler"
+            android:exported="false" />
+        <activity
+            android:name=".StartNavi"
+            android:exported="false" />
+        <activity
+            android:name=".SelectPoint"
+            android:exported="false" />
+        <activity
+            android:name=".ARMainActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".customer_mypage.CustomerMypageActivity"
+            android:exported="false" />
         <activity
             android:name=".seller_food.SellerFoodRegisterActivity"
             android:exported="false" />

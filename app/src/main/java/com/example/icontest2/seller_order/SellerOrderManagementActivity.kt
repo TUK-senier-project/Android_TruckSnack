@@ -278,16 +278,9 @@ class SellerOrderManagementActivity : AppCompatActivity() {
         try {
             val managementAPI = retrofit.create(SellerOrderManagementAPI::class.java)
             val response = managementAPI.sellerOrderList(SellerIdDTO(sellerId))
-            Log.d(ContentValues.TAG, "통신전")
-            Log.d(ContentValues.TAG, "서버 응답1 : $response")
-            Log.d(ContentValues.TAG, "서버 응답2 : ${response.contentType()}")
-            Log.d(ContentValues.TAG, "서버 응답3 : ${response.source()}")
             val contentType = response.contentType()
             Log.d("getOrderList", "getOrderList - contentType - $contentType")
             if (contentType?.type == "application" && contentType.subtype == "json") {
-                // 서버에서 반환하는 데이터가 JSON인 경우 처리
-                //val orderList = gson.fromJson(response.string(), CustomerFoodDetailDTO::class.java)
-                //Log.d(ContentValues.TAG, "4$orderList")
                 Log.d("SOMAct", "getOrderList - Json입니다!!!")
             } else {
                 // 서버에서 반환하는 데이터가 text/plain인 경우 처리
@@ -297,7 +290,8 @@ class SellerOrderManagementActivity : AppCompatActivity() {
                     orderLists = listOf()
                     Log.d(ContentValues.TAG, "getOrderList - orderLists - 실패 - $orderLists")
                 } else { // 성공
-                    val listType = object : TypeToken<List<SellerOrderManagementDTO>>() {}.type
+                    val listType = object : TypeToken<List<SellerOrderManagementDTO>
+                            >() {}.type
                     val orderDetailList: List<SellerOrderManagementDTO> = gson.fromJson(orderList, listType)
                     binding.orderWaitingBtn.text = getString(R.string.order_waiting_btn_text, orderDetailList.count { it.orderState == 1 }.toString())
                     binding.orderProcessingBtn.text = getString(R.string.order_processing_btn_text, orderDetailList.count { it.orderState == 3 }.toString())

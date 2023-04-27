@@ -7,6 +7,7 @@ import android.widget.Toast
 import com.example.icontest2.customer_login.CustomerLoginActivity
 import com.example.icontest2.customer_register.SignUpActivity
 import com.example.icontest2.databinding.ActivityLoginBinding
+import com.example.icontest2.navigation.NavigationActivity
 import com.example.icontest2.seller_login.SellerLoginActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -23,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.loginToSignUpBtn.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
+            val intent = Intent(this, NavigationActivity::class.java)
             startActivity(intent)
         }
         binding.customerLoginBtn.setOnClickListener {

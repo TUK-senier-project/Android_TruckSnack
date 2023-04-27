@@ -154,7 +154,7 @@ class SellerLoginActivity : AppCompatActivity() {
                         val sellerLoginDto = gson.fromJson(response.string(), SellerLoginResponse::class.java)
                         Log.d(TAG, "4$sellerLoginDto")
                         runOnUiThread {
-                            Toast.makeText(applicationContext, "3${sellerLoginDto.seller.id} 님 환영합니다.", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(applicationContext, "${sellerLoginDto.seller.id} 님 환영합니다.", Toast.LENGTH_SHORT).show()
                         }
                         // 내부 저장소 경로 가져오기
                         val directory = applicationContext.filesDir

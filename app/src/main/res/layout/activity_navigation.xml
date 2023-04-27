@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<com.mapbox.navigation.dropin.NavigationView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/navigationView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:accessToken="@string/mapbox_access_token"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+</com.mapbox.navigation.dropin.NavigationView>
+<!--
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -28,6 +38,7 @@
         android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+-->
 <!--
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"

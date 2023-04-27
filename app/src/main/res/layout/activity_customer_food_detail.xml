@@ -92,12 +92,7 @@
                 android:layout_height="36dp"
                 android:orientation="horizontal"
                 android:layout_marginTop="15dp">
-                <ImageView
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/round_rate_review_24"
-                    android:visibility="invisible"/>
+
                 <ImageView
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -110,11 +105,18 @@
                     android:layout_height="match_parent"
                     android:src="@drawable/red_location_on_24"/>
                 <ImageView
+                    android:id="@+id/customer_food_detail_navigation_img"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/shopping_cart_24"
-                    android:visibility="invisible"/>
+                    android:src="@drawable/icon_navigation"
+                    android:padding="2dp"/>
+                <ImageView
+                    android:id="@+id/customer_food_detail_ar_img"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/icon_ar"/>
             </LinearLayout>
 
             <LinearLayout
@@ -122,15 +124,7 @@
                 android:layout_height="30dp"
                 android:orientation="horizontal"
                 android:layout_marginBottom="20dp">
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="리뷰하기"
-                    android:textColor="@color/black"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:visibility="invisible"/>
+
                 <TextView
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -152,11 +146,18 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="주문하기"
+                    android:text="경로찾기"
                     android:textColor="@color/black"
                     android:gravity="center"
-                    android:textStyle="bold"
-                    android:visibility="invisible"/>
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="AR컨텐츠"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textStyle="bold"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"

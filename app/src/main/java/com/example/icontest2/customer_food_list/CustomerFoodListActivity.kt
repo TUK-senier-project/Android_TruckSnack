@@ -111,11 +111,11 @@ class CustomerFoodListActivity : AppCompatActivity() {
                         //Log.d(TAG, "5${customerFoodList[1]}")
                         //Log.d(TAG, "5${customerFoodList[2]}")
                         lists = customerFoodList
-                        //val foodData = gson.fromJson(foodList, CustomerFoodListDTO::class.java)
-                        //Log.d("ASDASD", "7$foodData")
-                        //Log.d("ASDASD", "8${foodData.customerFoodListDTO[0]}")
-                        //lists = foodData.customerFoodListDTO
-                        //Log.d(TAG, "9$lists")
+                        Log.d("image", "image - ${lists[0].base64Img}")
+                        Log.d("image", "image - ${lists[1].base64Img}")
+                        Log.d("image", "image - ${lists[2].base64Img}")
+                        Log.d("image", "image - ${lists[3].base64Img}")
+                        Log.d("image", "image - ${lists[4].base64Img}")
                         runOnUiThread {
                             initViews()
                         }
