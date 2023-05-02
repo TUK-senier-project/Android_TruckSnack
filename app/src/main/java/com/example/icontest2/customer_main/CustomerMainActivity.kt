@@ -26,6 +26,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.icontest2.*
 import com.example.icontest2.customer_food_list.CustomerFoodListActivity
+import com.example.icontest2.customer_mypage.CustomerMypageActivity
 import com.example.icontest2.databinding.ActivityCustomerMainBinding
 import com.example.icontest2.order.OrderRegisterActivity
 import com.example.icontest2.seller_login.SellerLoginResponse
@@ -155,6 +156,11 @@ class CustomerMainActivity : AppCompatActivity() {
         }
         initViews()
 
+        binding.mainMypage.setOnClickListener {
+            val intent = Intent(this, CustomerMypageActivity::class.java)
+            intent.putExtra("customerId", customerId)
+            startActivity(intent)
+        }
     }
     private fun uploadImg(imageUri: String){
         GlobalScope.launch(Dispatchers.IO) {

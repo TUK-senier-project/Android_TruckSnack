@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.icontest2.R
 import com.example.icontest2.customer_food_list.*
 import com.example.icontest2.customer_main.CustomerMainActivity
+import com.example.icontest2.customer_mypage.order_history.CustomerOrderHistoryDatabase
+import com.example.icontest2.customer_mypage.order_history.Order
 import com.example.icontest2.databinding.ActivityOrderRegisterBinding
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
@@ -26,6 +28,7 @@ class OrderRegisterActivity : AppCompatActivity(){
     private lateinit var foodOrders: MutableList<FoodOrder>
     private lateinit var adapterFoodOrders: MutableList<FoodOrder>
     private lateinit var orderListDTO: List<OrderListDTO>
+    private var db: CustomerOrderHistoryDatabase? = null
     init {
         instance = this
     }
@@ -53,6 +56,7 @@ class OrderRegisterActivity : AppCompatActivity(){
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
+        db = CustomerOrderHistoryDatabase.getInstance(this)
         foodOrders = (intent.getSerializableExtra("foodOrderList") as FoodOrderList).foodOrderList
         val sellerId = intent.getStringExtra("selected_id")
         val customerId = intent.getStringExtra("customer_id")
@@ -132,13 +136,27 @@ class OrderRegisterActivity : AppCompatActivity(){
         } else {
             // 서버에서 반환하는 데이터가 text/plain인 경우 처리
             val orderList = response.string()
-            Log.d(ContentValues.TAG, "5$orderList")
+            Log.d(ContentValues.TAG, "onCreate - order - $orderList")
             if (orderList == "[]"){ // 실패
-                Log.d(ContentValues.TAG, "6$orderList")
+                Log.d(ContentValues.TAG, "onCreate - order - $orderList")
             } else { // 성공
-                Log.d(ContentValues.TAG, "7${orderList}")
+                Log.d(ContentValues.TAG, "onCreate - order - ${orderList}")
                 val orderResponse: OrderResponse = gson.fromJson(orderList, OrderResponse::class.java)
-                Log.d(ContentValues.TAG, "8$orderResponse")
+                val order = Order(
+                    seq = orderResponse.seq,
+                    customerId = orderResponse.customerId,
+                    sellerId = orderResponse.sellerId,
+                    orderTotalPrice = orderResponse.orderTotalPrice,
+                    orderState = orderResponse.orderState,
+                    isCreated = orderResponse.isCreated,
+                    isUpdated = orderResponse.isUpdated,
+                    deleted = orderResponse.deleted
+                )
+                val orderData = db!!.customerOrderHistoryDAO().insertOrder(order)
+                Log.d(ContentValues.TAG, "onCreate - order - $orderResponse")
+                Log.d(ContentValues.TAG, "onCreate - order - $orderData")
+                val orderData2 = db!!.customerOrderHistoryDAO().getAll()
+                Log.d(ContentValues.TAG, "onCreate - order - $orderData2")
                 runOnUiThread {
                     Toast.makeText(applicationContext, "주문이 접수되었습니다.", Toast.LENGTH_SHORT).show()
                 }

@@ -32,6 +32,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".CustomerOrderHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerWriteReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerLikeFoodActivity"
+            android:exported="false" />
+        <activity
             android:name=".UnityHandler"
             android:exported="false" />
         <activity
@@ -42,7 +51,7 @@
             android:exported="false" />
         <activity
             android:name=".ARMainActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".customer_mypage.CustomerMypageActivity"
             android:exported="false" />

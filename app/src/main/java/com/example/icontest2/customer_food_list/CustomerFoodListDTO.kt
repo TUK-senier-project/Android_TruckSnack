@@ -27,7 +27,6 @@ data class CustomerFoodListDTOItem(
     @SerializedName("base64Img") val base64Img: String?,
     @SerializedName("sellerImgS3Url") val sellerImgS3Url: String?
 ) : Parcelable {
-
     // Parcelable.Creator 구현
     companion object CREATOR : Parcelable.Creator<CustomerFoodListDTOItem> {
         override fun createFromParcel(parcel: Parcel): CustomerFoodListDTOItem {
